@@ -11,12 +11,13 @@ public class UserView extends JFrame {
     private JPasswordField passwordField;
     private JComboBox<String> roleComboBox;
     private JButton registerButton;
+    private JButton loginButton;
 
     private UserController userController;
 
     public UserView() {
         setTitle("User Registration");
-        setSize(400, 300);
+        setSize(400, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel();
@@ -59,11 +60,27 @@ public class UserView extends JFrame {
         });
         panel.add(registerButton);
 
+        loginButton = new JButton("Login");
+        loginButton.setBounds(140, 250, 150, 25);
+        loginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                openLoginPage();
+            }
+        });
+        panel.add(loginButton);
+
         getContentPane().add(panel);
     }
 
     public void setUserController(UserController userController) {
         this.userController = userController;
+    }
+
+    private void openLoginPage() {
+        UserLoginView loginView = new UserLoginView();
+        loginView.setUserController(userController);
+        loginView.setTitle("User Login");
+        loginView.setVisible(true);
     }
 
     public static void main(String[] args) {
