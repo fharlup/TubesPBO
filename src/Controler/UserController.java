@@ -21,13 +21,14 @@ public class UserController {
         userModel.createOrganisasiAccount(idOrganisasi, email, username, password);
     }
 
-    public void login(String email, String password) {
+    public boolean login(String email, String password) {
         boolean loggedIn = userModel.login(email, password);
         if (loggedIn) {
             System.out.println("Login successful");
         } else {
             System.out.println("Login failed");
         }
+        return loggedIn;
     }
 
     public void logout(String username) {

@@ -15,7 +15,11 @@ public class UserView extends JFrame {
 
     private UserController userController;
 
+    
+    
     public UserView() {
+        
+        
         setTitle("User Registration");
         setSize(400, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,7 +86,7 @@ public class UserView extends JFrame {
         loginView.setTitle("User Login");
         loginView.setVisible(true);
     }
-
+    
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {

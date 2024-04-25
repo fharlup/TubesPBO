@@ -42,7 +42,13 @@ public class UserLoginView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String email = emailField.getText();
                 String password = new String(passwordField.getPassword());
-                userController.login(email, password);
+                if (userController.login(email, password)){
+                    JOptionPane.showMessageDialog(null, "Login successful. Redirecting to homepage.");
+                    System.out.println("homepage");
+                    // ntar pindah
+                } else {
+                    JOptionPane.showMessageDialog(null, "Login failed. Please try again.");
+                };
             }
         });
         panel.add(loginButton);

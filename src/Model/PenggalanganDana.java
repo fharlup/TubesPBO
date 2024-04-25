@@ -13,8 +13,8 @@ public class PenggalanganDana {
         this.deskripsi = deskripsi;
         this.lokasi = lokasi;
         this.photo = photo;
-        this.confirm = false; // Default is not confirmed
-        this.arrDonasi = new Donasi[10]; // Example size, adjust as needed
+        this.confirm = false; 
+        this.arrDonasi = new Donasi[10]; 
     }
 
     public String getJudul() {
