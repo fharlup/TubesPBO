@@ -69,6 +69,7 @@ public class UserView extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 openLoginPage();
+                dispose();
             }
         });
         panel.add(loginButton);

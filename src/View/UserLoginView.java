@@ -45,7 +45,9 @@ public class UserLoginView extends JFrame {
                 if (userController.login(email, password)){
                     JOptionPane.showMessageDialog(null, "Login successful. Redirecting to homepage.");
                     System.out.println("homepage");
-                    // ntar pindah
+                    HomePageView home = new HomePageView();
+                    home.setVisible(true);
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Login failed. Please try again.");
                 };
