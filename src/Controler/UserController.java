@@ -32,4 +32,18 @@ public class UserController {
     public void showUsersByRole(String role) {
         // Show users by role logic
     }
+
+    public void register(String email, String password, String role) {
+        if (role.equalsIgnoreCase("donatur")) {
+            userModel.createDonaturAccount(generateId(), email, email, password);
+        } else if (role.equalsIgnoreCase("organisasi")) {
+            userModel.createOrganisasiAccount(generateId(), email, email, password);
+        } else {
+            System.out.println("Unsupported user role: " + role);
+        }
+    }
+
+    private String generateId() {
+        return "TEST1S";
+    }
 }
