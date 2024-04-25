@@ -28,4 +28,15 @@ public class UserModel {
     public List<User> getUsers() {
         return users;
     }
+
+    public boolean login(String email, String password) {
+        for (User user : users) {
+            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+                System.out.println("Login successful for user: " + user.getUsername());
+                return true;
+            }
+        }
+        System.out.println("Login failed. Invalid email or password.");
+        return false;
+    }
 }
