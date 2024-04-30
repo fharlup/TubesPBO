@@ -28,29 +28,29 @@ public class SignUp extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jTextField1 = new javax.swing.JTextField();
+        UsernameTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        EmailTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        OrganisasiRadioButton = new javax.swing.JRadioButton();
+        DonaturRadioButton = new javax.swing.JRadioButton();
+        CheckBox = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        SignupButton = new javax.swing.JButton();
+        PasswordPasswordField = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 540, 40));
+        getContentPane().add(UsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 540, 40));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel3.setText("Username");
@@ -63,7 +63,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel4.setText("Email");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 350, 80, 30));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 390, 540, 40));
+        getContentPane().add(EmailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 390, 540, 40));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel5.setText("Choose Role");
@@ -73,20 +73,20 @@ public class SignUp extends javax.swing.JFrame {
         jLabel8.setText("Password");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 450, 80, 30));
 
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jRadioButton1.setText("Organisasi");
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 680, 540, 50));
+        OrganisasiRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        OrganisasiRadioButton.setText("Organisasi");
+        getContentPane().add(OrganisasiRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 680, 540, 50));
 
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jRadioButton2.setText("Donatur");
-        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 630, 540, 50));
+        DonaturRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DonaturRadioButton.setText("Donatur");
+        getContentPane().add(DonaturRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 630, 540, 50));
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        CheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                CheckBoxActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 760, -1, -1));
+        getContentPane().add(CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 760, -1, -1));
 
         jLabel6.setText("and");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 760, 40, 20));
@@ -109,21 +109,23 @@ public class SignUp extends javax.swing.JFrame {
         jLabel12.setText("Log In");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 810, 60, 20));
 
-        jButton1.setBackground(new java.awt.Color(153, 204, 255));
-        jButton1.setText("Sign Up");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 800, 100, 30));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, 540, 40));
+        SignupButton.setBackground(new java.awt.Color(153, 204, 255));
+        SignupButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        SignupButton.setText("Sign Up");
+        getContentPane().add(SignupButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 800, 100, 30));
+        getContentPane().add(PasswordPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, 540, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\fiona\\Downloads\\SignupBG.jpg")); // NOI18N
         jLabel1.setText(" ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        pack();
+        setSize(new java.awt.Dimension(1474, 1057));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_CheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,9 +163,14 @@ public class SignUp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox CheckBox;
+    private javax.swing.JRadioButton DonaturRadioButton;
+    private javax.swing.JTextField EmailTextField;
+    private javax.swing.JRadioButton OrganisasiRadioButton;
+    private javax.swing.JPasswordField PasswordPasswordField;
+    private javax.swing.JButton SignupButton;
+    private javax.swing.JTextField UsernameTextField;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -176,11 +183,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
     
 }
