@@ -1,6 +1,6 @@
 package Model;
 
-public class PenggalanganDana {
+public class PenggalanganDana   {
     private String judul;
     private String deskripsi;
     private Donasi[] arrDonasi;
@@ -8,13 +8,15 @@ public class PenggalanganDana {
     private String photo;
     private boolean confirm;
 
-    public PenggalanganDana(String judul, String deskripsi, String lokasi, String photo) {
+    public PenggalanganDana(String judul, String deskripsi, String lokasi, String photo,Donasi newdonasi) {
         this.judul = judul;
         this.deskripsi = deskripsi;
         this.lokasi = lokasi;
         this.photo = photo;
         this.confirm = false; 
         this.arrDonasi = new Donasi[10]; 
+        
+        
     }
 
     public String getJudul() {
@@ -51,7 +53,15 @@ public class PenggalanganDana {
 
     public int hitungTotal() {
         // Calculate total donation amount logic
-        return 0;
+        
+        int total=0;
+        for (Donasi d : arrDonasi){
+            total=+d.getNominal();
+
+        }
+
+            return total;
+        
     }
 
     public boolean getConfirm() {

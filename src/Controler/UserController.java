@@ -32,7 +32,7 @@ public class UserController {
     }
 
     public void logout(String username) {
-        // Logout logic
+        //return userLoginView on view
     }
 
     public void showUsersByRole(String role) {
