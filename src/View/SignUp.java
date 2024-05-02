@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
-/**
- *
- * @author fiona
- */
 public class SignUp extends javax.swing.JFrame {
 
     /**
@@ -73,19 +64,15 @@ public class SignUp extends javax.swing.JFrame {
         jLabel8.setText("Password");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 450, 80, 30));
 
+        buttonGroup1.add(OrganisasiRadioButton);
         OrganisasiRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OrganisasiRadioButton.setText("Organisasi");
         getContentPane().add(OrganisasiRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 680, 540, 50));
 
+        buttonGroup1.add(DonaturRadioButton);
         DonaturRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         DonaturRadioButton.setText("Donatur");
         getContentPane().add(DonaturRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 630, 540, 50));
-
-        CheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckBoxActionPerformed(evt);
-            }
-        });
         getContentPane().add(CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 760, -1, -1));
 
         jLabel6.setText("and");
@@ -112,10 +99,14 @@ public class SignUp extends javax.swing.JFrame {
         SignupButton.setBackground(new java.awt.Color(153, 204, 255));
         SignupButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         SignupButton.setText("Sign Up");
+        SignupButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignupButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(SignupButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 800, 100, 30));
         getContentPane().add(PasswordPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, 540, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\fiona\\Downloads\\SignupBG.jpg")); // NOI18N
         jLabel1.setText(" ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
@@ -123,9 +114,25 @@ public class SignUp extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CheckBoxActionPerformed
+    private void SignupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignupButtonActionPerformed
+        String username = UsernameTextField.getText();
+        String email = EmailTextField.getText();
+        String password = PasswordPasswordField.getText();
+        
+        if (CheckBox.isSelected()){
+            if (OrganisasiRadioButton.isSelected()){
+            // save ke database sbg organisasi
+            } else {
+            // save ke database sbg donatur
+            } 
+            this.dispose();
+            LogIn obj = new LogIn();
+            obj.setVisible(true);
+            // tambah tampilan kalau udh berhasil registrasi
+        } else {
+            // tampilin error
+        }
+    }//GEN-LAST:event_SignupButtonActionPerformed
 
     /**
      * @param args the command line arguments
