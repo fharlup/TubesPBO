@@ -95,6 +95,7 @@ public class UserView extends JFrame {
                 UserController userController = new UserController(new UserModel());
                 userView.setUserController(userController);
                 userView.setVisible(true);
+               // System.out.println("test");
             }
         });
     }
