@@ -153,8 +153,13 @@ public class ForgotPasswordP1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ContinueFPButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueFPButtonActionPerformed
-        setVisible(false);
-        new ForgotPasswordP2().setVisible(true);
+        String email = EmailTextField.getText().trim();
+        if (!email.isEmpty()) {
+            setVisible(false);
+            new ForgotPasswordP3(email).setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Email Kosong", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_ContinueFPButtonActionPerformed
 
     /**

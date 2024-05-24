@@ -48,15 +48,16 @@ public class SignUp extends javax.swing.JFrame {
         });
     }
     
-    private void validatePassword() {
+    private boolean validatePassword() {
         String password = PasswordTextField.getText();
 
         if (password.length() < 8 || !password.matches(".*[a-zA-Z].*[0-9\\W_].*")) {
             LabelAturanPassword.setText("Use 8 or more characters with a mix of letters, numbers & symbols");
             SignUpButton.setEnabled(false);
+            return false;
         } else {
             LabelAturanPassword.setText("Valid Password");
-            SignUpButton.setEnabled(true);
+            return true;
         }
     }
 
@@ -273,11 +274,11 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_SignUpButtonActionPerformed
 
     private void AgreeTermsConditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgreeTermsConditionActionPerformed
-        if (AgreeTermsCondition.isSelected()) {
-        SignUpButton.setEnabled(true);
-    } else {
-        SignUpButton.setEnabled(false);
-    }
+        if (AgreeTermsCondition.isSelected() && validatePassword()) {
+            SignUpButton.setEnabled(true);
+        } else {
+            SignUpButton.setEnabled(false);
+        }
     }//GEN-LAST:event_AgreeTermsConditionActionPerformed
 
     private void SwitchLogInMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SwitchLogInMenuMouseClicked
