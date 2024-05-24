@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package UnusedView;
 
 /**
  *
@@ -64,8 +64,6 @@ public class ForgetPW extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ContinueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 410, 100, 30));
-
-        Background.setIcon(new javax.swing.ImageIcon("C:\\Users\\fiona\\Downloads\\SignupBG.jpg")); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         pack();

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package UnusedView;
 
 /**
  *
@@ -59,8 +59,6 @@ public class PassReset extends javax.swing.JFrame {
         SubmitButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         SubmitButton.setText("Submit");
         getContentPane().add(SubmitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 90, 30));
-
-        Background.setIcon(new javax.swing.ImageIcon("C:\\Users\\fiona\\Downloads\\SignupBG.jpg")); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 20, -1, -1));
 
         pack();
