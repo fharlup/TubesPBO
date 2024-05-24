@@ -1,24 +1,26 @@
 package Model;
 
 public class Donasi {
-    private Donatur donatur;
+    private final int idDonatur;
+    private final int idPenggalangan;
     private int nominal;
     private String pesan;
 
-    public Donasi(Donatur donatur, int nominal, String pesan) {
-        this.donatur = donatur;
+    public Donasi(int idDonatur, int idPenggalangan, int nominal, String pesan) {
+        this.idDonatur = idDonatur;
+        this.idPenggalangan = idPenggalangan;
         this.nominal = nominal;
         this.pesan = pesan;
     }
 
-    public Donatur getDonatur() {
-        return donatur;
+    public int getIdDonatur() {
+        return idDonatur;
     }
-
-    public void setDonatur(Donatur donatur) {
-        this.donatur = donatur;
+    
+    public int getIdPenggalangan() {
+        return idPenggalangan;
     }
-
+    
     public int getNominal() {
         return nominal;
     }
@@ -33,10 +35,5 @@ public class Donasi {
 
     public void setPesan(String pesan) {
         this.pesan = pesan;
-    }
-
-    public boolean paymentMethod() {
-        // Payment method logic
-        return true;
     }
 }
