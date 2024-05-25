@@ -130,7 +130,7 @@ public class AuthController {
                     int id = resultSet.getInt("userId");
                     String email = resultSet.getString("email");
                     String role = resultSet.getString("role");
-                    user = new User(email, username, password, role);
+                    user = new User(email, username, password, role, id);
                     user.setId(id);
 
                     System.out.println("User found: " + user.getUsername());

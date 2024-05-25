@@ -262,7 +262,7 @@ public class SignUp extends javax.swing.JFrame {
         }
 
         AuthController authController = new AuthController();
-        User user = new User(email, username, password, role) {}; 
+        User user = new User(email, username, password, role,0) {}; 
         boolean duplicateExists = authController.checkDuplicateUser(user); 
 
         if (duplicateExists) {

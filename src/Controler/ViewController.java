@@ -27,7 +27,7 @@ public class ViewController {
     public static BufferedImage blobToImage(InputStream inputStream){
         try {
             BufferedImage im = ImageIO.read(inputStream);
-            im =linearResizeBi(im,200,200); // atur lebar,panjangnya
+            im =linearResizeBi(im,346,130); // atur lebar,panjangnya
             return im; // cara ubah ke icon : ImageIcon image1 = new ImageIcon(im);
         } catch (IOException ex) {
             Logger.getLogger(ViewController.class.getName()).log(Level.SEVERE, null, ex);

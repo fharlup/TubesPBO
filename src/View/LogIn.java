@@ -6,9 +6,6 @@ import Model.UserSession;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.*;
 
 public class LogIn extends javax.swing.JFrame {
 
@@ -170,6 +167,7 @@ public class LogIn extends javax.swing.JFrame {
             UserSession.setRole(user.getRole());
             UserSession.setId(user.getId());
             JOptionPane.showMessageDialog(this, "Login Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+            setVisible(false);
             // ANJAY LANJUT
         } else {
             JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
