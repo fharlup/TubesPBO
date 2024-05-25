@@ -110,4 +110,43 @@ public class AuthController {
         }
         return passwordChanged;
     }
+    
+    public User getUserDetails(String username, String password) {
+        User user = null;
+        try (Connection connection = Database.getConnection()) {
+            if (connection != null) {
+                
+
+                String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+                
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, username);
+                statement.setString(2, password);
+                
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    int id = resultSet.getInt("userId");
+                    String email = resultSet.getString("email");
+                    String role = resultSet.getString("role");
+                    user = new User(email, username, password, role);
+                    user.setId(id);
+
+                    System.out.println("User found: " + user.getUsername());
+                } else {
+                    System.out.println("No user found with the given username and password");
+                }
+
+                resultSet.close();
+                statement.close();
+            } else {
+                System.out.println("Connection failed");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+        return user;
+    }
 }

@@ -1,6 +1,8 @@
 package View;
 
 import Controler.AuthController;
+import Model.User;
+import Model.UserSession;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import javax.swing.*;
@@ -158,10 +160,17 @@ public class LogIn extends javax.swing.JFrame {
         }
 
         AuthController authController = new AuthController();
-        boolean isValid = authController.checkCredentials(username, password);
+        User user = authController.getUserDetails(username, password);
 
-        if (isValid) {
+        if (user != null) {
+            System.out.println("User session: " + user.getUsername());
+            UserSession.setEmail(user.getEmail());
+            UserSession.setUsername(user.getUsername());
+            UserSession.setPassword(user.getPassword());
+            UserSession.setRole(user.getRole());
+            UserSession.setId(user.getId());
             JOptionPane.showMessageDialog(this, "Login Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+            // ANJAY LANJUT
         } else {
             JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
         }
