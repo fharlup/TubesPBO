@@ -1,18 +1,25 @@
 package Model;
 
+import java.sql.Blob;
+
 public class PenggalanganDana   {
     private String judul;
     private String deskripsi;
     private String lokasi;
     private boolean confirm;
     private int organisasiId;
+    private Blob image;
 
-    public PenggalanganDana(String judul, String deskripsi, String lokasi, Donasi newdonasi) {
+    public PenggalanganDana(String judul, String deskripsi, String lokasi, boolean confirm, int organisasiId, Blob image) {
         this.judul = judul;
         this.deskripsi = deskripsi;
         this.lokasi = lokasi;
-        this.confirm = false;
+        this.confirm = confirm;
+        this.organisasiId = organisasiId;
+        this.image = image;
     }
+
+    
 
     public String getJudul() {
         return judul;
@@ -44,4 +51,22 @@ public class PenggalanganDana   {
     public void setConfirm(boolean confirm) {
         this.confirm = confirm;
     }
+
+    public int getOrganisasiId() {
+        return organisasiId;
+    }
+
+    public void setOrganisasiId(int organisasiId) {
+        this.organisasiId = organisasiId;
+    }
+
+    public Blob getImage() {
+        return image;
+    }
+
+    public void setImage(Blob image) {
+        this.image = image;
+    }
+    
+    
 }
