@@ -455,28 +455,35 @@ public class ListDonate extends javax.swing.JFrame {
         donasi3.setVisible(false);
         donasi4.setVisible(false);
         penggalanganList = DonationController.getAllPenggalangan();
+        
+        // hapus yg blom confirm
+        for (int i = 0; i < penggalanganList.size(); i++) {
+            if (!penggalanganList.get(i).getConfirm()) {
+                penggalanganList.remove(i);
+                i--;
+            }
+        }
+        
+        int startIdx = (page - 1) * 4;
+        int endIdx = startIdx + 4;
+        
         int idx = 0;
         int count = 0;
-        while (penggalanganList.get(idx)!=null && count < (page-1)*4){
-            if (penggalanganList.get(idx).getConfirm()){
-                count++;
-            }
-            idx++;
+        if (startIdx < penggalanganList.size()) {
+            loadCard1(penggalanganList.get(startIdx));
+            donasi1.setVisible(true);
         }
-        if (idx < penggalanganList.size() && penggalanganList.get(idx).getConfirm()){
-            loadCard1(penggalanganList.get(idx));
+        if (startIdx + 1 < penggalanganList.size()) {
+            loadCard2(penggalanganList.get(startIdx + 1));
+            donasi2.setVisible(true);
         }
-        idx++;
-        if (idx < penggalanganList.size() && penggalanganList.get(idx).getConfirm()){
-            loadCard2(penggalanganList.get(idx));
+        if (startIdx + 2 < penggalanganList.size()) {
+            loadCard3(penggalanganList.get(startIdx + 2));
+            donasi3.setVisible(true);
         }
-        idx++;
-        if (idx < penggalanganList.size() && penggalanganList.get(idx).getConfirm()){
-            loadCard3(penggalanganList.get(idx));
-        }
-        idx++;
-        if (idx < penggalanganList.size() && penggalanganList.get(idx).getConfirm()){
-            loadCard4(penggalanganList.get(idx));
+        if (startIdx + 3 < penggalanganList.size()) {
+            loadCard4(penggalanganList.get(startIdx + 3));
+            donasi4.setVisible(true);
         }
     }
     
@@ -488,7 +495,6 @@ public class ListDonate extends javax.swing.JFrame {
         organisasi1.setText(user.getUsername());
         uang1.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
         donatur1.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
-        donasi1.setVisible(true);
     }
     
     private void loadCard2(PenggalanganDana obj){
@@ -499,7 +505,6 @@ public class ListDonate extends javax.swing.JFrame {
         organisasi2.setText(user.getUsername());
         uang2.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
         donatur2.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
-        donasi2.setVisible(true);
     }
     
     private void loadCard3(PenggalanganDana obj){
@@ -510,7 +515,6 @@ public class ListDonate extends javax.swing.JFrame {
         organisasi3.setText(user.getUsername());
         uang3.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
         donatur3.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
-        donasi3.setVisible(true);
     }
     
     private void loadCard4(PenggalanganDana obj){
@@ -521,7 +525,6 @@ public class ListDonate extends javax.swing.JFrame {
         organisasi4.setText(user.getUsername());
         uang4.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
         donatur4.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
-        donasi4.setVisible(true);
     }
     
     /**
