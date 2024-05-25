@@ -3,6 +3,7 @@ package Model;
 import java.io.InputStream;
 
 public class PenggalanganDana {
+    private int id;
     private String judul;
     private String deskripsi;
     private String lokasi;
@@ -10,13 +11,22 @@ public class PenggalanganDana {
     private int organisasiId;
     private InputStream image;
 
-    public PenggalanganDana(String judul, String deskripsi, String lokasi, boolean confirm, int organisasiId, InputStream image) {
+    public PenggalanganDana(int id, String judul, String deskripsi, String lokasi, boolean confirm, int organisasiId, InputStream image) {
+        this.id = id;
         this.judul = judul;
         this.deskripsi = deskripsi;
         this.lokasi = lokasi;
         this.confirm = confirm;
         this.organisasiId = organisasiId;
         this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getJudul() {
