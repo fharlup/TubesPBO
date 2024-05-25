@@ -179,6 +179,9 @@
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="donasi1">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="donasi1MouseClicked"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -251,6 +254,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="donasi2">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="donasi2MouseClicked"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -335,6 +341,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="donasi3">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="donasi3MouseClicked"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -419,6 +428,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="donasi4">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="donasi4MouseClicked"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

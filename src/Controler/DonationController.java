@@ -88,6 +88,31 @@ public class DonationController {
         return null;
     }
     
+    public static PenggalanganDana getPenggalangByID(int id){
+        String sql = "SELECT * FROM penggalangandana WHERE idPenggalangan = ?";
+        try (Connection conn = Database.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    id = rs.getInt("idPenggalangan");
+                    String judul = rs.getString("judul");
+                    String deskripsi = rs.getString("deskripsi");
+                    String lokasi = rs.getString("lokasi");
+                    boolean confirm = rs.getBoolean("confirm");
+                    int organisasiId  = rs.getInt("organisasiId");
+                    InputStream image = rs.getBinaryStream("photo");
+                
+                    PenggalanganDana penggalangan = new PenggalanganDana(id,judul, deskripsi, lokasi,confirm,organisasiId ,image);
+                    return penggalangan;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public static int getTotalDonasiPenggalangan(int id){
         int totalNominal = 0;
         List<Donasi> donasiList = getDonasiByPenggalangan(id);

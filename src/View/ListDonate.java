@@ -17,13 +17,16 @@ import javax.swing.ImageIcon;
  * @author Alvan
  */
 public class ListDonate extends javax.swing.JFrame {
-    private static List<PenggalanganDana> penggalanganList;
+
     /**
      * Creates new form ListDonate
      * @param penggalanganList
      */
-    public ListDonate(List<PenggalanganDana> penggalanganList) {
-        ListDonate.penggalanganList = penggalanganList;
+    public int id1;
+    public int id2;
+    public int id3;
+    public int id4;
+    public ListDonate() {
         initComponents();
         loadPenggalangan(1);
     }
@@ -148,6 +151,12 @@ public class ListDonate extends javax.swing.JFrame {
             }
         });
 
+        donasi1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                donasi1MouseClicked(evt);
+            }
+        });
+
         gmbr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
         judul1.setText("Judul");
@@ -189,6 +198,12 @@ public class ListDonate extends javax.swing.JFrame {
                     .addComponent(uang1)
                     .addComponent(donatur1)))
         );
+
+        donasi2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                donasi2MouseClicked(evt);
+            }
+        });
 
         gmbr2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
@@ -240,6 +255,12 @@ public class ListDonate extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        donasi3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                donasi3MouseClicked(evt);
+            }
+        });
+
         gmbr3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
         judul3.setText("Judul");
@@ -289,6 +310,12 @@ public class ListDonate extends javax.swing.JFrame {
                     .addComponent(donatur3))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
+
+        donasi4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                donasi4MouseClicked(evt);
+            }
+        });
 
         gmbr4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
@@ -449,12 +476,76 @@ public class ListDonate extends javax.swing.JFrame {
         loadPenggalangan(4);
     }//GEN-LAST:event_page4ActionPerformed
 
+    private void donasi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi1MouseClicked
+        setVisible(false);
+        new DetailDonate(id1).setVisible(true);
+    }//GEN-LAST:event_donasi1MouseClicked
+
+    private void donasi2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi2MouseClicked
+        setVisible(false);
+        new DetailDonate(id2).setVisible(true);
+    }//GEN-LAST:event_donasi2MouseClicked
+
+    private void donasi3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi3MouseClicked
+        setVisible(false);
+        new DetailDonate(id3).setVisible(true);
+    }//GEN-LAST:event_donasi3MouseClicked
+
+    private void donasi4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi4MouseClicked
+        setVisible(false);
+        new DetailDonate(id4).setVisible(true);
+    }//GEN-LAST:event_donasi4MouseClicked
+
+    private void loadButton(int count){
+        if (count/4 == 0 || count%4 >0){
+            page1.setVisible(true);
+        } 
+        if (count/4 == 1 || (count/4 == 1 && count%4 >0)){
+            page2.setVisible(true);
+        } 
+        if (count/4 == 2 || (count/4 == 2 && count%4 >0)){
+            page3.setVisible(true);
+        } 
+        if (count/4 == 3 || (count/4 == 3 && count%4 >0)){
+            page4.setVisible(true);
+        } 
+        if (count/4 == 4 || (count/4 == 4 && count%4 >0)){
+            page5.setVisible(true);
+        } 
+        if (count/4 == 5 || (count/4 == 5 && count%4 >0)){
+            page6.setVisible(true);
+        } 
+        if (count/4 == 6 || (count/4 == 6 && count%4 >0)){
+            page7.setVisible(true);
+        } 
+        if (count/4 == 7 ||(count/4 == 7 && count%4 >0)){
+            page8.setVisible(true);
+        } 
+        if (count/4 == 8 || (count/4 == 8 && count%4 >0)){
+            page9.setVisible(true);
+        }
+        if (count/4 == 9 || (count/4 == 9 && count%4 >0)){
+            page10.setVisible(true);
+        }
+    }
+    
     private void loadPenggalangan(int page){
         donasi1.setVisible(false);
         donasi2.setVisible(false);
         donasi3.setVisible(false);
         donasi4.setVisible(false);
-        penggalanganList = DonationController.getAllPenggalangan();
+        page1.setVisible(false);
+        page2.setVisible(false);
+        page3.setVisible(false);
+        page4.setVisible(false);
+        page5.setVisible(false);
+        page6.setVisible(false);
+        page7.setVisible(false);
+        page8.setVisible(false);
+        page9.setVisible(false);
+        page10.setVisible(false);
+        
+        List<PenggalanganDana> penggalanganList = DonationController.getAllPenggalangan();
         
         // hapus yg blom confirm
         for (int i = 0; i < penggalanganList.size(); i++) {
@@ -464,25 +555,29 @@ public class ListDonate extends javax.swing.JFrame {
             }
         }
         
+        loadButton(penggalanganList.size());
         int startIdx = (page - 1) * 4;
-        int endIdx = startIdx + 4;
         
         int idx = 0;
         int count = 0;
         if (startIdx < penggalanganList.size()) {
             loadCard1(penggalanganList.get(startIdx));
+            id1 = penggalanganList.get(startIdx).getId();
             donasi1.setVisible(true);
         }
         if (startIdx + 1 < penggalanganList.size()) {
             loadCard2(penggalanganList.get(startIdx + 1));
+            id2 = penggalanganList.get(startIdx+1).getId();
             donasi2.setVisible(true);
         }
         if (startIdx + 2 < penggalanganList.size()) {
             loadCard3(penggalanganList.get(startIdx + 2));
+            id3 = penggalanganList.get(startIdx+2).getId();
             donasi3.setVisible(true);
         }
         if (startIdx + 3 < penggalanganList.size()) {
             loadCard4(penggalanganList.get(startIdx + 3));
+            id4 = penggalanganList.get(startIdx+3).getId();
             donasi4.setVisible(true);
         }
     }
@@ -557,7 +652,7 @@ public class ListDonate extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListDonate(penggalanganList).setVisible(true);
+                new ListDonate().setVisible(true);
             }
         });
         
