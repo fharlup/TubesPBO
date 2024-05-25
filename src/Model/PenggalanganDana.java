@@ -1,9 +1,8 @@
 package Model;
 
 import java.io.InputStream;
-import java.sql.Blob;
 
-public class PenggalanganDana   {
+public class PenggalanganDana {
     private String judul;
     private String deskripsi;
     private String lokasi;
@@ -19,8 +18,6 @@ public class PenggalanganDana   {
         this.organisasiId = organisasiId;
         this.image = image;
     }
-
-    
 
     public String getJudul() {
         return judul;
@@ -45,6 +42,7 @@ public class PenggalanganDana   {
     public void setLokasi(String lokasi) {
         this.lokasi = lokasi;
     }
+
     public boolean getConfirm() {
         return confirm;
     }
@@ -68,6 +66,4 @@ public class PenggalanganDana   {
     public void setImage(InputStream image) {
         this.image = image;
     }
-    
-    
 }
