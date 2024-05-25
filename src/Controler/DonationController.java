@@ -3,6 +3,7 @@ package Controler;
 import Database.Database;
 import Model.Donasi;
 import Model.PenggalanganDana;
+import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,7 +29,7 @@ public class DonationController {
                     String lokasi = rs.getString("lokasi");
                     boolean confirm = rs.getBoolean("confirm");
                     int idOrganisasi = rs.getInt("organisasiId ");
-                    Blob image = rs.getBlob("image");
+                    InputStream image = rs.getBinaryStream("image");
                 
                     PenggalanganDana penggalangan = new PenggalanganDana(judul, deskripsi, lokasi,confirm,idOrganisasi,image);
                     PenggalanganList.add(penggalangan);
@@ -86,9 +87,9 @@ public class DonationController {
             stmt.setString(1, penggalangan.getJudul());
             stmt.setString(2, penggalangan.getDeskripsi());
             stmt.setString(3, penggalangan.getLokasi());
-            stmt.setBlob(4, penggalangan.getImage());
-            stmt.setBoolean(4, penggalangan.getConfirm());
-            stmt.setInt(4, penggalangan.getOrganisasiId());
+            stmt.setBinaryStream(4, penggalangan.getImage());
+            stmt.setBoolean(5, penggalangan.getConfirm());
+            stmt.setInt(6, penggalangan.getOrganisasiId());
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {
