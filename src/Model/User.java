@@ -7,12 +7,11 @@ public abstract class User {
     private String role;
     private int id;
 
-    public User(String email, String username, String password, String role, int id) {
+    public User(String email, String username, String password, String role) {
         this.email = email;
         this.username = username;
         this.password = password;
         this.role = role;
-        this.id = id;
     }
 
     public String getRole() {
@@ -43,6 +42,7 @@ public abstract class User {
         return username;
     }
 
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -53,13 +53,5 @@ public abstract class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void login() {
-        // Login logic
-    }
-
-    public void logout() {
-        // Logout logic
     }
 }
