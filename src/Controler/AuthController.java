@@ -1,6 +1,8 @@
 package Controler;
 
 import Database.Database;
+import Model.User;
+import Model.UserSession; // Import the UserSession class
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +15,7 @@ public class AuthController {
         boolean exists = false;
         try (Connection connection = Database.getConnection()) {
             if (connection != null) {
-                // Check if email exists
-                String sql = "SELECT * FROM users WHERE email = ?";
+                String sql = "SELECT * FROM user WHERE email = ?";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, email);
                 ResultSet resultSet = statement.executeQuery();
@@ -34,8 +35,7 @@ public class AuthController {
         boolean isValid = false;
         try (Connection connection = Database.getConnection()) {
             if (connection != null) {
-                // Check if username and password match
-                String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+                String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, username);
                 statement.setString(2, password);
@@ -52,15 +52,14 @@ public class AuthController {
         return isValid;
     }
 
-    public boolean checkDuplicateUser(String username, String email) {
+    public boolean checkDuplicateUser(User user) {
         boolean exists = false;
         try (Connection connection = Database.getConnection()) {
             if (connection != null) {
-                // Check for duplicate username or email
-                String sql = "SELECT * FROM users WHERE username = ? OR email = ?";
+                String sql = "SELECT * FROM user WHERE username = ? OR email = ?";
                 PreparedStatement statement = connection.prepareStatement(sql);
-                statement.setString(1, username);
-                statement.setString(2, email);
+                statement.setString(1, user.getUsername());
+                statement.setString(2, user.getEmail());
                 ResultSet resultSet = statement.executeQuery();
 
                 exists = resultSet.next();
@@ -74,16 +73,15 @@ public class AuthController {
         return exists;
     }
 
-    public void insertUser(String username, String email, String password, String role) {
+    public void insertUser(User user) {
         try (Connection connection = Database.getConnection()) {
             if (connection != null) {
-                // Insert new user
-                String sql = "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)";
+                String sql = "INSERT INTO user (username, email, password, role) VALUES (?, ?, ?, ?)";
                 PreparedStatement statement = connection.prepareStatement(sql);
-                statement.setString(1, username);
-                statement.setString(2, email);
-                statement.setString(3, password);
-                statement.setString(4, role);
+                statement.setString(1, user.getUsername());
+                statement.setString(2, user.getEmail());
+                statement.setString(3, user.getPassword());
+                statement.setString(4, user.getRole());
 
                 statement.executeUpdate();
                 statement.close();
@@ -97,8 +95,7 @@ public class AuthController {
         boolean passwordChanged = false;
         try (Connection connection = Database.getConnection()) {
             if (connection != null) {
-                // Update password for the given email
-                String sql = "UPDATE users SET password = ? WHERE email = ?";
+                String sql = "UPDATE user SET password = ? WHERE email = ?";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, newPassword);
                 statement.setString(2, email);

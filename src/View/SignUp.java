@@ -1,6 +1,7 @@
 package View;
 
 import Controler.AuthController;
+import Model.User;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import javax.swing.*;
@@ -261,16 +262,17 @@ public class SignUp extends javax.swing.JFrame {
         }
 
         AuthController authController = new AuthController();
-        boolean duplicateExists = authController.checkDuplicateUser(username, email);
+        User user = new User(email, username, password, role,0) {}; 
+        boolean duplicateExists = authController.checkDuplicateUser(user); 
 
         if (duplicateExists) {
             JOptionPane.showMessageDialog(this, "Username or Email already exists", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        authController.insertUser(username, email, password, role);
-        JOptionPane.showMessageDialog(this, "Sign-Up Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+        authController.insertUser(user); 
 
+        JOptionPane.showMessageDialog(this, "Sign-Up Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SignUpButtonActionPerformed
 
     private void AgreeTermsConditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgreeTermsConditionActionPerformed
@@ -337,4 +339,5 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -54,12 +54,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public void login() {
-        // Login logic
-    }
-
-    public void logout() {
-        // Logout logic
-    }
 }
