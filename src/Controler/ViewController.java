@@ -45,4 +45,5 @@ public class ViewController {
         g.dispose();
         return resizedImage;
     }
+    
 }

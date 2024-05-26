@@ -6,6 +6,7 @@
 package View;
 
 import Controler.DonationController;
+import Controler.OrganisasiController;
 import Controler.ViewController;
 import Model.PenggalanganDana;
 import Model.User;
@@ -21,8 +22,9 @@ public class DetailDonate extends javax.swing.JFrame {
     private static int id;
     public DetailDonate(int id) {
         initComponents();
+        OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
-        User user = DonationController.getUserByID(penggalangan.getOrganisasiId());
+        User user = orgCtrl.getById(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
         
         gmbr1.setIcon(img);

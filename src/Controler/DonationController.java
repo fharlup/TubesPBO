@@ -2,6 +2,7 @@ package Controler;
 
 import Database.Database;
 import Model.Donasi;
+import Model.Donatur;
 import Model.PenggalanganDana;
 import Model.User;
 import java.io.InputStream;
@@ -63,29 +64,6 @@ public class DonationController {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return donasiList;
-    }
-    
-    public static User getUserByID(int id){
-        String sql = "SELECT * FROM user WHERE userId = ?";
-        try (Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
-            stmt.setInt(1, id);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    String role = rs.getString("role");
-                    String email = rs.getString("email");
-                    String username = rs.getString("username");
-                    String password = rs.getString("password");
-                    int userId = rs.getInt("userId");
-                
-                    User user = new User(email,username,password,role,userId);
-                    return user;
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
     }
     
     public static PenggalanganDana getPenggalangByID(int id){

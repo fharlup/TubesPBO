@@ -6,6 +6,7 @@
 package View;
 
 import Controler.DonationController;
+import Controler.OrganisasiController;
 import Controler.ViewController;
 import Model.PenggalanganDana;
 import Model.User;
@@ -18,10 +19,7 @@ import javax.swing.ImageIcon;
  */
 public class ListDonate extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ListDonate
-     * @param penggalanganList
-     */
+    OrganisasiController orgCtrl = new OrganisasiController();
     public int id1;
     public int id2;
     public int id3;
@@ -583,7 +581,7 @@ public class ListDonate extends javax.swing.JFrame {
     }
     
     private void loadCard1(PenggalanganDana obj){
-        User user = DonationController.getUserByID(obj.getOrganisasiId());
+        User user = orgCtrl.getById(obj.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(obj.getImage()));
         gmbr1.setIcon(img);
         judul1.setText(obj.getJudul());
@@ -593,7 +591,7 @@ public class ListDonate extends javax.swing.JFrame {
     }
     
     private void loadCard2(PenggalanganDana obj){
-        User user = DonationController.getUserByID(obj.getOrganisasiId());
+        User user = orgCtrl.getById(obj.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(obj.getImage()));
         gmbr2.setIcon(img);
         judul2.setText(obj.getJudul());
@@ -603,7 +601,7 @@ public class ListDonate extends javax.swing.JFrame {
     }
     
     private void loadCard3(PenggalanganDana obj){
-        User user = DonationController.getUserByID(obj.getOrganisasiId());
+        User user = orgCtrl.getById(obj.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(obj.getImage()));
         gmbr3.setIcon(img);
         judul3.setText(obj.getJudul());
@@ -613,7 +611,7 @@ public class ListDonate extends javax.swing.JFrame {
     }
     
     private void loadCard4(PenggalanganDana obj){
-        User user = DonationController.getUserByID(obj.getOrganisasiId());
+        User user = orgCtrl.getById(obj.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(obj.getImage()));
         gmbr4.setIcon(img);
         judul4.setText(obj.getJudul());

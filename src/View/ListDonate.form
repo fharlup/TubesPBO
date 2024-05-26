@@ -31,15 +31,10 @@
               </Group>
               <EmptySpace pref="143" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="donasi4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="donasi2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="donasi4" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="donasi2" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
