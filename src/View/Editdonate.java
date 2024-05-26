@@ -75,36 +75,34 @@ public class Editdonate extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        donasi1 = new javax.swing.JPanel();
-        gmbr1 = new javax.swing.JLabel();
-        judul1 = new javax.swing.JLabel();
-        organisasi1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        donate = new javax.swing.JButton();
         progress1 = new javax.swing.JProgressBar();
+        gmbr1 = new javax.swing.JLabel();
+        paragraf3 = new javax.swing.JLabel();
+        paragraf2 = new javax.swing.JLabel();
+        paragraf1 = new javax.swing.JLabel();
+        lokasi2 = new javax.swing.JLabel();
+        lokasi3 = new javax.swing.JLabel();
+        lokasi1 = new javax.swing.JLabel();
+        organisasi1 = new javax.swing.JLabel();
         uang1 = new javax.swing.JLabel();
         donatur1 = new javax.swing.JLabel();
-        donate = new javax.swing.JButton();
+        donasi1 = new javax.swing.JPanel();
+        LokasiFeild = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        paragraf1 = new javax.swing.JLabel();
-        paragraf2 = new javax.swing.JLabel();
-        paragraf3 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
+        judul1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lokasi3 = new javax.swing.JLabel();
-        lokasi2 = new javax.swing.JLabel();
-        lokasi1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jFileChooser1 = new javax.swing.JFileChooser();
+        Confrim = new javax.swing.JButton();
+        JudulField = new javax.swing.JTextField();
+        DetailFeild = new javax.swing.JTextField();
+        Target = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        gmbr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
-
-        judul1.setText("Judul");
-
-        organisasi1.setText("Nama Organisasi");
-
-        uang1.setText("Uang");
-
-        donatur1.setText("Donatur");
+        jLabel3.setText("jLabel3");
 
         donate.setText("Donasi");
         donate.addActionListener(new java.awt.event.ActionListener() {
@@ -113,52 +111,46 @@ public class Editdonate extends javax.swing.JFrame {
             }
         });
 
+        gmbr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
+
+        paragraf3.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+
+        paragraf2.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+
+        paragraf1.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+
+        lokasi2.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+
+        lokasi3.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+
+        lokasi1.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+
+        organisasi1.setText("Nama Organisasi");
+
+        uang1.setText("Uang");
+
+        donatur1.setText("Donatur");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         javax.swing.GroupLayout donasi1Layout = new javax.swing.GroupLayout(donasi1);
         donasi1.setLayout(donasi1Layout);
         donasi1Layout.setHorizontalGroup(
             donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(donasi1Layout.createSequentialGroup()
-                .addGroup(donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(gmbr1)
-                    .addGroup(donasi1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(judul1)
-                            .addComponent(organisasi1)
-                            .addComponent(progress1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(donasi1Layout.createSequentialGroup()
-                                .addComponent(uang1)
-                                .addGap(227, 227, 227)
-                                .addComponent(donatur1)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(donate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(LokasiFeild, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         donasi1Layout.setVerticalGroup(
             donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(donasi1Layout.createSequentialGroup()
-                .addComponent(gmbr1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addComponent(judul1)
-                .addGap(7, 7, 7)
-                .addComponent(organisasi1)
-                .addGap(7, 7, 7)
-                .addComponent(progress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addGroup(donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(uang1)
-                    .addComponent(donatur1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(donate)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, donasi1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LokasiFeild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jLabel1.setText("Detail");
-
-        paragraf1.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
-
-        paragraf2.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
-
-        paragraf3.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -167,40 +159,79 @@ public class Editdonate extends javax.swing.JFrame {
             }
         });
 
+        judul1.setText("Judul");
+
         jLabel2.setText("Lokasi");
 
-        lokasi3.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+        jLabel4.setText("Target");
 
-        lokasi2.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+        jLabel5.setText("Unggah");
 
-        lokasi1.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+        jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFileChooser1ActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setText("jLabel3");
+        Confrim.setText("Confrim");
+        Confrim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfrimActionPerformed(evt);
+            }
+        });
+
+        DetailFeild.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DetailFeildActionPerformed(evt);
+            }
+        });
+
+        Target.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TargetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(DetailFeild, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(Target, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(341, 341, 341))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(156, 156, 156))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(judul1)
+                        .addGap(18, 18, 18)
+                        .addComponent(JudulField, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel2)
+                        .addGap(478, 478, 478))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(back)
+                .addGap(308, 308, 308)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(back)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(jLabel3)))
-                        .addGap(125, 125, 125)
-                        .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1)
-                    .addComponent(paragraf1)
-                    .addComponent(paragraf2)
-                    .addComponent(paragraf3)
-                    .addComponent(jLabel2)
-                    .addComponent(lokasi1)
-                    .addComponent(lokasi2)
-                    .addComponent(lokasi3))
-                .addContainerGap(142, Short.MAX_VALUE))
+                        .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(171, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Confrim)
+                        .addGap(74, 74, 74))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,27 +240,28 @@ public class Editdonate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(back)
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(donasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paragraf1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paragraf2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paragraf3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lokasi1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lokasi2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lokasi3)
-                .addGap(4, 4, 4))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(judul1)
+                            .addComponent(JudulField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(DetailFeild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(donasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Confrim)
+                            .addComponent(jLabel4)
+                            .addComponent(Target, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addContainerGap())
         );
 
         pack();
@@ -243,6 +275,22 @@ public class Editdonate extends javax.swing.JFrame {
     private void donateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_donateActionPerformed
+
+    private void ConfrimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfrimActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConfrimActionPerformed
+
+    private void DetailFeildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetailFeildActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DetailFeildActionPerformed
+
+    private void TargetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TargetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TargetActionPerformed
+
+    private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFileChooser1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,14 +329,22 @@ public class Editdonate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Confrim;
+    private javax.swing.JTextField DetailFeild;
+    private javax.swing.JTextField JudulField;
+    private javax.swing.JTextField LokasiFeild;
+    private javax.swing.JTextField Target;
     private javax.swing.JButton back;
     private javax.swing.JPanel donasi1;
     private javax.swing.JButton donate;
     private javax.swing.JLabel donatur1;
     private javax.swing.JLabel gmbr1;
+    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel judul1;
     private javax.swing.JLabel lokasi1;
     private javax.swing.JLabel lokasi2;
