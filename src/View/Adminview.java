@@ -416,23 +416,21 @@ public class Adminview extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(donasi2Layout.createSequentialGroup()
+                        .addComponent(judul2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(donasi2Layout.createSequentialGroup()
                         .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(progress2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(donasi2Layout.createSequentialGroup()
-                                .addComponent(judul2)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(donasi2Layout.createSequentialGroup()
-                                .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(progress2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(donasi2Layout.createSequentialGroup()
-                                        .addComponent(organisasi2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(edit1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Terima)
-                                        .addGap(2, 2, 2)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tolak)))
-                        .addContainerGap())
+                                .addComponent(organisasi2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(edit1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Terima)
+                                .addGap(2, 2, 2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tolak)
+                        .addGap(12, 12, 12))
                     .addGroup(donasi2Layout.createSequentialGroup()
                         .addComponent(uang2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -446,16 +444,13 @@ public class Adminview extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(judul2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(donasi2Layout.createSequentialGroup()
-                        .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(organisasi2)
-                            .addComponent(edit1))
-                        .addGap(18, 18, 18)
-                        .addComponent(progress2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Terima)
-                        .addComponent(tolak)))
+                .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(organisasi2)
+                    .addComponent(edit1)
+                    .addComponent(Terima)
+                    .addComponent(tolak))
+                .addGap(18, 18, 18)
+                .addComponent(progress2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(uang2)
@@ -575,7 +570,7 @@ public class Adminview extends javax.swing.JFrame {
     private void tolakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakActionPerformed
          // Mendapatkan ID penggalangan yang diklik
     // Mendapatkan ID penggalangan yang diklik
-    int clickedPenggalanganId = AdminController.getClickedPenggalanganId();
+    int clickedPenggalanganId = id2;
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
     boolean result = DonationController.delete(clickedPenggalanganId);
@@ -589,7 +584,7 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_tolakActionPerformed
 
     private void TerimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerimaActionPerformed
-          int clickedPenggalanganId = AdminController.getClickedPenggalanganId();
+          int clickedPenggalanganId = id2;
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
     boolean result = DonationController.Terima(clickedPenggalanganId);
@@ -612,11 +607,12 @@ public class Adminview extends javax.swing.JFrame {
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
          new DetailDonateedit(id1).setVisible(true);
+         System.out.println("sana");
     }//GEN-LAST:event_editActionPerformed
 
     private void tolak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolak1ActionPerformed
         // TODO add your handling code here:
-        int clickedPenggalanganId = AdminController.getClickedPenggalanganId();
+        int clickedPenggalanganId = id1;
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
     boolean result = DonationController.delete(clickedPenggalanganId);
@@ -630,7 +626,7 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_tolak1ActionPerformed
 
     private void Terima2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Terima2ActionPerformed
-        int clickedPenggalanganId = AdminController.getClickedPenggalanganId();
+        int clickedPenggalanganId =id1;
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
     boolean result = DonationController.Terima(clickedPenggalanganId);

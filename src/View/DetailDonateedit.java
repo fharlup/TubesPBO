@@ -20,6 +20,10 @@ public class DetailDonateedit extends javax.swing.JFrame {
 
     private static int id;
     public DetailDonateedit(int id) {
+        this.id = id; 
+        System.out.println("brow");
+    System.out.println("ID: " + this.id);
+        
         initComponents();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
         User user = DonationController.getUserByID(penggalangan.getOrganisasiId());
@@ -75,6 +79,7 @@ public class DetailDonateedit extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         donasi1 = new javax.swing.JPanel();
         gmbr1 = new javax.swing.JLabel();
         judul1 = new javax.swing.JLabel();
@@ -92,7 +97,8 @@ public class DetailDonateedit extends javax.swing.JFrame {
         lokasi3 = new javax.swing.JLabel();
         lokasi2 = new javax.swing.JLabel();
         lokasi1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+
+        jLabel3.setText("masaaa");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,7 +112,7 @@ public class DetailDonateedit extends javax.swing.JFrame {
 
         donatur1.setText("Donatur");
 
-        edit.setText("sss");
+        edit.setText("Edit");
         edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editActionPerformed(evt);
@@ -175,8 +181,6 @@ public class DetailDonateedit extends javax.swing.JFrame {
 
         lokasi1.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
 
-        jLabel3.setText("masaaa");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,12 +189,8 @@ public class DetailDonateedit extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(back)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
-                                .addComponent(jLabel3)))
-                        .addGap(90, 90, 90)
+                        .addComponent(back)
+                        .addGap(149, 149, 149)
                         .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1)
                     .addComponent(paragraf1)
@@ -209,8 +209,6 @@ public class DetailDonateedit extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(back)
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(donasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -241,8 +239,10 @@ public class DetailDonateedit extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-            new Editdonate(id).setVisible(true);
-            System.out.println("sini");
+          System.out.println("borw");    
+        new Editdonate(id).setVisible(true);
+            
+          
     }//GEN-LAST:event_editActionPerformed
 
     /**
