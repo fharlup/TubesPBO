@@ -22,7 +22,7 @@ public class AdminController {
   
 
   
-  private static int clickedPenggalanganId;
+     private static int clickedPenggalanganId;
 
     // Metode untuk menyimpan ID penggalangan yang diklik
     public static void setClickedPenggalanganId(int id) {

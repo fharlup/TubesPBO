@@ -31,6 +31,7 @@ public class DonationController {
         }
         return false;
     }
+      
     public static List<PenggalanganDana> getAllPenggalangan(){
         List<PenggalanganDana> PenggalanganList = new ArrayList<>();
         String sql = "SELECT * FROM penggalangandana";

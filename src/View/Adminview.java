@@ -466,18 +466,18 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_page4ActionPerformed
 
     private void donasi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi1MouseClicked
-      int idPenggalangan = penggalanganList.get(0).getId(); // Asumsi Anda mendapatkan ID penggalangan dari list
+       int idPenggalangan = penggalanganList.get(0).getId(); // Asumsi Anda mendapatkan ID penggalangan dari list
     System.out.println(idPenggalangan);
     
     // Menyimpan ID penggalangan yang diklik ke dalam controller
     AdminController.setClickedPenggalanganId(idPenggalangan);
-    // Mendapatkan ID donasi terkait dengan penggalangan dana
    
     }//GEN-LAST:event_donasi1MouseClicked
 
     private void tolakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakActionPerformed
          // Mendapatkan ID penggalangan yang diklik
-      int clickedPenggalanganId = AdminController.getClickedPenggalanganId();
+    // Mendapatkan ID penggalangan yang diklik
+    int clickedPenggalanganId = AdminController.getClickedPenggalanganId();
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
     boolean result = DonationController.unconfirmPenggalangan(clickedPenggalanganId);
