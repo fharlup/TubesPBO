@@ -16,8 +16,61 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DonationController {
+
+
+ 
     Database db = new Database();
+
     
+    public static boolean editPenggalangan(PenggalanganDana penggalangan) {
+    String sql = "UPDATE penggalangan_dana SET judul = ?, deskripsi = ?, lokasi = ?, image = ? WHERE id = ?";
+    try (Connection conn = Database.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setString(1, penggalangan.getJudul());
+        stmt.setString(2, penggalangan.getDeskripsi());
+        stmt.setString(3, penggalangan.getLokasi());
+        InputStream imageStream = penggalangan.getImage();
+        if (imageStream != null) {
+            stmt.setBlob(4, imageStream);
+        } else {
+            stmt.setNull(4, java.sql.Types.BLOB);
+        }
+        stmt.setInt(5, penggalangan.getId());
+        int rowsUpdated = stmt.executeUpdate();
+        return rowsUpdated > 0;
+    } catch (SQLException ex) {
+        Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return false;
+}
+       
+    
+      public static boolean Terima(int penggalanganId) {
+        String sql = "UPDATE penggalangandana SET confirm = ? WHERE idPenggalangan = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setBoolean(1, true);
+            stmt.setInt(2, penggalanganId);
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+       public static boolean delete(int penggalanganId) {
+        String sql = "DELETE FROM penggalangandana WHERE idPenggalangan = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, penggalanganId);
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+      
     public static List<PenggalanganDana> getAllPenggalangan(){
         List<PenggalanganDana> PenggalanganList = new ArrayList<>();
         String sql = "SELECT * FROM penggalangandana";

@@ -23,6 +23,9 @@ import java.util.logging.Logger;
  * @author fajar
  */
 public class AdminController implements UserInterface{
+    
+    private static int clickedPenggalanganId;
+
     @Override
     public User getById(int id){
         String sql = "SELECT * FROM user WHERE userId = ?";
@@ -83,22 +86,20 @@ public class AdminController implements UserInterface{
         }
         return false;
     }
-      public boolean editPenggalangan(PenggalanganDana penggalangan, int penggalanganId) {
-        String sql = "UPDATE penggalangandana SET judul = ?, deskripsi = ?, lokasi = ?, image = ?, confirm = ?, organisasiId = ? WHERE id = ?";
-        try (Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, penggalangan.getJudul());
-            stmt.setString(2, penggalangan.getDeskripsi());
-            stmt.setString(3, penggalangan.getLokasi());
-            stmt.setBlob(4, penggalangan.getImage());
-            stmt.setBoolean(5, penggalangan.getConfirm());
-            stmt.setInt(6, penggalangan.getOrganisasiId());
-            stmt.setInt(7, penggalanganId);
-            int rowsUpdated = stmt.executeUpdate();
-            return rowsUpdated > 0;
-        } catch (SQLException ex) {
-            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
+    
+    // Metode untuk menyimpan ID penggalangan yang diklik
+    public static void setClickedPenggalanganId(int id) {
+        clickedPenggalanganId = id;
     }
+
+    // Metode untuk mengambil ID penggalangan yang diklik
+    public static int getClickedPenggalanganId() {
+        return clickedPenggalanganId;
+    }
+
+    // Implementasi metode yang tidak digunakan jika tidak diperlukan
+    public static int getDonasiByPenggalanganId(int idPenggalangan) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+   
 }

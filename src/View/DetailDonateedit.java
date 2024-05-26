@@ -17,10 +17,13 @@ import javax.swing.ImageIcon;
  *
  * @author Alvan
  */
-public class DetailDonate extends javax.swing.JFrame {
+public class DetailDonateedit extends javax.swing.JFrame {
 
     private static int id;
-    public DetailDonate(int id) {
+    public DetailDonateedit(int id) {
+        this.id = id; 
+        System.out.println("brow");
+        System.out.println("ID: " + this.id);
         initComponents();
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
@@ -77,6 +80,7 @@ public class DetailDonate extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         donasi1 = new javax.swing.JPanel();
         gmbr1 = new javax.swing.JLabel();
         judul1 = new javax.swing.JLabel();
@@ -84,7 +88,7 @@ public class DetailDonate extends javax.swing.JFrame {
         progress1 = new javax.swing.JProgressBar();
         uang1 = new javax.swing.JLabel();
         donatur1 = new javax.swing.JLabel();
-        donate = new javax.swing.JButton();
+        edit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         paragraf1 = new javax.swing.JLabel();
         paragraf2 = new javax.swing.JLabel();
@@ -94,7 +98,8 @@ public class DetailDonate extends javax.swing.JFrame {
         lokasi3 = new javax.swing.JLabel();
         lokasi2 = new javax.swing.JLabel();
         lokasi1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+
+        jLabel3.setText("masaaa");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,10 +113,10 @@ public class DetailDonate extends javax.swing.JFrame {
 
         donatur1.setText("Donatur");
 
-        donate.setText("Donasi");
-        donate.addActionListener(new java.awt.event.ActionListener() {
+        edit.setText("Edit");
+        edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                donateActionPerformed(evt);
+                editActionPerformed(evt);
             }
         });
 
@@ -133,7 +138,7 @@ public class DetailDonate extends javax.swing.JFrame {
                                 .addGap(227, 227, 227)
                                 .addComponent(donatur1)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(donate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         donasi1Layout.setVerticalGroup(
             donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +155,7 @@ public class DetailDonate extends javax.swing.JFrame {
                     .addComponent(uang1)
                     .addComponent(donatur1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(donate)
+                .addComponent(edit)
                 .addContainerGap())
         );
 
@@ -177,8 +182,6 @@ public class DetailDonate extends javax.swing.JFrame {
 
         lokasi1.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
 
-        jLabel3.setText("edit");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,12 +190,8 @@ public class DetailDonate extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(back)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(jLabel3)))
-                        .addGap(133, 133, 133)
+                        .addComponent(back)
+                        .addGap(149, 149, 149)
                         .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1)
                     .addComponent(paragraf1)
@@ -211,8 +210,6 @@ public class DetailDonate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(back)
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(donasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -242,9 +239,12 @@ public class DetailDonate extends javax.swing.JFrame {
         new ListDonate().setVisible(true);
     }//GEN-LAST:event_backActionPerformed
 
-    private void donateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateActionPerformed
-    
-    }//GEN-LAST:event_donateActionPerformed
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+          System.out.println("borw");    
+        new Editdonate(id).setVisible(true);
+            
+          
+    }//GEN-LAST:event_editActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,20 +263,21 @@ public class DetailDonate extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetailDonateedit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetailDonateedit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetailDonateedit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetailDonateedit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DetailDonate(1).setVisible(true);
+                new DetailDonateedit(1).setVisible(true);
             }
         });
     }
@@ -284,8 +285,8 @@ public class DetailDonate extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
     private javax.swing.JPanel donasi1;
-    private javax.swing.JButton donate;
     private javax.swing.JLabel donatur1;
+    private javax.swing.JButton edit;
     private javax.swing.JLabel gmbr1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
