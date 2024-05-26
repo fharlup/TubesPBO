@@ -9,8 +9,14 @@ import Controler.DonationController;
 import Controler.ViewController;
 import Model.PenggalanganDana;
 import Model.User;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,9 +24,12 @@ import javax.swing.ImageIcon;
  */
 public class Editdonate extends javax.swing.JFrame {
 
-    private static int id;
+     private int id;
+    private File selectedFile;
+    private PenggalanganDana penggalangan;
     public Editdonate(int id) {
         initComponents();
+         this.id = id; // Initialize the class-level id variable
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
         User user = DonationController.getUserByID(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
@@ -269,11 +278,51 @@ public class Editdonate extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void donateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_donateActionPerformed
 
     private void ConfrimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfrimActionPerformed
-        // TODO add your handling code here:
+ String newJudul = JudulField.getText();
+    String newDetail = DetailFeild.getText();
+    String newTargetStr = Target.getText();
+    String newLokasi = LokasiFeild.getText();
+
+    long newTarget;
+    try {
+        newTarget = Long.parseLong(newTargetStr);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Target must be a valid number");
+        return;
+    }
+
+    if (newJudul.isEmpty() || newDetail.isEmpty() || newLokasi.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please fill all fields");
+        return;
+    }
+
+    try {
+        // Load the image from the selected file
+        InputStream imageStream = null;
+        if (selectedFile != null) {
+            imageStream = new FileInputStream(selectedFile);
+        }
+
+        // Create a new PenggalanganDana object with updated data
+        
+        System.out.println("baaaa");
+        PenggalanganDana updatedPenggalangan = new PenggalanganDana(penggalangan.getId(), newJudul, newDetail, newLokasi, penggalangan.isConfirm(), penggalangan.getOrganisasiId(), imageStream);
+
+        // Call the controller to update the data
+        boolean success = DonationController.editPenggalangan(updatedPenggalangan);
+        if (success) {
+            JOptionPane.showMessageDialog(this, "Penggalangan Dana updated successfully");
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to update Penggalangan Dana");
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Failed to update Penggalangan Dana");
+    }     
     }//GEN-LAST:event_ConfrimActionPerformed
 
     private void DetailFeildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetailFeildActionPerformed
@@ -285,7 +334,7 @@ public class Editdonate extends javax.swing.JFrame {
     }//GEN-LAST:event_TargetActionPerformed
 
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
-        // TODO add your handling code here:
+        selectedFile = jFileChooser1.getSelectedFile();
     }//GEN-LAST:event_jFileChooser1ActionPerformed
 
     /**

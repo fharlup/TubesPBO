@@ -19,14 +19,22 @@ public class DonationController {
 
  
     Database db = new Database();
-    public static boolean editPenggalangan(String judulBaru, String deskripsiBaru, String lokasiBaru, int penggalanganId) {
-    String sql = "UPDATE penggalangandana SET judul = ?, deskripsi = ?, lokasi = ? WHERE idPenggalangan = ?";
+
+    
+    public static boolean editPenggalangan(PenggalanganDana penggalangan) {
+    String sql = "UPDATE penggalangan_dana SET judul = ?, deskripsi = ?, lokasi = ?, image = ? WHERE id = ?";
     try (Connection conn = Database.getConnection();
          PreparedStatement stmt = conn.prepareStatement(sql)) {
-        stmt.setString(1, judulBaru);
-        stmt.setString(2, deskripsiBaru);
-        stmt.setString(3, lokasiBaru);
-        stmt.setInt(4, penggalanganId);
+        stmt.setString(1, penggalangan.getJudul());
+        stmt.setString(2, penggalangan.getDeskripsi());
+        stmt.setString(3, penggalangan.getLokasi());
+        InputStream imageStream = penggalangan.getImage();
+        if (imageStream != null) {
+            stmt.setBlob(4, imageStream);
+        } else {
+            stmt.setNull(4, java.sql.Types.BLOB);
+        }
+        stmt.setInt(5, penggalangan.getId());
         int rowsUpdated = stmt.executeUpdate();
         return rowsUpdated > 0;
     } catch (SQLException ex) {
@@ -34,6 +42,8 @@ public class DonationController {
     }
     return false;
 }
+       
+    
       public static boolean Terima(int penggalanganId) {
         String sql = "UPDATE penggalangandana SET confirm = ? WHERE idPenggalangan = ?";
         try (Connection conn = Database.getConnection();
