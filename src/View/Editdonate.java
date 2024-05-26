@@ -27,6 +27,7 @@ public class Editdonate extends javax.swing.JFrame {
      private int id;
     private File selectedFile;
     private PenggalanganDana penggalangan;
+    
     public Editdonate(int id) {
         initComponents();
          this.id = id; // Initialize the class-level id variable
@@ -309,9 +310,9 @@ public class Editdonate extends javax.swing.JFrame {
 
         // Create a new PenggalanganDana object with updated data
         
-        System.out.println("baaaa");
+        System.out.println("yang ini ga");
         PenggalanganDana updatedPenggalangan = new PenggalanganDana(penggalangan.getId(), newJudul, newDetail, newLokasi, penggalangan.isConfirm(), penggalangan.getOrganisasiId(), imageStream);
-
+        System.out.println("ciaaa");
         // Call the controller to update the data
         boolean success = DonationController.editPenggalangan(updatedPenggalangan);
         if (success) {
