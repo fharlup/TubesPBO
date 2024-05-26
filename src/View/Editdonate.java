@@ -16,10 +16,10 @@ import javax.swing.ImageIcon;
  *
  * @author Alvan
  */
-public class DetailDonate extends javax.swing.JFrame {
+public class Editdonate extends javax.swing.JFrame {
 
     private static int id;
-    public DetailDonate(int id) {
+    public Editdonate(int id) {
         initComponents();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
         User user = DonationController.getUserByID(penggalangan.getOrganisasiId());
@@ -175,7 +175,7 @@ public class DetailDonate extends javax.swing.JFrame {
 
         lokasi1.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
 
-        jLabel3.setText("edit");
+        jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,9 +188,9 @@ public class DetailDonate extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(back)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
+                                .addGap(42, 42, 42)
                                 .addComponent(jLabel3)))
-                        .addGap(133, 133, 133)
+                        .addGap(125, 125, 125)
                         .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1)
                     .addComponent(paragraf1)
@@ -209,7 +209,7 @@ public class DetailDonate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(back)
-                        .addGap(68, 68, 68)
+                        .addGap(73, 73, 73)
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(donasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -241,7 +241,7 @@ public class DetailDonate extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void donateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateActionPerformed
-    
+        // TODO add your handling code here:
     }//GEN-LAST:event_donateActionPerformed
 
     /**
@@ -261,20 +261,21 @@ public class DetailDonate extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editdonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editdonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editdonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editdonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DetailDonate(1).setVisible(true);
+                new Editdonate(1).setVisible(true);
             }
         });
     }

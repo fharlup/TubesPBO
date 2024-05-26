@@ -16,16 +16,44 @@ import java.util.logging.Logger;
 
 public class DonationController {
 
+
  
     Database db = new Database();
-      public static boolean unconfirmPenggalangan(int penggalanganId) {
+    public static boolean editPenggalangan(String judulBaru, String deskripsiBaru, String lokasiBaru, int penggalanganId) {
+    String sql = "UPDATE penggalangandana SET judul = ?, deskripsi = ?, lokasi = ? WHERE idPenggalangan = ?";
+    try (Connection conn = Database.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setString(1, judulBaru);
+        stmt.setString(2, deskripsiBaru);
+        stmt.setString(3, lokasiBaru);
+        stmt.setInt(4, penggalanganId);
+        int rowsUpdated = stmt.executeUpdate();
+        return rowsUpdated > 0;
+    } catch (SQLException ex) {
+        Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return false;
+}
+      public static boolean Terima(int penggalanganId) {
         String sql = "UPDATE penggalangandana SET confirm = ? WHERE idPenggalangan = ?";
         try (Connection conn = Database.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setBoolean(1, false);
+            stmt.setBoolean(1, true);
             stmt.setInt(2, penggalanganId);
             int rowsUpdated = stmt.executeUpdate();
             return rowsUpdated > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+       public static boolean delete(int penggalanganId) {
+        String sql = "DELETE FROM penggalangandana WHERE idPenggalangan = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, penggalanganId);
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
         } catch (SQLException ex) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
         }
