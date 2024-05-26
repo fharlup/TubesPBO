@@ -24,20 +24,23 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="donasi1" max="32767" attributes="0"/>
-                          <Component id="jButton1" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="back" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                      <Component id="donasi1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="paragraf1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="paragraf2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="paragraf3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lokasi1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lokasi2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lokasi3" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="271" max="32767" attributes="0"/>
+              <EmptySpace pref="142" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,12 +48,30 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="donasi1" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="back" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="donasi1" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="paragraf1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="paragraf2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="paragraf3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lokasi1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lokasi2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lokasi3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,27 +82,33 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="gmbr1" alignment="0" min="-2" max="-2" attributes="0"/>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="judul1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="organisasi1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="progress1" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                      <Component id="gmbr1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="uang1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="227" pref="227" max="-2" attributes="0"/>
-                          <Component id="donatur1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="judul1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="organisasi1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="progress1" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="uang1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="227" pref="227" max="-2" attributes="0"/>
+                                  <Component id="donatur1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
+              <Component id="donate" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="gmbr1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                  <Component id="gmbr1" min="-2" pref="110" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Component id="judul1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                   <Component id="organisasi1" min="-2" max="-2" attributes="0"/>
@@ -92,6 +119,9 @@
                       <Component id="uang1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="donatur1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Component id="donate" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -126,16 +156,62 @@
             <Property name="text" type="java.lang.String" value="Donatur"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JButton" name="donate">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Donasi"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="donateActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Donasi"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Detail"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="paragraf1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="paragraf2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="paragraf3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="back">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Back"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Lokasi"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lokasi3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lokasi2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lokasi1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"/>
       </Properties>
     </Component>
   </SubComponents>
