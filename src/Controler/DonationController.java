@@ -15,8 +15,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DonationController {
+
+ 
     Database db = new Database();
-    
+      public static boolean unconfirmPenggalangan(int penggalanganId) {
+        String sql = "UPDATE penggalangandana SET confirm = ? WHERE idPenggalangan = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setBoolean(1, false);
+            stmt.setInt(2, penggalanganId);
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     public static List<PenggalanganDana> getAllPenggalangan(){
         List<PenggalanganDana> PenggalanganList = new ArrayList<>();
         String sql = "SELECT * FROM penggalangandana";
