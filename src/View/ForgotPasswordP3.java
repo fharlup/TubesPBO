@@ -178,12 +178,11 @@ public class ForgotPasswordP3 extends javax.swing.JFrame {
                             .addComponent(LabelConfirmPassword))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EmailNotFound1))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(SetNewPasswordLabel)
-                        .addComponent(ContinueFPButton1)
-                        .addComponent(LabelAturanPassword)
-                        .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LabelPassword)))
+                    .addComponent(SetNewPasswordLabel)
+                    .addComponent(ContinueFPButton1)
+                    .addComponent(LabelAturanPassword)
+                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelPassword))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -231,6 +230,7 @@ public class ForgotPasswordP3 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ContinueFPButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueFPButtonActionPerformed
