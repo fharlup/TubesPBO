@@ -2,6 +2,7 @@ package Controler;
 
 import Database.Database;
 import Model.Donasi;
+import Model.Donatur;
 import Model.PenggalanganDana;
 import Model.User;
 import java.io.InputStream;
@@ -16,16 +17,54 @@ import java.util.logging.Logger;
 
 public class DonationController {
 
+
  
     Database db = new Database();
-      public static boolean unconfirmPenggalangan(int penggalanganId) {
+
+    
+    public static boolean editPenggalangan(PenggalanganDana penggalangan) {
+    String sql = "UPDATE penggalangan_dana SET judul = ?, deskripsi = ?, lokasi = ?, image = ? WHERE id = ?";
+    try (Connection conn = Database.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setString(1, penggalangan.getJudul());
+        stmt.setString(2, penggalangan.getDeskripsi());
+        stmt.setString(3, penggalangan.getLokasi());
+        InputStream imageStream = penggalangan.getImage();
+        if (imageStream != null) {
+            stmt.setBlob(4, imageStream);
+        } else {
+            stmt.setNull(4, java.sql.Types.BLOB);
+        }
+        stmt.setInt(5, penggalangan.getId());
+        int rowsUpdated = stmt.executeUpdate();
+        return rowsUpdated > 0;
+    } catch (SQLException ex) {
+        Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return false;
+}
+       
+    
+      public static boolean Terima(int penggalanganId) {
         String sql = "UPDATE penggalangandana SET confirm = ? WHERE idPenggalangan = ?";
         try (Connection conn = Database.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setBoolean(1, false);
+            stmt.setBoolean(1, true);
             stmt.setInt(2, penggalanganId);
             int rowsUpdated = stmt.executeUpdate();
             return rowsUpdated > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+       public static boolean delete(int penggalanganId) {
+        String sql = "DELETE FROM penggalangandana WHERE idPenggalangan = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, penggalanganId);
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
         } catch (SQLException ex) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -82,29 +121,6 @@ public class DonationController {
         return donasiList;
     }
     
-    public static User getUserByID(int id){
-        String sql = "SELECT * FROM user WHERE userId = ?";
-        try (Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
-            stmt.setInt(1, id);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    String role = rs.getString("role");
-                    String email = rs.getString("email");
-                    String username = rs.getString("username");
-                    String password = rs.getString("password");
-                    int userId = rs.getInt("userId");
-                
-                    User user = new User(email,username,password,role,userId);
-                    return user;
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
-    
     public static PenggalanganDana getPenggalangByID(int id){
         String sql = "SELECT * FROM penggalangandana WHERE idPenggalangan = ?";
         try (Connection conn = Database.getConnection();
@@ -121,6 +137,30 @@ public class DonationController {
                     InputStream image = rs.getBinaryStream("photo");
                     
                     PenggalanganDana penggalangan = new PenggalanganDana(id,judul, deskripsi, lokasi,confirm,organisasiId ,image);
+                    return penggalangan;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+  public static PenggalanganDana getPenggalangByConfirm(boolean confirm) {
+        String sql = "SELECT * FROM penggalangandana WHERE confirm = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setBoolean(1, confirm);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    int id = rs.getInt("idPenggalangan");
+                    String judul = rs.getString("judul");
+                    String deskripsi = rs.getString("deskripsi");
+                    String lokasi = rs.getString("lokasi");
+                    boolean isConfirmed = rs.getBoolean("confirm");
+                    int organisasiId = rs.getInt("organisasiId");
+                    InputStream image = rs.getBinaryStream("photo");
+                
+                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, isConfirmed, organisasiId, image);
                     return penggalangan;
                 }
             }

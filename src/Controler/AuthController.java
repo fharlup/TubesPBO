@@ -1,6 +1,9 @@
 package Controler;
 
 import Database.Database;
+import Model.Admin;
+import Model.Donatur;
+import Model.Organisasi;
 import Model.User;
 import Model.UserSession; // Import the UserSession class
 import java.sql.Connection;
@@ -112,7 +115,9 @@ public class AuthController {
     }
     
     public User getUserDetails(String username, String password) {
-        User user = null;
+        Donatur donatur = null;
+        Admin admin = null;
+        Organisasi organisasi = null;
         try (Connection connection = Database.getConnection()) {
             if (connection != null) {
                 
@@ -130,10 +135,21 @@ public class AuthController {
                     int id = resultSet.getInt("userId");
                     String email = resultSet.getString("email");
                     String role = resultSet.getString("role");
-                    user = new User(email, username, password, role, id);
-                    user.setId(id);
+                    if (role.matches("donatur")){
+                        donatur = new Donatur(email, username, password, role, id);
+                        donatur.setId(id);
+                        return donatur;
+                    } else if (role.matches("donatur")){
+                        organisasi = new Organisasi(email, username, password, role, id);
+                        organisasi.setId(id);
+                        return organisasi
+                                ;
+                    } else {
+                        admin = new Admin(email, username, password, role, id);
+                        admin.setId(id);
+                        return admin;
+                    }
 
-                    System.out.println("User found: " + user.getUsername());
                 } else {
                     System.out.println("No user found with the given username and password");
                 }
@@ -147,6 +163,6 @@ public class AuthController {
             JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
-        return user;
+        return null;
     }
 }

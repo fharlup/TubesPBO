@@ -76,4 +76,7 @@ public class PenggalanganDana {
     public void setImage(InputStream image) {
         this.image = image;
     }
+      public boolean isConfirm() {
+        return confirm;
+    }
 }

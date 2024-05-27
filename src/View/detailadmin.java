@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package View;
-import Controler.AdminController;
+
 import Controler.DonationController;
 import Controler.OrganisasiController;
 import Controler.ViewController;
@@ -12,64 +12,27 @@ import Model.PenggalanganDana;
 import Model.User;
 import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Alvan
  */
-public class Adminview extends javax.swing.JFrame {
-    OrganisasiController orgCtrl = new OrganisasiController();
-    public int id1;
-    public boolean confirm1;
-    public boolean confirm2;
-    public int id2;
-    public int id3;
-    public int id4;
+public class detailadmin extends javax.swing.JFrame {
 
-    private static List<PenggalanganDana> penggalanganList;
     /**
      * Creates new form ListDonate
      * @param penggalanganList
      */
-    public Adminview(List<PenggalanganDana> penggalanganList) {
-        Adminview.penggalanganList = penggalanganList;
+    OrganisasiController orgCtrl = new OrganisasiController();
+    public int id1;
+    public int id2;
+    public int id3;
+    public int id4;
+    public detailadmin() {
         initComponents();
         loadPenggalangan(1);
     }
     
-    private void loadButton(int count){
-        if (count/4 == 0 || count%4 >0){
-            page1.setVisible(true);
-        } 
-        if (count/4 == 1 || (count/4 == 1 && count%4 >0)){
-            page2.setVisible(true);
-        } 
-        if (count/4 == 2 || (count/4 == 2 && count%4 >0)){
-            page3.setVisible(true);
-        } 
-        if (count/4 == 3 || (count/4 == 3 && count%4 >0)){
-            page4.setVisible(true);
-        } 
-        if (count/4 == 4 || (count/4 == 4 && count%4 >0)){
-            page5.setVisible(true);
-        } 
-        if (count/4 == 5 || (count/4 == 5 && count%4 >0)){
-            page6.setVisible(true);
-        } 
-        if (count/4 == 6 || (count/4 == 6 && count%4 >0)){
-            page7.setVisible(true);
-        } 
-        if (count/4 == 7 ||(count/4 == 7 && count%4 >0)){
-            page8.setVisible(true);
-        } 
-        if (count/4 == 8 || (count/4 == 8 && count%4 >0)){
-            page9.setVisible(true);
-        }
-        if (count/4 == 9 || (count/4 == 9 && count%4 >0)){
-            page10.setVisible(true);
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,21 +42,6 @@ public class Adminview extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gmbr3 = new javax.swing.JLabel();
-        donasi3 = new javax.swing.JPanel();
-        judul3 = new javax.swing.JLabel();
-        organisasi3 = new javax.swing.JLabel();
-        progress3 = new javax.swing.JProgressBar();
-        uang3 = new javax.swing.JLabel();
-        donatur3 = new javax.swing.JLabel();
-        gmbr4 = new javax.swing.JLabel();
-        organisasi4 = new javax.swing.JLabel();
-        donasi4 = new javax.swing.JPanel();
-        judul4 = new javax.swing.JLabel();
-        progress4 = new javax.swing.JProgressBar();
-        uang4 = new javax.swing.JLabel();
-        donatur4 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
         page2 = new javax.swing.JButton();
         page1 = new javax.swing.JButton();
         page3 = new javax.swing.JButton();
@@ -111,9 +59,6 @@ public class Adminview extends javax.swing.JFrame {
         progress1 = new javax.swing.JProgressBar();
         uang1 = new javax.swing.JLabel();
         donatur1 = new javax.swing.JLabel();
-        edit = new javax.swing.JButton();
-        tolak1 = new javax.swing.JButton();
-        Terima2 = new javax.swing.JButton();
         donasi2 = new javax.swing.JPanel();
         gmbr2 = new javax.swing.JLabel();
         judul2 = new javax.swing.JLabel();
@@ -121,101 +66,20 @@ public class Adminview extends javax.swing.JFrame {
         progress2 = new javax.swing.JProgressBar();
         uang2 = new javax.swing.JLabel();
         donatur2 = new javax.swing.JLabel();
-        Terima = new javax.swing.JButton();
-        tolak = new javax.swing.JButton();
-        edit1 = new javax.swing.JButton();
-
-        gmbr3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
-
-        judul3.setText("Judul");
-
-        organisasi3.setText("Nama Organisasi");
-
-        uang3.setText("Uang");
-
-        donatur3.setText("Donatur");
-
-        javax.swing.GroupLayout donasi3Layout = new javax.swing.GroupLayout(donasi3);
-        donasi3.setLayout(donasi3Layout);
-        donasi3Layout.setHorizontalGroup(
-            donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(donasi3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(donasi3Layout.createSequentialGroup()
-                        .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(progress3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(donasi3Layout.createSequentialGroup()
-                                .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(judul3)
-                                    .addComponent(organisasi3))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(donasi3Layout.createSequentialGroup()
-                        .addComponent(uang3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(donatur3)
-                        .addGap(33, 33, 33))))
-        );
-        donasi3Layout.setVerticalGroup(
-            donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(donasi3Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(judul3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(organisasi3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(progress3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(uang3)
-                    .addComponent(donatur3))
-                .addGap(0, 10, Short.MAX_VALUE))
-        );
-
-        gmbr4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
-
-        organisasi4.setText("Nama Organisasi");
-
-        judul4.setText("Judul");
-
-        uang4.setText("Uang");
-
-        donatur4.setText("Donatur");
-
-        javax.swing.GroupLayout donasi4Layout = new javax.swing.GroupLayout(donasi4);
-        donasi4.setLayout(donasi4Layout);
-        donasi4Layout.setHorizontalGroup(
-            donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(donasi4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(donasi4Layout.createSequentialGroup()
-                        .addGroup(donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(progress4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(donasi4Layout.createSequentialGroup()
-                                .addComponent(judul4)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(donasi4Layout.createSequentialGroup()
-                        .addComponent(uang4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(donatur4)
-                        .addGap(33, 33, 33))))
-        );
-        donasi4Layout.setVerticalGroup(
-            donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(donasi4Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(judul4)
-                .addGap(26, 26, 26)
-                .addComponent(progress4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(uang4)
-                    .addComponent(donatur4))
-                .addGap(0, 10, Short.MAX_VALUE))
-        );
+        donasi3 = new javax.swing.JPanel();
+        gmbr3 = new javax.swing.JLabel();
+        judul3 = new javax.swing.JLabel();
+        organisasi3 = new javax.swing.JLabel();
+        progress3 = new javax.swing.JProgressBar();
+        uang3 = new javax.swing.JLabel();
+        donatur3 = new javax.swing.JLabel();
+        donasi4 = new javax.swing.JPanel();
+        gmbr4 = new javax.swing.JLabel();
+        judul4 = new javax.swing.JLabel();
+        organisasi4 = new javax.swing.JLabel();
+        progress4 = new javax.swing.JProgressBar();
+        uang4 = new javax.swing.JLabel();
+        donatur4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -305,54 +169,21 @@ public class Adminview extends javax.swing.JFrame {
 
         donatur1.setText("Donatur");
 
-        edit.setText("edit");
-        edit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editActionPerformed(evt);
-            }
-        });
-
-        tolak1.setText("tolak");
-        tolak1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tolak1ActionPerformed(evt);
-            }
-        });
-
-        Terima2.setText("Terima");
-        Terima2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Terima2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout donasi1Layout = new javax.swing.GroupLayout(donasi1);
         donasi1.setLayout(donasi1Layout);
         donasi1Layout.setHorizontalGroup(
             donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(donasi1Layout.createSequentialGroup()
-                .addComponent(gmbr1)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(gmbr1)
             .addGroup(donasi1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(judul1)
+                    .addComponent(organisasi1)
+                    .addComponent(progress1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(donasi1Layout.createSequentialGroup()
-                        .addGroup(donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(judul1)
-                            .addComponent(progress1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(donasi1Layout.createSequentialGroup()
-                                .addComponent(uang1)
-                                .addGap(227, 227, 227)
-                                .addComponent(donatur1)))
-                        .addContainerGap(20, Short.MAX_VALUE))
-                    .addGroup(donasi1Layout.createSequentialGroup()
-                        .addComponent(organisasi1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(edit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Terima2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tolak1))))
+                        .addComponent(uang1)
+                        .addGap(227, 227, 227)
+                        .addComponent(donatur1))))
         );
         donasi1Layout.setVerticalGroup(
             donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,14 +191,10 @@ public class Adminview extends javax.swing.JFrame {
                 .addComponent(gmbr1)
                 .addGap(7, 7, 7)
                 .addComponent(judul1)
-                .addGap(3, 3, 3)
-                .addGroup(donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(organisasi1)
-                    .addComponent(edit)
-                    .addComponent(tolak1)
-                    .addComponent(Terima2))
-                .addGap(18, 18, 18)
-                .addComponent(progress1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(organisasi1)
+                .addGap(7, 7, 7)
+                .addComponent(progress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addGroup(donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(uang1)
@@ -390,27 +217,6 @@ public class Adminview extends javax.swing.JFrame {
 
         donatur2.setText("Donatur");
 
-        Terima.setText("Terima");
-        Terima.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TerimaActionPerformed(evt);
-            }
-        });
-
-        tolak.setText("tolak");
-        tolak.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tolakActionPerformed(evt);
-            }
-        });
-
-        edit1.setText("edit");
-        edit1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edit1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout donasi2Layout = new javax.swing.GroupLayout(donasi2);
         donasi2.setLayout(donasi2Layout);
         donasi2Layout.setHorizontalGroup(
@@ -420,21 +226,14 @@ public class Adminview extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(donasi2Layout.createSequentialGroup()
-                        .addComponent(judul2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(donasi2Layout.createSequentialGroup()
                         .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(progress2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(donasi2Layout.createSequentialGroup()
-                                .addComponent(organisasi2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(edit1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Terima)
-                                .addGap(2, 2, 2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tolak)
-                        .addGap(12, 12, 12))
+                                .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(judul2)
+                                    .addComponent(organisasi2))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
                     .addGroup(donasi2Layout.createSequentialGroup()
                         .addComponent(uang2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -448,13 +247,9 @@ public class Adminview extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(judul2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(organisasi2)
-                    .addComponent(edit1)
-                    .addComponent(Terima)
-                    .addComponent(tolak))
-                .addGap(18, 18, 18)
-                .addComponent(progress2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(organisasi2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(progress2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(donasi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(uang2)
@@ -462,10 +257,135 @@ public class Adminview extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        donasi3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                donasi3MouseClicked(evt);
+            }
+        });
+
+        gmbr3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
+
+        judul3.setText("Judul");
+
+        organisasi3.setText("Nama Organisasi");
+
+        uang3.setText("Uang");
+
+        donatur3.setText("Donatur");
+
+        javax.swing.GroupLayout donasi3Layout = new javax.swing.GroupLayout(donasi3);
+        donasi3.setLayout(donasi3Layout);
+        donasi3Layout.setHorizontalGroup(
+            donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(gmbr3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(donasi3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(donasi3Layout.createSequentialGroup()
+                        .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(progress3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(donasi3Layout.createSequentialGroup()
+                                .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(judul3)
+                                    .addComponent(organisasi3))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(donasi3Layout.createSequentialGroup()
+                        .addComponent(uang3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(donatur3)
+                        .addGap(33, 33, 33))))
+        );
+        donasi3Layout.setVerticalGroup(
+            donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(donasi3Layout.createSequentialGroup()
+                .addComponent(gmbr3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(judul3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(organisasi3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(progress3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(uang3)
+                    .addComponent(donatur3))
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+
+        donasi4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                donasi4MouseClicked(evt);
+            }
+        });
+
+        gmbr4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
+
+        judul4.setText("Judul");
+
+        organisasi4.setText("Nama Organisasi");
+
+        uang4.setText("Uang");
+
+        donatur4.setText("Donatur");
+
+        javax.swing.GroupLayout donasi4Layout = new javax.swing.GroupLayout(donasi4);
+        donasi4.setLayout(donasi4Layout);
+        donasi4Layout.setHorizontalGroup(
+            donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(gmbr4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(donasi4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(donasi4Layout.createSequentialGroup()
+                        .addGroup(donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(progress4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(donasi4Layout.createSequentialGroup()
+                                .addGroup(donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(judul4)
+                                    .addComponent(organisasi4))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(donasi4Layout.createSequentialGroup()
+                        .addComponent(uang4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(donatur4)
+                        .addGap(33, 33, 33))))
+        );
+        donasi4Layout.setVerticalGroup(
+            donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(donasi4Layout.createSequentialGroup()
+                .addComponent(gmbr4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(judul4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(organisasi4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(progress4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(donasi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(uang4)
+                    .addComponent(donatur4))
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(donasi3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(donasi4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(donasi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(251, 251, 251)
                 .addComponent(page1)
@@ -488,17 +408,19 @@ public class Adminview extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(page10)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
-                .addComponent(donasi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(218, 505, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(donasi2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(donasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(donasi3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(donasi4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(page2)
                     .addComponent(page1)
@@ -511,16 +433,9 @@ public class Adminview extends javax.swing.JFrame {
                     .addComponent(page9)
                     .addComponent(page10))
                 .addGap(20, 20, 20))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(donasi2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void page2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page2ActionPerformed
@@ -564,92 +479,60 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_page4ActionPerformed
 
     private void donasi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi1MouseClicked
-       //int idPenggalangan = id1; // Asumsi Anda mendapatkan ID penggalangan dari list
-    //ystem.out.println(idPenggalangan);
-    
-    // Menyimpan ID penggalangan yang diklik ke dalam controller
-   // AdminController.setClickedPenggalanganId(idPenggalangan);
-   
+        setVisible(false);
+        new DetailDonate(id1).setVisible(true);
     }//GEN-LAST:event_donasi1MouseClicked
 
-    private void tolakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakActionPerformed
-         // Mendapatkan ID penggalangan yang diklik
-    // Mendapatkan ID penggalangan yang diklik
-    int clickedPenggalanganId = id2;
-    
-    // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
-    boolean result = DonationController.delete(clickedPenggalanganId);
-    
-    // Menampilkan pesan berhasil atau gagal
-    if (result) {
-        JOptionPane.showMessageDialog(this, "Penggalangan dana telah ditolak.");
-    } else {
-        JOptionPane.showMessageDialog(this, "Gagal menolak penggalangan dana.");
-    }
-    }//GEN-LAST:event_tolakActionPerformed
-
-    private void TerimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerimaActionPerformed
-          int clickedPenggalanganId = id2;
-    
-    // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
-    boolean result = DonationController.Terima(clickedPenggalanganId);
-    
-    // Menampilkan pesan berhasil atau gagal
-    if (result) {
-        JOptionPane.showMessageDialog(this, "Penggalangan berhasil di terima.");
-    } else {
-        JOptionPane.showMessageDialog(this, "Gagal menerima .");
-    }
-    }//GEN-LAST:event_TerimaActionPerformed
-
     private void donasi2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi2MouseClicked
-            int idPenggalangan =id2; // Asumsi Anda mendapatkan ID penggalangan dari list
-    System.out.println(idPenggalangan);
-    
-    // Menyimpan ID penggalangan yang diklik ke dalam controller
-    AdminController.setClickedPenggalanganId(idPenggalangan);
+        setVisible(false);
+        new DetailDonate(id2).setVisible(true);
     }//GEN-LAST:event_donasi2MouseClicked
 
-    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-         new DetailDonateedit(id1,confirm1).setVisible(true);
-         System.out.println("sana");
-    }//GEN-LAST:event_editActionPerformed
+    private void donasi3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi3MouseClicked
+        setVisible(false);
+        new DetailDonate(id3).setVisible(true);
+    }//GEN-LAST:event_donasi3MouseClicked
 
-    private void tolak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolak1ActionPerformed
-        // TODO add your handling code here:
-        int clickedPenggalanganId = id1;
-    
-    // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
-    boolean result = DonationController.delete(clickedPenggalanganId);
-    
-    // Menampilkan pesan berhasil atau gagal
-    if (result) {
-        JOptionPane.showMessageDialog(this, "Penggalangan dana telah ditolak.");
-    } else {
-        JOptionPane.showMessageDialog(this, "Gagal menolak penggalangan dana.");
+    private void donasi4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi4MouseClicked
+        setVisible(false);
+        new DetailDonate(id4).setVisible(true);
+    }//GEN-LAST:event_donasi4MouseClicked
+
+    private void loadButton(int count){
+        if (count/4 == 0 || count%4 >0){
+            page1.setVisible(true);
+        } 
+        if (count/4 == 1 || (count/4 == 1 && count%4 >0)){
+            page2.setVisible(true);
+        } 
+        if (count/4 == 2 || (count/4 == 2 && count%4 >0)){
+            page3.setVisible(true);
+        } 
+        if (count/4 == 3 || (count/4 == 3 && count%4 >0)){
+            page4.setVisible(true);
+        } 
+        if (count/4 == 4 || (count/4 == 4 && count%4 >0)){
+            page5.setVisible(true);
+        } 
+        if (count/4 == 5 || (count/4 == 5 && count%4 >0)){
+            page6.setVisible(true);
+        } 
+        if (count/4 == 6 || (count/4 == 6 && count%4 >0)){
+            page7.setVisible(true);
+        } 
+        if (count/4 == 7 ||(count/4 == 7 && count%4 >0)){
+            page8.setVisible(true);
+        } 
+        if (count/4 == 8 || (count/4 == 8 && count%4 >0)){
+            page9.setVisible(true);
+        }
+        if (count/4 == 9 || (count/4 == 9 && count%4 >0)){
+            page10.setVisible(true);
+        }
     }
-    }//GEN-LAST:event_tolak1ActionPerformed
-
-    private void Terima2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Terima2ActionPerformed
-        int clickedPenggalanganId =id1;
     
-    // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
-    boolean result = DonationController.Terima(clickedPenggalanganId);
-    
-    // Menampilkan pesan berhasil atau gagal
-    if (result) {
-        JOptionPane.showMessageDialog(this, "Penggalangan berhasil di terima.");
-    } else {
-        JOptionPane.showMessageDialog(this, "Gagal menerima .");
-    }
-    }//GEN-LAST:event_Terima2ActionPerformed
-
-    private void edit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit1ActionPerformed
-         new DetailDonateedit(id2,confirm2).setVisible(true);
-    }//GEN-LAST:event_edit1ActionPerformed
-
     private void loadPenggalangan(int page){
-       donasi1.setVisible(false);
+        donasi1.setVisible(false);
         donasi2.setVisible(false);
         donasi3.setVisible(false);
         donasi4.setVisible(false);
@@ -667,19 +550,21 @@ public class Adminview extends javax.swing.JFrame {
         List<PenggalanganDana> penggalanganList = DonationController.getAllPenggalangan();
         
         // hapus yg blom confirm
-     
+        for (int i = 0; i < penggalanganList.size(); i++) {
+            if (!penggalanganList.get(i).getConfirm()) {
+                penggalanganList.remove(i);
+                i--;
+            }
+        }
         
         loadButton(penggalanganList.size());
         int startIdx = (page - 1) * 4;
         
         int idx = 0;
         int count = 0;
-        if (startIdx <= penggalanganList.size()) {
+        if (startIdx < penggalanganList.size()) {
             loadCard1(penggalanganList.get(startIdx));
             id1 = penggalanganList.get(startIdx).getId();
-            confirm1 = penggalanganList.get(startIdx).getConfirm();
-            System.out.println("ini sout confrim");
-            System.out.println(confirm1);
             donasi1.setVisible(true);
         }
         if (startIdx + 1 < penggalanganList.size()) {
@@ -756,13 +641,13 @@ public class Adminview extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Adminview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detailadmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Adminview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detailadmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Adminview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detailadmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Adminview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detailadmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -770,15 +655,13 @@ public class Adminview extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Adminview(penggalanganList).setVisible(true);
+                new detailadmin().setVisible(true);
             }
         });
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Terima;
-    private javax.swing.JButton Terima2;
     private javax.swing.JPanel donasi1;
     private javax.swing.JPanel donasi2;
     private javax.swing.JPanel donasi3;
@@ -787,13 +670,10 @@ public class Adminview extends javax.swing.JFrame {
     private javax.swing.JLabel donatur2;
     private javax.swing.JLabel donatur3;
     private javax.swing.JLabel donatur4;
-    private javax.swing.JButton edit;
-    private javax.swing.JButton edit1;
     private javax.swing.JLabel gmbr1;
     private javax.swing.JLabel gmbr2;
     private javax.swing.JLabel gmbr3;
     private javax.swing.JLabel gmbr4;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel judul1;
     private javax.swing.JLabel judul2;
     private javax.swing.JLabel judul3;
@@ -816,8 +696,6 @@ public class Adminview extends javax.swing.JFrame {
     private javax.swing.JProgressBar progress2;
     private javax.swing.JProgressBar progress3;
     private javax.swing.JProgressBar progress4;
-    private javax.swing.JButton tolak;
-    private javax.swing.JButton tolak1;
     private javax.swing.JLabel uang1;
     private javax.swing.JLabel uang2;
     private javax.swing.JLabel uang3;
