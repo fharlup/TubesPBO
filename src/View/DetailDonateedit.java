@@ -18,12 +18,16 @@ import javax.swing.ImageIcon;
  * @author Alvan
  */
 public class DetailDonateedit extends javax.swing.JFrame {
-
+    private static boolean confrim;
     private static int id;
-    public DetailDonateedit(int id) {
+    public DetailDonateedit(int id,boolean konfrim) {
+        
+       this.confrim=confrim;
         this.id = id; 
         System.out.println("brow");
+        System.out.println("arga");
         System.out.println("ID: " + this.id);
+           System.out.println("confrim: " + this.confrim);
         initComponents();
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
@@ -277,7 +281,7 @@ public class DetailDonateedit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DetailDonateedit(1).setVisible(true);
+                new DetailDonateedit(1,confrim).setVisible(true);
             }
         });
     }

@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
  * @author Alvan
  */
 public class Editdonate extends javax.swing.JFrame {
+    private boolean kon;
 
      private int id;
     private File selectedFile;
@@ -31,6 +32,7 @@ public class Editdonate extends javax.swing.JFrame {
     
     public Editdonate(int id) {
         initComponents();
+        this.kon=kon;
         this.id = id;
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
@@ -313,7 +315,13 @@ public class Editdonate extends javax.swing.JFrame {
         // Create a new PenggalanganDana object with updated data
         
         System.out.println("yang ini ga");
-        PenggalanganDana updatedPenggalangan = new PenggalanganDana(penggalangan.getId(), newJudul, newDetail, newLokasi, penggalangan.isConfirm(), penggalangan.getOrganisasiId(), imageStream);
+        System.out.println(id);
+        System.out.println(newJudul);
+        System.out.println(newLokasi);
+        System.out.println(kon);
+        //System.out.println(penggalangan.getOrganisasiId());
+        System.out.println(imageStream);
+        PenggalanganDana updatedPenggalangan = new PenggalanganDana(id, newJudul, newDetail, newLokasi, kon, 1, imageStream);
         System.out.println("ciaaa");
         // Call the controller to update the data
         boolean success = DonationController.editPenggalangan(updatedPenggalangan);
