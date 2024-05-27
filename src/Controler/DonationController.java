@@ -143,22 +143,22 @@ public class DonationController {
         }
         return null;
     }
-     public static PenggalanganDana getPenggalangByconfrim(int id){
-        String sql = "SELECT * FROM penggalangandana WHERE  confrim = ?";
+  public static PenggalanganDana getPenggalangByConfirm(boolean confirm) {
+        String sql = "SELECT * FROM penggalangandana WHERE confirm = ?";
         try (Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
-            stmt.setInt(1, id);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setBoolean(1, confirm);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    id = rs.getInt("idPenggalangan");
+                    int id = rs.getInt("idPenggalangan");
                     String judul = rs.getString("judul");
                     String deskripsi = rs.getString("deskripsi");
                     String lokasi = rs.getString("lokasi");
-                    boolean confirm = rs.getBoolean("confirm");
-                    int organisasiId  = rs.getInt("organisasiId");
+                    boolean isConfirmed = rs.getBoolean("confirm");
+                    int organisasiId = rs.getInt("organisasiId");
                     InputStream image = rs.getBinaryStream("photo");
                 
-                    PenggalanganDana penggalangan = new PenggalanganDana(id,judul, deskripsi, lokasi,confirm,organisasiId ,image);
+                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, isConfirmed, organisasiId, image);
                     return penggalangan;
                 }
             }
@@ -167,7 +167,6 @@ public class DonationController {
         }
         return null;
     }
-   
     
     public static int getTotalDonasiPenggalangan(int id){
         int totalNominal = 0;

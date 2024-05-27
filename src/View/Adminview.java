@@ -673,7 +673,7 @@ public class Adminview extends javax.swing.JFrame {
         
         int idx = 0;
         int count = 0;
-        if (startIdx < penggalanganList.size()) {
+        if (startIdx <= penggalanganList.size()) {
             loadCard1(penggalanganList.get(startIdx));
             id1 = penggalanganList.get(startIdx).getId();
             confirm1 = penggalanganList.get(startIdx).getConfirm();

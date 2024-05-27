@@ -22,18 +22,33 @@ public class DetailDonateedit extends javax.swing.JFrame {
     private static int id;
     public DetailDonateedit(int id,boolean konfrim) {
         
-       this.confrim=confrim;
+       this.confrim=konfrim;
         this.id = id; 
         System.out.println("brow");
         System.out.println("arga");
         System.out.println("ID: " + this.id);
            System.out.println("confrim: " + this.confrim);
         initComponents();
+        
+        
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
+       
+        PenggalanganDana kon = DonationController.getPenggalangByConfirm(confrim);
+        System.out.println("penggalandanda");
+        System.out.println(penggalangan);
+        System.out.println("cacacacaca");
+        
+        System.out.println(kon);
+        System.out.println("ini confrim");
+        System.out.println(confrim);
         User user = orgCtrl.getById(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
         
+         boolean confirm = penggalangan.getConfirm();
+      
+        System.out.println("cintaaa");
+        System.out.println(confrim);
         gmbr1.setIcon(img);
         judul1.setText(penggalangan.getJudul());
         organisasi1.setText(user.getUsername());

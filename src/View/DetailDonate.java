@@ -18,12 +18,17 @@ import javax.swing.ImageIcon;
  * @author Alvan
  */
 public class DetailDonate extends javax.swing.JFrame {
-
+    private static boolean confrim;
     private static int id;
     public DetailDonate(int id) {
         initComponents();
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
+        PenggalanganDana kon = DonationController.getPenggalangByConfirm(confrim);
+        System.out.println("penggalandanda");
+        System.out.println(penggalangan);
+        System.out.println("cacacacaca");
+        System.out.println(kon);
         User user = orgCtrl.getById(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
         
