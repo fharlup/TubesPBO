@@ -23,6 +23,7 @@ public class Adminview extends javax.swing.JFrame {
     public int id1;
     public boolean confirm1;
     public boolean confirm2;
+    public int idpeng1;
     public int id2;
     public int id3;
     public int id4;
@@ -611,7 +612,7 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_donasi2MouseClicked
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-         new DetailDonateedit(id1,confirm1).setVisible(true);
+         new DetailDonateedit(id1,confirm1,idpeng1).setVisible(true);
          System.out.println("sana");
     }//GEN-LAST:event_editActionPerformed
 
@@ -645,7 +646,7 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_Terima2ActionPerformed
 
     private void edit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit1ActionPerformed
-         new DetailDonateedit(id2,confirm2).setVisible(true);
+         new DetailDonateedit(id2,confirm2,idpeng1).setVisible(true);
     }//GEN-LAST:event_edit1ActionPerformed
 
     private void loadPenggalangan(int page){
@@ -678,6 +679,7 @@ public class Adminview extends javax.swing.JFrame {
             loadCard1(penggalanganList.get(startIdx));
             id1 = penggalanganList.get(startIdx).getId();
             confirm1 = penggalanganList.get(startIdx).getConfirm();
+            idpeng1=penggalanganList.get(startIdx).getOrganisasiId();
             System.out.println("ini sout confrim");
             System.out.println(confirm1);
             donasi1.setVisible(true);

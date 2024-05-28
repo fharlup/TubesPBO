@@ -24,14 +24,15 @@ import javax.swing.JOptionPane;
  * @author Alvan
  */
 public class Editdonate extends javax.swing.JFrame {
-    private boolean kon;
-
+    private static boolean kon;
+    private static int idpeng;
      private int id;
     private File selectedFile;
     private PenggalanganDana penggalangan;
     
-    public Editdonate(int id) {
+    public Editdonate(int id,boolean kon,int idpeng) {
         initComponents();
+        this.idpeng=idpeng;
         this.kon=kon;
         this.id = id;
         OrganisasiController orgCtrl = new OrganisasiController();
@@ -319,9 +320,10 @@ public class Editdonate extends javax.swing.JFrame {
         System.out.println(newJudul);
         System.out.println(newLokasi);
         System.out.println(kon);
+        System.out.println(idpeng);
         //System.out.println(penggalangan.getOrganisasiId());
         System.out.println(imageStream);
-        PenggalanganDana updatedPenggalangan = new PenggalanganDana(id, newJudul, newDetail, newLokasi, kon, 1, imageStream);
+        PenggalanganDana updatedPenggalangan = new PenggalanganDana(id, newJudul, newDetail, newLokasi, kon, idpeng, imageStream);
         System.out.println("ciaaa");
         // Call the controller to update the data
         boolean success = DonationController.editPenggalangan(updatedPenggalangan);
@@ -379,7 +381,9 @@ public class Editdonate extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Editdonate(1).setVisible(true);
+                System.out.println("kon di run");
+                new Editdonate(1,kon,idpeng).setVisible(true);
+            //    System.out.println("kon");
             }
         });
     }
