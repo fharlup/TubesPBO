@@ -18,12 +18,18 @@ import javax.swing.ImageIcon;
  * @author Alvan
  */
 public class DetailDonate extends javax.swing.JFrame {
-
-    private static int id;
+    private static boolean confrim;
+    private int id;
     public DetailDonate(int id) {
         initComponents();
+         this.id = id;
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
+        PenggalanganDana kon = DonationController.getPenggalangByConfirm(confrim);
+        System.out.println("penggalandanda");
+        System.out.println(penggalangan);
+        System.out.println("cacacacaca");
+        System.out.println(kon);
         User user = orgCtrl.getById(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
         
@@ -235,6 +241,7 @@ public class DetailDonate extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
@@ -243,7 +250,10 @@ public class DetailDonate extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void donateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateActionPerformed
-    
+
+        // TODO add your handling code here:
+        new Payment(id).setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_donateActionPerformed
 
     /**

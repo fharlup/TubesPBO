@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 public class Adminview extends javax.swing.JFrame {
     OrganisasiController orgCtrl = new OrganisasiController();
     public int id1;
+    public boolean confirm1;
+    public boolean confirm2;
     public int id2;
     public int id3;
     public int id4;
@@ -518,6 +520,7 @@ public class Adminview extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void page2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page2ActionPerformed
@@ -561,11 +564,11 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_page4ActionPerformed
 
     private void donasi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi1MouseClicked
-       int idPenggalangan = id1; // Asumsi Anda mendapatkan ID penggalangan dari list
-    System.out.println(idPenggalangan);
+       //int idPenggalangan = id1; // Asumsi Anda mendapatkan ID penggalangan dari list
+    //ystem.out.println(idPenggalangan);
     
     // Menyimpan ID penggalangan yang diklik ke dalam controller
-    AdminController.setClickedPenggalanganId(idPenggalangan);
+   // AdminController.setClickedPenggalanganId(idPenggalangan);
    
     }//GEN-LAST:event_donasi1MouseClicked
 
@@ -608,7 +611,7 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_donasi2MouseClicked
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-         new DetailDonateedit(id1).setVisible(true);
+         new DetailDonateedit(id1,confirm1).setVisible(true);
          System.out.println("sana");
     }//GEN-LAST:event_editActionPerformed
 
@@ -642,7 +645,7 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_Terima2ActionPerformed
 
     private void edit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit1ActionPerformed
-         new DetailDonateedit(id2).setVisible(true);
+         new DetailDonateedit(id2,confirm2).setVisible(true);
     }//GEN-LAST:event_edit1ActionPerformed
 
     private void loadPenggalangan(int page){
@@ -671,9 +674,12 @@ public class Adminview extends javax.swing.JFrame {
         
         int idx = 0;
         int count = 0;
-        if (startIdx < penggalanganList.size()) {
+        if (startIdx <= penggalanganList.size()) {
             loadCard1(penggalanganList.get(startIdx));
             id1 = penggalanganList.get(startIdx).getId();
+            confirm1 = penggalanganList.get(startIdx).getConfirm();
+            System.out.println("ini sout confrim");
+            System.out.println(confirm1);
             donasi1.setVisible(true);
         }
         if (startIdx + 1 < penggalanganList.size()) {

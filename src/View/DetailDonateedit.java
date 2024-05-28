@@ -18,18 +18,37 @@ import javax.swing.ImageIcon;
  * @author Alvan
  */
 public class DetailDonateedit extends javax.swing.JFrame {
-
+    private static boolean confrim;
     private static int id;
-    public DetailDonateedit(int id) {
+    public DetailDonateedit(int id,boolean konfrim) {
+        
+       this.confrim=konfrim;
         this.id = id; 
         System.out.println("brow");
+        System.out.println("arga");
         System.out.println("ID: " + this.id);
+           System.out.println("confrim: " + this.confrim);
         initComponents();
+        
+        
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
+       
+        PenggalanganDana kon = DonationController.getPenggalangByConfirm(confrim);
+        System.out.println("penggalandanda");
+        System.out.println(penggalangan);
+        System.out.println("cacacacaca");
+        
+        System.out.println(kon);
+        System.out.println("ini confrim");
+        System.out.println(confrim);
         User user = orgCtrl.getById(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
         
+         boolean confirm = penggalangan.getConfirm();
+      
+        System.out.println("cintaaa");
+        System.out.println(confrim);
         gmbr1.setIcon(img);
         judul1.setText(penggalangan.getJudul());
         organisasi1.setText(user.getUsername());
@@ -277,7 +296,7 @@ public class DetailDonateedit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DetailDonateedit(1).setVisible(true);
+                new DetailDonateedit(1,confrim).setVisible(true);
             }
         });
     }

@@ -85,7 +85,7 @@ public class DonationController {
                     boolean confirm = rs.getBoolean("confirm");
                     int organisasiId  = rs.getInt("organisasiId");
                     InputStream image = rs.getBinaryStream("photo");
-                
+                    
                     PenggalanganDana penggalangan = new PenggalanganDana(id,judul, deskripsi, lokasi,confirm,organisasiId ,image);
                     PenggalanganList.add(penggalangan);
                 }
@@ -108,8 +108,10 @@ public class DonationController {
                     int idPenggalangan = rs.getInt("penggalanganId");
                     int nominal = rs.getInt("nominal");
                     String pesan = rs.getString("pesan");
+                    String metodePembayaran = rs.getString("metodePembayaran");
+                    String nama = rs.getString("nama");
                 
-                    Donasi donasi = new Donasi(idDonatur, idPenggalangan, nominal, pesan);
+                    Donasi donasi = new Donasi(idDonatur, idPenggalangan, nominal, pesan, metodePembayaran, nama);
                     donasiList.add(donasi);
                 }
             }
@@ -133,8 +135,32 @@ public class DonationController {
                     boolean confirm = rs.getBoolean("confirm");
                     int organisasiId  = rs.getInt("organisasiId");
                     InputStream image = rs.getBinaryStream("photo");
-                
+                    
                     PenggalanganDana penggalangan = new PenggalanganDana(id,judul, deskripsi, lokasi,confirm,organisasiId ,image);
+                    return penggalangan;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+  public static PenggalanganDana getPenggalangByConfirm(boolean confirm) {
+        String sql = "SELECT * FROM penggalangandana WHERE confirm = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setBoolean(1, confirm);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    int id = rs.getInt("idPenggalangan");
+                    String judul = rs.getString("judul");
+                    String deskripsi = rs.getString("deskripsi");
+                    String lokasi = rs.getString("lokasi");
+                    boolean isConfirmed = rs.getBoolean("confirm");
+                    int organisasiId = rs.getInt("organisasiId");
+                    InputStream image = rs.getBinaryStream("photo");
+                
+                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, isConfirmed, organisasiId, image);
                     return penggalangan;
                 }
             }
@@ -163,13 +189,15 @@ public class DonationController {
     }
     
     public static boolean addDonasi(Donasi donasi){
-        String sql = "INSERT INTO donasi (nominal, pesan, userId , penggalanganId ) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO donasi (nominal, pesan, userId , penggalanganId, metodePembayaran, nama ) VALUES (?, ?, ?, ?, ?, ?)";
         try(Connection conn = Database.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setInt(1, donasi.getNominal());
             stmt.setString(2, donasi.getPesan());
             stmt.setInt(3, donasi.getIdDonatur());
             stmt.setInt(4, donasi.getIdPenggalangan());
+            stmt.setString(5, donasi.getMetodePembayaran());
+            stmt.setString(6, donasi.getNama());
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -194,5 +222,5 @@ public class DonationController {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
-    }
+    }   
 }
