@@ -20,14 +20,18 @@ import javax.swing.ImageIcon;
 public class DetailDonateedit extends javax.swing.JFrame {
     private static boolean confrim;
     private static int id;
-    public DetailDonateedit(int id,boolean konfrim) {
+    private static int idpeng;
+    public DetailDonateedit(int id,boolean konfrim,int idpeng) {
         
        this.confrim=konfrim;
         this.id = id; 
+        this.idpeng=idpeng;
         System.out.println("brow");
-        System.out.println("arga");
+        System.out.println("seluruh panggilan");
         System.out.println("ID: " + this.id);
            System.out.println("confrim: " + this.confrim);
+           System.out.println("idpeng"+this.idpeng);
+           
         initComponents();
         
         
@@ -35,19 +39,17 @@ public class DetailDonateedit extends javax.swing.JFrame {
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
        
         PenggalanganDana kon = DonationController.getPenggalangByConfirm(confrim);
-        System.out.println("penggalandanda");
+   
         System.out.println(penggalangan);
-        System.out.println("cacacacaca");
+
         
-        System.out.println(kon);
-        System.out.println("ini confrim");
-        System.out.println(confrim);
+   
         User user = orgCtrl.getById(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
         
          boolean confirm = penggalangan.getConfirm();
       
-        System.out.println("cintaaa");
+        System.out.println("hasil");
         System.out.println(confrim);
         gmbr1.setIcon(img);
         judul1.setText(penggalangan.getJudul());
@@ -260,7 +262,7 @@ public class DetailDonateedit extends javax.swing.JFrame {
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
           System.out.println("borw");    
-        new Editdonate(id).setVisible(true);
+        new Editdonate(id,confrim,idpeng).setVisible(true);
             
           
     }//GEN-LAST:event_editActionPerformed
@@ -296,7 +298,7 @@ public class DetailDonateedit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DetailDonateedit(1,confrim).setVisible(true);
+                new DetailDonateedit(1,confrim,idpeng).setVisible(true);
             }
         });
     }
