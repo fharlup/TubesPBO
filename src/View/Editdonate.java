@@ -214,7 +214,7 @@ public class Editdonate extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Detail");
+        jLabel6.setText("judul");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
