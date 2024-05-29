@@ -9,6 +9,7 @@ import Database.Database;
 import Model.Admin;
 import Model.PenggalanganDana;
 import Model.User;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -101,5 +102,58 @@ public class AdminController implements UserInterface{
     public static int getDonasiByPenggalanganId(int idPenggalangan) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-   
+   public static boolean editPenggalangan(PenggalanganDana penggalangan) {
+    String sql = "UPDATE penggalangandana SET judul = ?, deskripsi = ?, lokasi = ?, photo = ?, confirm = ?, organisasiId = ? WHERE idPenggalangan = ?";
+    try (Connection conn = Database.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setString(1, penggalangan.getJudul());
+        stmt.setString(2, penggalangan.getDeskripsi());
+        stmt.setString(3, penggalangan.getLokasi());
+        InputStream photoStream = penggalangan.getImage();
+        if (photoStream != null) {
+            stmt.setBlob(4, photoStream);
+        } else {
+            stmt.setNull(4, java.sql.Types.BLOB);
+        }
+        stmt.setBoolean(5, penggalangan.isConfirm());
+        stmt.setInt(6, penggalangan.getOrganisasiId());
+        stmt.setInt(7, penggalangan.getId());
+
+        int rowsUpdated = stmt.executeUpdate();
+        return rowsUpdated > 0;
+    } catch (SQLException ex) {
+        Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return false;
+}
+
+
+       
+    
+      public static boolean Terima(int penggalanganId) {
+        String sql = "UPDATE penggalangandana SET confirm = ? WHERE idPenggalangan = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setBoolean(1, true);
+            stmt.setInt(2, penggalanganId);
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+       public static boolean delete(int penggalanganId) {
+        String sql = "DELETE FROM penggalangandana WHERE idPenggalangan = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, penggalanganId);
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+      
 }
