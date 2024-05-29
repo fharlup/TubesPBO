@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controler.AdminController;
 import Controler.DonationController;
 import Controler.OrganisasiController;
 import Controler.ViewController;
@@ -103,11 +104,11 @@ public class Editdonate extends javax.swing.JFrame {
         organisasi1 = new javax.swing.JLabel();
         uang1 = new javax.swing.JLabel();
         donatur1 = new javax.swing.JLabel();
+        judul1 = new javax.swing.JLabel();
         donasi1 = new javax.swing.JPanel();
         LokasiFeild = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
-        judul1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -116,6 +117,7 @@ public class Editdonate extends javax.swing.JFrame {
         JudulField = new javax.swing.JTextField();
         DetailFeild = new javax.swing.JTextField();
         Target = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -146,6 +148,8 @@ public class Editdonate extends javax.swing.JFrame {
 
         donatur1.setText("Donatur");
 
+        judul1.setText("Judul");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout donasi1Layout = new javax.swing.GroupLayout(donasi1);
@@ -173,8 +177,6 @@ public class Editdonate extends javax.swing.JFrame {
             }
         });
 
-        judul1.setText("Judul");
-
         jLabel2.setText("Lokasi");
 
         jLabel4.setText("Target");
@@ -194,6 +196,12 @@ public class Editdonate extends javax.swing.JFrame {
             }
         });
 
+        JudulField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JudulFieldActionPerformed(evt);
+            }
+        });
+
         DetailFeild.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DetailFeildActionPerformed(evt);
@@ -206,34 +214,12 @@ public class Editdonate extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setText("Detail");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(DetailFeild, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(Target, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(341, 341, 341))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(156, 156, 156))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(judul1)
-                        .addGap(18, 18, 18)
-                        .addComponent(JudulField, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel2)
-                        .addGap(478, 478, 478))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(back)
@@ -242,6 +228,30 @@ public class Editdonate extends javax.swing.JFrame {
                     .addComponent(Confrim)
                     .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(171, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(DetailFeild, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(Target, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(341, 341, 341))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(27, 27, 27)
+                        .addComponent(JudulField, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel2)
+                        .addGap(478, 478, 478))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(156, 156, 156))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,9 +262,9 @@ public class Editdonate extends javax.swing.JFrame {
                         .addComponent(back)
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(judul1)
                             .addComponent(JudulField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel6))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -326,7 +336,7 @@ public class Editdonate extends javax.swing.JFrame {
         PenggalanganDana updatedPenggalangan = new PenggalanganDana(id, newJudul, newDetail, newLokasi, kon, idpeng, imageStream);
         System.out.println("ciaaa");
         // Call the controller to update the data
-        boolean success = DonationController.editPenggalangan(updatedPenggalangan);
+        boolean success = AdminController.editPenggalangan(updatedPenggalangan);
         if (success) {
             JOptionPane.showMessageDialog(this, "Penggalangan Dana updated successfully");
         } else {
@@ -349,6 +359,10 @@ public class Editdonate extends javax.swing.JFrame {
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
         selectedFile = jFileChooser1.getSelectedFile();
     }//GEN-LAST:event_jFileChooser1ActionPerformed
+
+    private void JudulFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JudulFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JudulFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,6 +419,7 @@ public class Editdonate extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel judul1;
     private javax.swing.JLabel lokasi1;
     private javax.swing.JLabel lokasi2;
