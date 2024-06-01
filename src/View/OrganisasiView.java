@@ -27,21 +27,58 @@ public class OrganisasiView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        AddDonati = new javax.swing.JButton();
+        LihatDonasi = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        AddDonati.setText("Buat Donasi");
+        AddDonati.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddDonatiActionPerformed(evt);
+            }
+        });
+
+        LihatDonasi.setText("Lihat Donasi");
+        LihatDonasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LihatDonasiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AddDonati)
+                    .addComponent(LihatDonasi))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(AddDonati)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LihatDonasi)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AddDonatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDonatiActionPerformed
+        // TODO add your handling code here:
+        new AddDonate().setVisible(true);
+    }//GEN-LAST:event_AddDonatiActionPerformed
+
+    private void LihatDonasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LihatDonasiActionPerformed
+        // TODO add your handling code here:
+        new OrganisasiDonate().setVisible(true);
+    }//GEN-LAST:event_LihatDonasiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +116,7 @@ public class OrganisasiView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddDonati;
+    private javax.swing.JButton LihatDonasi;
     // End of variables declaration//GEN-END:variables
 }

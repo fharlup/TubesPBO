@@ -5,6 +5,15 @@
  */
 package View;
 
+import Controler.DonationController;
+import Controler.OrganisasiController;
+import Controler.ViewController;
+import Model.PenggalanganDana;
+import Model.User;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +21,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +33,12 @@ public class AddDonate extends javax.swing.JFrame {
     /**
      * Creates new form AddDonate
      */
+    private static boolean kon;
+    private static int idOrganisasi;
+    private int idPenggalanganDana;
+    private File selectedFile;
+    private PenggalanganDana penggalanganDana;
+
     public AddDonate() {
         initComponents();
     }
@@ -36,11 +52,8 @@ public class AddDonate extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        Back = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        JudulInput = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         LokasiInput = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -48,30 +61,14 @@ public class AddDonate extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         TargetInput = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jFileChooser1 = new javax.swing.JFileChooser();
+        jLabel1 = new javax.swing.JLabel();
+        Media = new javax.swing.JFileChooser();
+        Back = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        JudulInput = new javax.swing.JTextField();
         ConfirmDonate = new javax.swing.JButton();
 
-        jButton1.setText("jButton1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Buat Penggalangan Dana");
-
-        Back.setText("Back");
-        Back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Judul");
-
-        JudulInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JudulInputActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Lokasi");
 
@@ -99,9 +96,27 @@ public class AddDonate extends javax.swing.JFrame {
 
         jLabel6.setText("Unggah Media");
 
-        jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Buat Penggalangan Dana");
+
+        Media.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFileChooser1ActionPerformed(evt);
+                MediaActionPerformed(evt);
+            }
+        });
+
+        Back.setText("Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Judul");
+
+        JudulInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JudulInputActionPerformed(evt);
             }
         });
 
@@ -112,67 +127,84 @@ public class AddDonate extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ConfirmDonate)
-                    .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2)
-                        .addComponent(Back)
-                        .addComponent(jLabel1)
-                        .addComponent(JudulInput)
-                        .addComponent(LokasiInput)
-                        .addComponent(DeskripsiInput)
-                        .addComponent(TargetInput, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)))
-                .addContainerGap(94, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ConfirmDonate)
+                            .addComponent(Media, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel6)
+                            .addComponent(TargetInput, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JudulInput, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LokasiInput, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DeskripsiInput, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Back)))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(Back)
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JudulInput, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LokasiInput, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DeskripsiInput, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TargetInput, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(Media, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(ConfirmDonate)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
+    private void MediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MediaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFileChooser1ActionPerformed
+        selectedFile = Media.getSelectedFile();
+    }//GEN-LAST:event_MediaActionPerformed
 
     private void ConfirmDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmDonateActionPerformed
         // TODO add your handling code here:
@@ -180,21 +212,37 @@ public class AddDonate extends javax.swing.JFrame {
         String lokasi = LokasiInput.getText();
         String deskripsi = DeskripsiInput.getText();
         String target = TargetInput.getText();
-        String media = "";
         
-        String inputData = "INSERT INTO mahasiswa VALUES ('"+judul+"', '"+lokasi+"', '"+deskripsi+"', '"+target+"', '"+media+"')"; 
+        long newTarget;
+        try {
+            newTarget = Long.parseLong(target);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Target must be a valid number!", "WARNING", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (judul.isEmpty() || deskripsi.isEmpty() |lokasi.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill all fields!", "WARNING", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbo","root","");
-            Statement st = con.createStatement();
-            st.executeUpdate(inputData);
-            JOptionPane.showMessageDialog(this, "Penggalangan Dana berhasil di Upload!", "Information", JOptionPane.INFORMATION_MESSAGE);
-           
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OrganisasiView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException e){
-            
+           try {
+            InputStream imageStream = null;
+            if (selectedFile != null) {
+                imageStream = new FileInputStream(selectedFile);
+            }
+
+            PenggalanganDana newPenggalangan = new PenggalanganDana(idPenggalanganDana, judul, deskripsi, lokasi, kon, idOrganisasi, imageStream);
+
+            boolean success = DonationController.addPenggalangan(newPenggalangan);
+            if (success) {
+                JOptionPane.showMessageDialog(this, "Penggalangan Dana added successfully", "SUCCESS", JOptionPane.PLAIN_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to add Penggalangan Dana", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Failed to add Penggalangan Dana", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ConfirmDonateActionPerformed
 
@@ -216,6 +264,8 @@ public class AddDonate extends javax.swing.JFrame {
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        new OrganisasiView().setVisible(true);
     }//GEN-LAST:event_BackActionPerformed
 
     /**
@@ -259,15 +309,16 @@ public class AddDonate extends javax.swing.JFrame {
     private javax.swing.JTextField DeskripsiInput;
     private javax.swing.JTextField JudulInput;
     private javax.swing.JTextField LokasiInput;
+    private javax.swing.JFileChooser Media;
     private javax.swing.JTextField TargetInput;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
 }

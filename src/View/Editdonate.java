@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
 public class Editdonate extends javax.swing.JFrame {
     private static boolean kon;
     private static int idpeng;
-     private int id;
+    private int id;
     private File selectedFile;
     private PenggalanganDana penggalangan;
     
@@ -79,6 +79,10 @@ public class Editdonate extends javax.swing.JFrame {
             lokasi2.setText(lokasi[1]);  
             lokasi3.setText(lokasi[2]);
         }
+    }
+
+    Editdonate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -194,6 +198,12 @@ public class Editdonate extends javax.swing.JFrame {
             }
         });
 
+        JudulField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JudulFieldActionPerformed(evt);
+            }
+        });
+
         DetailFeild.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DetailFeildActionPerformed(evt);
@@ -288,54 +298,55 @@ public class Editdonate extends javax.swing.JFrame {
     }//GEN-LAST:event_donateActionPerformed
 
     private void ConfrimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfrimActionPerformed
- String newJudul = JudulField.getText();
-    String newDetail = DetailFeild.getText();
-    String newTargetStr = Target.getText();
-    String newLokasi = LokasiFeild.getText();
+        String newJudul = JudulField.getText();
+        String newDetail = DetailFeild.getText();
+        String newTargetStr = Target.getText();
+        String newLokasi = LokasiFeild.getText();
 
-    long newTarget;
-    try {
-        newTarget = Long.parseLong(newTargetStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Target must be a valid number");
-        return;
-    }
-
-    if (newJudul.isEmpty() || newDetail.isEmpty() || newLokasi.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please fill all fields");
-        return;
-    }
-
-    try {
-        // Load the image from the selected file
-        InputStream imageStream = null;
-        if (selectedFile != null) {
-            imageStream = new FileInputStream(selectedFile);
+        long newTarget;
+        try {
+            newTarget = Long.parseLong(newTargetStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Target must be a valid number");
+            return;
         }
 
-        // Create a new PenggalanganDana object with updated data
-        
-        System.out.println("yang ini ga");
-        System.out.println(id);
-        System.out.println(newJudul);
-        System.out.println(newLokasi);
-        System.out.println(kon);
-        System.out.println(idpeng);
-        //System.out.println(penggalangan.getOrganisasiId());
-        System.out.println(imageStream);
-        PenggalanganDana updatedPenggalangan = new PenggalanganDana(id, newJudul, newDetail, newLokasi, kon, idpeng, imageStream);
-        System.out.println("ciaaa");
-        // Call the controller to update the data
-        boolean success = DonationController.editPenggalangan(updatedPenggalangan);
-        if (success) {
-            JOptionPane.showMessageDialog(this, "Penggalangan Dana updated successfully");
-        } else {
+        if (newJudul.isEmpty() || newDetail.isEmpty() || newLokasi.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill all fields");
+            return;
+        }
+
+        try {
+            // Load the image from the selected file
+            InputStream imageStream = null;
+            if (selectedFile != null) {
+                imageStream = new FileInputStream(selectedFile);
+            }
+
+            // Create a new PenggalanganDana object with updated data
+            System.out.println("yang ini ga");
+            System.out.println(id);
+            System.out.println(newJudul);
+            System.out.println(newLokasi);
+            System.out.println(kon);
+            System.out.println(idpeng);
+            
+            //System.out.println(penggalangan.getOrganisasiId());
+            System.out.println(imageStream);
+            PenggalanganDana updatedPenggalangan = new PenggalanganDana(id, newJudul, newDetail, newLokasi, kon, idpeng, imageStream);
+            System.out.println("ciaaa");
+
+            // Call the controller to update the data
+            boolean success = DonationController.editPenggalangan(updatedPenggalangan);
+            if (success) {
+                JOptionPane.showMessageDialog(this, "Penggalangan Dana updated successfully");
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to update Penggalangan Dana");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Failed to update Penggalangan Dana");
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Failed to update Penggalangan Dana");
-    }     
+        }     
     }//GEN-LAST:event_ConfrimActionPerformed
 
     private void DetailFeildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetailFeildActionPerformed
@@ -349,6 +360,10 @@ public class Editdonate extends javax.swing.JFrame {
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
         selectedFile = jFileChooser1.getSelectedFile();
     }//GEN-LAST:event_jFileChooser1ActionPerformed
+
+    private void JudulFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JudulFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JudulFieldActionPerformed
 
     /**
      * @param args the command line arguments

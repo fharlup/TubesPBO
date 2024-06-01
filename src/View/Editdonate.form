@@ -248,6 +248,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="JudulField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JudulFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="DetailFeild">
       <Events>

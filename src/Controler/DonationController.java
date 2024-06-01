@@ -17,43 +17,37 @@ import java.util.logging.Logger;
 
 public class DonationController {
 
-
- 
     Database db = new Database();
 
-    
-public static boolean editPenggalangan(PenggalanganDana penggalangan) {
-    String sql = "UPDATE penggalangandana SET judul = ?, deskripsi = ?, lokasi = ?, photo = ?, confirm = ?, organisasiId = ? WHERE idPenggalangan = ?";
-    try (Connection conn = Database.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
-        stmt.setString(1, penggalangan.getJudul());
-        stmt.setString(2, penggalangan.getDeskripsi());
-        stmt.setString(3, penggalangan.getLokasi());
-        InputStream photoStream = penggalangan.getImage();
-        if (photoStream != null) {
-            stmt.setBlob(4, photoStream);
-        } else {
-            stmt.setNull(4, java.sql.Types.BLOB);
+    public static boolean editPenggalangan(PenggalanganDana penggalangan) {
+        String sql = "UPDATE penggalangandana SET judul = ?, deskripsi = ?, lokasi = ?, photo = ?, confirm = ?, organisasiId = ? WHERE idPenggalangan = ?";
+        try (Connection conn = Database.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, penggalangan.getJudul());
+            stmt.setString(2, penggalangan.getDeskripsi());
+            stmt.setString(3, penggalangan.getLokasi());
+            InputStream photoStream = penggalangan.getImage();
+            if (photoStream != null) {
+                stmt.setBlob(4, photoStream);
+            } else {
+                stmt.setNull(4, java.sql.Types.BLOB);
+            }
+            stmt.setBoolean(5, penggalangan.isConfirm());
+            stmt.setInt(6, penggalangan.getOrganisasiId());
+            stmt.setInt(7, penggalangan.getId());
+
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        stmt.setBoolean(5, penggalangan.isConfirm());
-        stmt.setInt(6, penggalangan.getOrganisasiId());
-        stmt.setInt(7, penggalangan.getId());
-
-        int rowsUpdated = stmt.executeUpdate();
-        return rowsUpdated > 0;
-    } catch (SQLException ex) {
-        Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
     }
-    return false;
-}
 
-
-       
-    
-      public static boolean Terima(int penggalanganId) {
+    public static boolean Terima(int penggalanganId) {
         String sql = "UPDATE penggalangandana SET confirm = ? WHERE idPenggalangan = ?";
         try (Connection conn = Database.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setBoolean(1, true);
             stmt.setInt(2, penggalanganId);
             int rowsUpdated = stmt.executeUpdate();
@@ -63,10 +57,11 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         }
         return false;
     }
-       public static boolean delete(int penggalanganId) {
+
+    public static boolean delete(int penggalanganId) {
         String sql = "DELETE FROM penggalangandana WHERE idPenggalangan = ?";
         try (Connection conn = Database.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, penggalanganId);
             int rowsDeleted = stmt.executeUpdate();
             return rowsDeleted > 0;
@@ -75,12 +70,12 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         }
         return false;
     }
-      
-    public static List<PenggalanganDana> getAllPenggalangan(){
+
+    public static List<PenggalanganDana> getAllPenggalangan() {
         List<PenggalanganDana> PenggalanganList = new ArrayList<>();
         String sql = "SELECT * FROM penggalangandana";
         try (Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
                     int id = rs.getInt("idPenggalangan");
@@ -88,10 +83,10 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
                     String deskripsi = rs.getString("deskripsi");
                     String lokasi = rs.getString("lokasi");
                     boolean confirm = rs.getBoolean("confirm");
-                    int organisasiId  = rs.getInt("organisasiId");
+                    int organisasiId = rs.getInt("organisasiId");
                     InputStream image = rs.getBinaryStream("photo");
-                    
-                    PenggalanganDana penggalangan = new PenggalanganDana(id,judul, deskripsi, lokasi,confirm,organisasiId ,image);
+
+                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, confirm, organisasiId, image);
                     PenggalanganList.add(penggalangan);
                 }
             }
@@ -100,12 +95,12 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         }
         return PenggalanganList;
     }
-    
-    public static List<Donasi> getDonasiByPenggalangan(int idPenggalang){
+
+    public static List<Donasi> getDonasiByPenggalangan(int idPenggalang) {
         List<Donasi> donasiList = new ArrayList<>();
         String sql = "SELECT * FROM donasi WHERE penggalanganId = ?";
         try (Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, idPenggalang);
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
@@ -115,7 +110,7 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
                     String pesan = rs.getString("pesan");
                     String metodePembayaran = rs.getString("metodePembayaran");
                     String nama = rs.getString("nama");
-                
+
                     Donasi donasi = new Donasi(idDonatur, idPenggalangan, nominal, pesan, metodePembayaran, nama);
                     donasiList.add(donasi);
                 }
@@ -125,11 +120,11 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         }
         return donasiList;
     }
-    
-    public static PenggalanganDana getPenggalangByID(int id){
+
+    public static PenggalanganDana getPenggalangByID(int id) {
         String sql = "SELECT * FROM penggalangandana WHERE idPenggalangan = ?";
         try (Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -138,10 +133,10 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
                     String deskripsi = rs.getString("deskripsi");
                     String lokasi = rs.getString("lokasi");
                     boolean confirm = rs.getBoolean("confirm");
-                    int organisasiId  = rs.getInt("organisasiId");
+                    int organisasiId = rs.getInt("organisasiId");
                     InputStream image = rs.getBinaryStream("photo");
-                    
-                    PenggalanganDana penggalangan = new PenggalanganDana(id,judul, deskripsi, lokasi,confirm,organisasiId ,image);
+
+                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, confirm, organisasiId, image);
                     return penggalangan;
                 }
             }
@@ -150,10 +145,11 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         }
         return null;
     }
-  public static PenggalanganDana getPenggalangByConfirm(boolean confirm) {
+
+    public static PenggalanganDana getPenggalangByConfirm(boolean confirm) {
         String sql = "SELECT * FROM penggalangandana WHERE confirm = ?";
         try (Connection conn = Database.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setBoolean(1, confirm);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -164,7 +160,7 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
                     boolean isConfirmed = rs.getBoolean("confirm");
                     int organisasiId = rs.getInt("organisasiId");
                     InputStream image = rs.getBinaryStream("photo");
-                
+
                     PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, isConfirmed, organisasiId, image);
                     return penggalangan;
                 }
@@ -174,8 +170,8 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         }
         return null;
     }
-    
-    public static int getTotalDonasiPenggalangan(int id){
+
+    public static int getTotalDonasiPenggalangan(int id) {
         int totalNominal = 0;
         List<Donasi> donasiList = getDonasiByPenggalangan(id);
         for (Donasi donasi : donasiList) {
@@ -183,8 +179,8 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         }
         return totalNominal;
     }
-    
-    public static int getTotalDonatur(int id){
+
+    public static int getTotalDonatur(int id) {
         int totalDonatur = 0;
         List<Donasi> donasiList = getDonasiByPenggalangan(id);
         for (Donasi donasi : donasiList) {
@@ -192,11 +188,11 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         }
         return totalDonatur;
     }
-    
-    public static boolean addDonasi(Donasi donasi){
+
+    public static boolean addDonasi(Donasi donasi) {
         String sql = "INSERT INTO donasi (nominal, pesan, userId , penggalanganId, metodePembayaran, nama ) VALUES (?, ?, ?, ?, ?, ?)";
-        try(Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
+        try (Connection conn = Database.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, donasi.getNominal());
             stmt.setString(2, donasi.getPesan());
             stmt.setInt(3, donasi.getIdDonatur());
@@ -210,11 +206,11 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         }
         return false;
     }
-    
-    public static boolean addPenggalangan(PenggalanganDana penggalangan){
+
+    public static boolean addPenggalangan(PenggalanganDana penggalangan) {
         String sql = "INSERT INTO penggalangandana (judul, deskripsi, lokasi, photo, confirm, organisasiId ) VALUES (?, ?, ?, ?, ?, ?)";
-        try(Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
+        try (Connection conn = Database.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, penggalangan.getJudul());
             stmt.setString(2, penggalangan.getDeskripsi());
             stmt.setString(3, penggalangan.getLokasi());
@@ -227,5 +223,5 @@ public static boolean editPenggalangan(PenggalanganDana penggalangan) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
-    }   
+    }
 }
