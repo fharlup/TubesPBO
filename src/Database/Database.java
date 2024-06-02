@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Database {
-    private static final String DB_URL="jdbc:mysql://127.0.0.1/pbo";
+    private static final String DB_URL="jdbc:mysql://localhost:3306/pbo";
     private static final String DB_USER ="root";
     private static final String DB_PASS="";
     private static Connection conn;

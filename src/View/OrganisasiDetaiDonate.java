@@ -1,5 +1,5 @@
 /*
- * To ch    ange this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -10,26 +10,34 @@ import Controler.OrganisasiController;
 import Controler.ViewController;
 import Model.PenggalanganDana;
 import Model.User;
-import java.util.Arrays;
 import javax.swing.ImageIcon;
 
 /**
  *
- * @author Alvan
+ * @author asyif
  */
-public class DetailDonate extends javax.swing.JFrame {
+public class OrganisasiDetaiDonate extends javax.swing.JFrame {
+
+    /**
+     * Creates new form OrganisasiDetaiDonate
+     */
     private static boolean confrim;
     private int id;
-    public DetailDonate(int id) {
+    
+    public OrganisasiDetaiDonate(int id) {
         initComponents();
+        
         this.id = id;
+        
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
         PenggalanganDana kon = DonationController.getPenggalangByConfirm(confrim);
-        System.out.println("penggalandanda");
+        
+        System.out.println("Penggalangan Dana");
         System.out.println(penggalangan);
         System.out.println("cacacacaca");
         System.out.println(kon);
+        
         User user = orgCtrl.getById(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
         
@@ -90,7 +98,7 @@ public class DetailDonate extends javax.swing.JFrame {
         progress1 = new javax.swing.JProgressBar();
         uang1 = new javax.swing.JLabel();
         donatur1 = new javax.swing.JLabel();
-        donate = new javax.swing.JButton();
+        Edit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         paragraf1 = new javax.swing.JLabel();
         paragraf2 = new javax.swing.JLabel();
@@ -113,10 +121,10 @@ public class DetailDonate extends javax.swing.JFrame {
 
         donatur1.setText("Donatur");
 
-        donate.setText("Donasi");
-        donate.addActionListener(new java.awt.event.ActionListener() {
+        Edit.setText("Edit");
+        Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                donateActionPerformed(evt);
+                EditActionPerformed(evt);
             }
         });
 
@@ -138,7 +146,7 @@ public class DetailDonate extends javax.swing.JFrame {
                                 .addGap(227, 227, 227)
                                 .addComponent(donatur1)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(donate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         donasi1Layout.setVerticalGroup(
             donasi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +163,7 @@ public class DetailDonate extends javax.swing.JFrame {
                     .addComponent(uang1)
                     .addComponent(donatur1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(donate)
+                .addComponent(Edit)
                 .addContainerGap())
         );
 
@@ -187,32 +195,32 @@ public class DetailDonate extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(back)
-                        .addGap(133, 133, 133)
-                        .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1)
-                    .addComponent(paragraf1)
-                    .addComponent(paragraf2)
-                    .addComponent(paragraf3)
-                    .addComponent(jLabel2)
-                    .addComponent(lokasi1)
-                    .addComponent(lokasi2)
-                    .addComponent(lokasi3))
-                .addContainerGap(142, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(back)
+                            .addComponent(jLabel1)
+                            .addComponent(paragraf1)
+                            .addComponent(paragraf2)
+                            .addComponent(paragraf3)
+                            .addComponent(jLabel2)
+                            .addComponent(lokasi1)
+                            .addComponent(lokasi2)
+                            .addComponent(lokasi3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(back)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(donasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(back)
+                .addGap(14, 14, 14)
+                .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(paragraf1)
@@ -232,20 +240,19 @@ public class DetailDonate extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
+         // TODO add your handling code here:
+        setVisible(false);
+        new OrganisasiDonateEdit(id).setVisible(true);
+
+    }//GEN-LAST:event_EditActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         setVisible(false);
         new ListDonate().setVisible(true);
     }//GEN-LAST:event_backActionPerformed
-
-    private void donateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateActionPerformed
-
-        // TODO add your handling code here:
-        new Payment(id).setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_donateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,28 +271,28 @@ public class DetailDonate extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDetaiDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDetaiDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDetaiDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDetaiDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DetailDonate(1).setVisible(true);
+                new OrganisasiDetaiDonate(1).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Edit;
     private javax.swing.JButton back;
     private javax.swing.JPanel donasi1;
-    private javax.swing.JButton donate;
     private javax.swing.JLabel donatur1;
     private javax.swing.JLabel gmbr1;
     private javax.swing.JLabel jLabel1;

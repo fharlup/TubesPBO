@@ -171,9 +171,11 @@ public class LogIn extends javax.swing.JFrame {
             String role = UserSession.getRole();
             System.out.println(role);
             if (role.matches("donatur")){
-                System.out.println("test");
                 setVisible(false);
                 new ListDonate().setVisible(true);
+            } else {
+                setVisible(false);
+                new OrganisasiView().setVisible(true);
             }
         } else {
             JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);

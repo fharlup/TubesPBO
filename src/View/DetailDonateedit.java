@@ -18,74 +18,75 @@ import javax.swing.ImageIcon;
  * @author Alvan
  */
 public class DetailDonateedit extends javax.swing.JFrame {
+
     private static boolean confrim;
     private static int id;
-    public DetailDonateedit(int id,boolean konfrim) {
-        
-       this.confrim=konfrim;
-        this.id = id; 
+    private static int idpeng;
+
+    public DetailDonateedit(int id, boolean konfrim, int idpeng) {
+
+        this.confrim = konfrim;
+        this.id = id;
+        this.idpeng = idpeng;
         System.out.println("brow");
-        System.out.println("arga");
+        System.out.println("seluruh panggilan");
         System.out.println("ID: " + this.id);
-           System.out.println("confrim: " + this.confrim);
+        System.out.println("confrim: " + this.confrim);
+        System.out.println("idpeng" + this.idpeng);
+
         initComponents();
-        
-        
+
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
-       
+
         PenggalanganDana kon = DonationController.getPenggalangByConfirm(confrim);
-        System.out.println("penggalandanda");
+
         System.out.println(penggalangan);
-        System.out.println("cacacacaca");
-        
-        System.out.println(kon);
-        System.out.println("ini confrim");
-        System.out.println(confrim);
+
         User user = orgCtrl.getById(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
-        
-         boolean confirm = penggalangan.getConfirm();
-      
-        System.out.println("cintaaa");
+
+        boolean confirm = penggalangan.getConfirm();
+
+        System.out.println("hasil");
         System.out.println(confrim);
         gmbr1.setIcon(img);
         judul1.setText(penggalangan.getJudul());
         organisasi1.setText(user.getUsername());
         uang1.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(penggalangan.getId())));
-        donatur1.setText(String.valueOf(DonationController.getTotalDonatur(penggalangan.getId()))+" Donatur");
-        
+        donatur1.setText(String.valueOf(DonationController.getTotalDonatur(penggalangan.getId())) + " Donatur");
+
         String[] deskripsi = penggalangan.getDeskripsi().split("(?<=\\G.{100})");
         paragraf2.setVisible(false);
         paragraf3.setVisible(false);
-        
+
         System.out.println(deskripsi.length);
         paragraf1.setText(deskripsi[0]);
-        if (deskripsi.length==2){
+        if (deskripsi.length == 2) {
             paragraf2.setVisible(true);
-            paragraf2.setText(deskripsi[1]);    
+            paragraf2.setText(deskripsi[1]);
         }
-        if (deskripsi.length==3){
+        if (deskripsi.length == 3) {
             paragraf2.setVisible(true);
             paragraf3.setVisible(true);
-            paragraf2.setText(deskripsi[1]);  
-            paragraf3.setText(deskripsi[2]);    
+            paragraf2.setText(deskripsi[1]);
+            paragraf3.setText(deskripsi[2]);
         }
-        
+
         String[] lokasi = penggalangan.getLokasi().split("(?<=\\G.{100})");
         lokasi2.setVisible(false);
         lokasi3.setVisible(false);
-        
+
         System.out.println(deskripsi.length);
         lokasi1.setText(lokasi[0]);
-        if (lokasi.length==2){
+        if (lokasi.length == 2) {
             lokasi2.setVisible(true);
-            lokasi2.setText(lokasi[1]);    
+            lokasi2.setText(lokasi[1]);
         }
-        if (lokasi.length==3){
+        if (lokasi.length == 3) {
             lokasi2.setVisible(true);
             lokasi3.setVisible(true);
-            lokasi2.setText(lokasi[1]);  
+            lokasi2.setText(lokasi[1]);
             lokasi3.setText(lokasi[2]);
         }
     }
@@ -259,10 +260,10 @@ public class DetailDonateedit extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-          System.out.println("borw");    
-        new Editdonate(id).setVisible(true);
-            
-          
+        System.out.println("borw");
+        new Editdonate(id, confrim, idpeng).setVisible(true);
+
+
     }//GEN-LAST:event_editActionPerformed
 
     /**
@@ -296,7 +297,7 @@ public class DetailDonateedit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DetailDonateedit(1,confrim).setVisible(true);
+                new DetailDonateedit(1, confrim, idpeng).setVisible(true);
             }
         });
     }

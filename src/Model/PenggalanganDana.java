@@ -11,15 +11,24 @@ public class PenggalanganDana {
     private int organisasiId;
     private InputStream image;
 
-    public PenggalanganDana(int id, String judul, String deskripsi, String lokasi, boolean confirm, int organisasiId, InputStream image) {
-        this.id = id;
-        this.judul = judul;
-        this.deskripsi = deskripsi;
-        this.lokasi = lokasi;
-        this.confirm = confirm;
-        this.organisasiId = organisasiId;
-        this.image = image;
+    public int getTarget() {
+        return target;
     }
+
+    public void setTarget(int target) {
+        this.target = target;
+    }
+    private int target;
+
+        public PenggalanganDana(int id, String judul, String deskripsi, String lokasi, boolean confirm, int organisasiId, InputStream image) {
+            this.id = id;
+            this.judul = judul;
+            this.deskripsi = deskripsi;
+            this.lokasi = lokasi;
+            this.confirm = confirm;
+            this.organisasiId = organisasiId;
+            this.image = image;
+        }
 
     public int getId() {
         return id;
