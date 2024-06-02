@@ -22,7 +22,7 @@ public class DetailDonate extends javax.swing.JFrame {
     private int id;
     public DetailDonate(int id) {
         initComponents();
-         this.id = id;
+        this.id = id;
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
         PenggalanganDana kon = DonationController.getPenggalangByConfirm(confrim);
@@ -100,7 +100,6 @@ public class DetailDonate extends javax.swing.JFrame {
         lokasi3 = new javax.swing.JLabel();
         lokasi2 = new javax.swing.JLabel();
         lokasi1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,8 +182,6 @@ public class DetailDonate extends javax.swing.JFrame {
 
         lokasi1.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
 
-        jLabel3.setText("edit");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -193,11 +190,7 @@ public class DetailDonate extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(back)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(jLabel3)))
+                        .addComponent(back)
                         .addGap(133, 133, 133)
                         .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1)
@@ -217,8 +210,6 @@ public class DetailDonate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(back)
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(donasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -299,7 +290,6 @@ public class DetailDonate extends javax.swing.JFrame {
     private javax.swing.JLabel gmbr1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel judul1;
     private javax.swing.JLabel lokasi1;
     private javax.swing.JLabel lokasi2;

@@ -19,6 +19,7 @@ public class DonationController {
 
     Database db = new Database();
 
+<<<<<<< HEAD
     public static boolean editPenggalangan(PenggalanganDana penggalangan) {
         String sql = "UPDATE penggalangandana SET judul = ?, deskripsi = ?, lokasi = ?, photo = ?, confirm = ?, organisasiId = ? WHERE idPenggalangan = ?";
         try (Connection conn = Database.getConnection();
@@ -72,6 +73,16 @@ public class DonationController {
     }
 
     public static List<PenggalanganDana> getAllPenggalangan() {
+=======
+    
+
+
+
+       
+    
+      
+    public static List<PenggalanganDana> getAllPenggalangan(){
+>>>>>>> 704522b9c84cf857245c1f25c8aaf48837456886
         List<PenggalanganDana> PenggalanganList = new ArrayList<>();
         String sql = "SELECT * FROM penggalangandana";
         try (Connection conn = Database.getConnection();
