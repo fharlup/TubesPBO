@@ -8,6 +8,7 @@ package View;
 import static Controler.DonationController.addDonasi;
 import Model.Donasi;
 import Model.UserSession;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -241,7 +242,8 @@ public class Payment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
+        setVisible(false);
+        new DetailDonate(id).setVisible(true);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void nominalInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nominalInputActionPerformed
@@ -302,6 +304,9 @@ public class Payment extends javax.swing.JFrame {
         System.out.println(metodePembayaran);
         System.out.println(id);
         addDonasi(donasi);
+        JOptionPane.showMessageDialog(this, "Transaksi Berhasil!!??", "Pemberitahuan", JOptionPane.INFORMATION_MESSAGE);
+        setVisible(false);
+        new ListDonate().setVisible(true);
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**
