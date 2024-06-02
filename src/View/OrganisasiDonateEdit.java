@@ -7,41 +7,34 @@ package View;
 
 import Controler.DonationController;
 import Controler.OrganisasiController;
-import Controler.ViewController;
 import Model.PenggalanganDana;
-import Model.User;
 import Model.UserSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author asyif
  */
-public class AddDonate extends javax.swing.JFrame {
+public class OrganisasiDonateEdit extends javax.swing.JFrame {
 
     /**
-     * Creates new form AddDonate
+     * Creates new form OrganisasiDonateEdit
      */
     private static boolean conn = false;
     private File selectedFile;
     private PenggalanganDana penggalanganDana;
-
-    public AddDonate() {
+    
+    public OrganisasiDonateEdit(int idPenggalangan) {
         initComponents();
-        
-        OrganisasiController orgCtrl = new OrganisasiController();
+        penggalanganDana = DonationController.getPenggalangByID(idPenggalangan);
+        JudulInput.setText(penggalanganDana.getJudul());
+        DeskripsiInput.setText(penggalanganDana.getDeskripsi());
+        LokasiInput.setText(penggalanganDana.getLokasi());
+        TargetInput.setText(String.valueOf(penggalanganDana.getTarget()));
     }
 
     /**
@@ -98,7 +91,7 @@ public class AddDonate extends javax.swing.JFrame {
         jLabel6.setText("Unggah Media");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Buat Penggalangan Dana");
+        jLabel1.setText("Edit Penggalangan Dana");
 
         Media.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +145,7 @@ public class AddDonate extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(Back)))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,10 +195,32 @@ public class AddDonate extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void LokasiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LokasiInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LokasiInputActionPerformed
+
+    private void DeskripsiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeskripsiInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeskripsiInputActionPerformed
+
+    private void TargetInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TargetInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TargetInputActionPerformed
+
     private void MediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MediaActionPerformed
         // TODO add your handling code here:
         selectedFile = Media.getSelectedFile();
     }//GEN-LAST:event_MediaActionPerformed
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new OrganisasiView().setVisible(true);
+    }//GEN-LAST:event_BackActionPerformed
+
+    private void JudulInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JudulInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JudulInputActionPerformed
 
     private void ConfirmDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmDonateActionPerformed
         // TODO add your handling code here:
@@ -231,46 +246,22 @@ public class AddDonate extends javax.swing.JFrame {
             InputStream imageStream = null;
             if (selectedFile != null) {
                 imageStream = new FileInputStream(selectedFile);
-            } else {
-                imageStream = penggalanganDana.getImage();
             }
 
-            PenggalanganDana newPenggalangan = new PenggalanganDana(0, judul, deskripsi, lokasi, conn, UserSession.getId(), imageStream);
-            boolean success = DonationController.addPenggalangan(newPenggalangan);
+            PenggalanganDana newPenggalangan = new PenggalanganDana(penggalanganDana.getId(), judul, deskripsi, lokasi, conn, UserSession.getId(), imageStream);
+            boolean success = DonationController.editPenggalangan(newPenggalangan);
             if (success) {
-                JOptionPane.showMessageDialog(this, "Penggalangan Dana added successfully", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Penggalangan Dana edited successfully", "SUCCESS", JOptionPane.PLAIN_MESSAGE);
                 setVisible(false);
                 new OrganisasiView().setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(this, "Failed to add Penggalangan Dana", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Failed to edit Penggalangan Dana", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         } catch (IOException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Failed to add Penggalangan Dana", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Failed to edit Penggalangan Dana", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ConfirmDonateActionPerformed
-
-    private void JudulInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JudulInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JudulInputActionPerformed
-
-    private void LokasiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LokasiInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LokasiInputActionPerformed
-
-    private void DeskripsiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeskripsiInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeskripsiInputActionPerformed
-
-    private void TargetInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TargetInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TargetInputActionPerformed
-
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        new OrganisasiView().setVisible(true);
-    }//GEN-LAST:event_BackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,20 +280,20 @@ public class AddDonate extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDonateEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDonateEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDonateEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDonateEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddDonate().setVisible(true);
+                new OrganisasiDonateEdit(1).setVisible(true);
             }
         });
     }
@@ -324,5 +315,4 @@ public class AddDonate extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-
 }

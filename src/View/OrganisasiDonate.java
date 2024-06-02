@@ -10,6 +10,7 @@ import Controler.OrganisasiController;
 import Controler.ViewController;
 import Model.PenggalanganDana;
 import Model.User;
+import Model.UserSession;
 import java.util.List;
 import javax.swing.ImageIcon;
 
@@ -471,12 +472,12 @@ public class OrganisasiDonate extends javax.swing.JFrame {
 
     private void donasi4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi4MouseClicked
         setVisible(false);
-        new DetailDonate(id4).setVisible(true);
+        new OrganisasiDetaiDonate(id4).setVisible(true);
     }//GEN-LAST:event_donasi4MouseClicked
 
     private void donasi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi1MouseClicked
         setVisible(false);
-        new DetailDonate(id1).setVisible(true);
+        new OrganisasiDetaiDonate(id1).setVisible(true);
     }//GEN-LAST:event_donasi1MouseClicked
 
     private void page2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page2ActionPerformed
@@ -493,7 +494,7 @@ public class OrganisasiDonate extends javax.swing.JFrame {
 
     private void donasi3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi3MouseClicked
         setVisible(false);
-        new DetailDonate(id3).setVisible(true);
+        new OrganisasiDetaiDonate(id3).setVisible(true);
     }//GEN-LAST:event_donasi3MouseClicked
 
     private void page4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page4ActionPerformed
@@ -514,7 +515,7 @@ public class OrganisasiDonate extends javax.swing.JFrame {
 
     private void donasi2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi2MouseClicked
         setVisible(false);
-        new DetailDonate(id2).setVisible(true);
+        new OrganisasiDetaiDonate(id2).setVisible(true);
     }//GEN-LAST:event_donasi2MouseClicked
 
     private void page10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page10ActionPerformed
@@ -574,7 +575,7 @@ public class OrganisasiDonate extends javax.swing.JFrame {
         
         // hapus yg blom confirm
         for (int i = 0; i < penggalanganList.size(); i++) {
-            if (!penggalanganList.get(i).getConfirm()) {
+            if (penggalanganList.get(i).getOrganisasiId() != UserSession.getId()) {
                 penggalanganList.remove(i);
                 i--;
             }

@@ -71,12 +71,12 @@ public class OrganisasiView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddDonatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDonatiActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
         new AddDonate().setVisible(true);
     }//GEN-LAST:event_AddDonatiActionPerformed
 
     private void LihatDonasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LihatDonasiActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
         new OrganisasiDonate().setVisible(true);
     }//GEN-LAST:event_LihatDonasiActionPerformed
 
