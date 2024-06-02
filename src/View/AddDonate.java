@@ -33,7 +33,7 @@ public class AddDonate extends javax.swing.JFrame {
     /**
      * Creates new form AddDonate
      */
-    private static boolean kon;
+    private static boolean conn = false;
     private static int idOrganisasi;
     private int idPenggalanganDana;
     private File selectedFile;
@@ -41,6 +41,11 @@ public class AddDonate extends javax.swing.JFrame {
 
     public AddDonate() {
         initComponents();
+        
+        OrganisasiController orgCtrl = new OrganisasiController();
+        PenggalanganDana penggalangan = DonationController.getPenggalangByID(idPenggalanganDana);
+        User user = orgCtrl.getById(penggalangan.getOrganisasiId());
+        ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));
     }
 
     /**
@@ -212,7 +217,7 @@ public class AddDonate extends javax.swing.JFrame {
         String lokasi = LokasiInput.getText();
         String deskripsi = DeskripsiInput.getText();
         String target = TargetInput.getText();
-        
+
         long newTarget;
         try {
             newTarget = Long.parseLong(target);
@@ -221,18 +226,18 @@ public class AddDonate extends javax.swing.JFrame {
             return;
         }
 
-        if (judul.isEmpty() || deskripsi.isEmpty() |lokasi.isEmpty()) {
+        if (judul.isEmpty() || deskripsi.isEmpty() | lokasi.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill all fields!", "WARNING", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-           try {
+
+        try {
             InputStream imageStream = null;
             if (selectedFile != null) {
                 imageStream = new FileInputStream(selectedFile);
             }
 
-            PenggalanganDana newPenggalangan = new PenggalanganDana(idPenggalanganDana, judul, deskripsi, lokasi, kon, idOrganisasi, imageStream);
+            PenggalanganDana newPenggalangan = new PenggalanganDana(idPenggalanganDana, judul, deskripsi, lokasi, conn, idOrganisasi, imageStream);
 
             boolean success = DonationController.addPenggalangan(newPenggalangan);
             if (success) {
