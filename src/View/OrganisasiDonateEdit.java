@@ -248,7 +248,7 @@ public class OrganisasiDonateEdit extends javax.swing.JFrame {
                 imageStream = new FileInputStream(selectedFile);
             }
 
-            PenggalanganDana newPenggalangan = new PenggalanganDana(penggalanganDana.getId(), judul, deskripsi, lokasi, conn, UserSession.getId(), imageStream);
+            PenggalanganDana newPenggalangan = new PenggalanganDana(penggalanganDana.getId(), judul, deskripsi, lokasi, conn, UserSession.getId(), imageStream, (int) newTarget);
             boolean success = DonationController.editPenggalangan(newPenggalangan);
             if (success) {
                 JOptionPane.showMessageDialog(this, "Penggalangan Dana edited successfully", "SUCCESS", JOptionPane.PLAIN_MESSAGE);

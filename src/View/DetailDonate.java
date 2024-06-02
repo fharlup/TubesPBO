@@ -6,6 +6,7 @@
 package View;
 
 import Controler.DonationController;
+import static Controler.DonationController.getTotalDonasiPenggalangan;
 import Controler.OrganisasiController;
 import Controler.ViewController;
 import Model.PenggalanganDana;
@@ -72,6 +73,10 @@ public class DetailDonate extends javax.swing.JFrame {
             lokasi2.setText(lokasi[1]);  
             lokasi3.setText(lokasi[2]);
         }
+        
+        progress1.setMinimum(0);
+        progress1.setMaximum(penggalangan.getTarget());
+        progress1.setValue(getTotalDonasiPenggalangan(id));
     }
 
     /**

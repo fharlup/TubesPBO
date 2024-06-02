@@ -333,7 +333,7 @@ public class Editdonate extends javax.swing.JFrame {
         System.out.println(idpeng);
         //System.out.println(penggalangan.getOrganisasiId());
         System.out.println(imageStream);
-        PenggalanganDana updatedPenggalangan = new PenggalanganDana(id, newJudul, newDetail, newLokasi, kon, idpeng, imageStream);
+        PenggalanganDana updatedPenggalangan = new PenggalanganDana(id, newJudul, newDetail, newLokasi, kon, idpeng, imageStream, (int) newTarget);
         System.out.println("ciaaa");
         // Call the controller to update the data
         boolean success = AdminController.editPenggalangan(updatedPenggalangan);

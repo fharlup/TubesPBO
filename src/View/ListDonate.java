@@ -6,6 +6,7 @@
 package View;
 
 import Controler.DonationController;
+import static Controler.DonationController.getTotalDonasiPenggalangan;
 import Controler.OrganisasiController;
 import Controler.ViewController;
 import Model.PenggalanganDana;
@@ -586,6 +587,9 @@ public class ListDonate extends javax.swing.JFrame {
         organisasi1.setText(user.getUsername());
         uang1.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
         donatur1.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
+        progress1.setMinimum(0);
+        progress1.setMaximum(obj.getTarget());
+        progress1.setValue(getTotalDonasiPenggalangan(obj.getId()));
     }
     
     private void loadCard2(PenggalanganDana obj){
@@ -596,6 +600,9 @@ public class ListDonate extends javax.swing.JFrame {
         organisasi2.setText(user.getUsername());
         uang2.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
         donatur2.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
+        progress2.setMinimum(0);
+        progress2.setMaximum(obj.getTarget());
+        progress2.setValue(getTotalDonasiPenggalangan(obj.getId()));
     }
     
     private void loadCard3(PenggalanganDana obj){
@@ -606,6 +613,9 @@ public class ListDonate extends javax.swing.JFrame {
         organisasi3.setText(user.getUsername());
         uang3.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
         donatur3.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
+        progress3.setMinimum(0);
+        progress3.setMaximum(obj.getTarget());
+        progress3.setValue(getTotalDonasiPenggalangan(obj.getId()));
     }
     
     private void loadCard4(PenggalanganDana obj){
@@ -616,6 +626,9 @@ public class ListDonate extends javax.swing.JFrame {
         organisasi4.setText(user.getUsername());
         uang4.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
         donatur4.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
+        progress4.setMinimum(0);
+        progress4.setMaximum(obj.getTarget());
+        progress4.setValue(getTotalDonasiPenggalangan(obj.getId()));
     }
     
     /**

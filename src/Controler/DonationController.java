@@ -82,8 +82,8 @@ public class DonationController {
                     boolean confirm = rs.getBoolean("confirm");
                     int organisasiId = rs.getInt("organisasiId");
                     InputStream image = rs.getBinaryStream("photo");
-
-                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, confirm, organisasiId, image);
+                    int target = rs.getInt("target");
+                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, confirm, organisasiId, image, target);
                     PenggalanganList.add(penggalangan);
                 }
             }
@@ -132,8 +132,8 @@ public class DonationController {
                     boolean confirm = rs.getBoolean("confirm");
                     int organisasiId = rs.getInt("organisasiId");
                     InputStream image = rs.getBinaryStream("photo");
-
-                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, confirm, organisasiId, image);
+                    int target = rs.getInt("target");
+                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, confirm, organisasiId, image, target);
                     return penggalangan;
                 }
             }
@@ -157,8 +157,8 @@ public class DonationController {
                     boolean isConfirmed = rs.getBoolean("confirm");
                     int organisasiId = rs.getInt("organisasiId");
                     InputStream image = rs.getBinaryStream("photo");
-
-                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, isConfirmed, organisasiId, image);
+                    int target = rs.getInt("target");
+                    PenggalanganDana penggalangan = new PenggalanganDana(id, judul, deskripsi, lokasi, isConfirmed, organisasiId, image, target);
                     return penggalangan;
                 }
             }
@@ -205,7 +205,7 @@ public class DonationController {
     }
 
     public static boolean addPenggalangan(PenggalanganDana penggalangan) {
-        String sql = "INSERT INTO penggalangandana (judul, deskripsi, lokasi, photo, confirm, organisasiId ) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO penggalangandana (judul, deskripsi, lokasi, photo, confirm, organisasiId, target ) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = Database.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, penggalangan.getJudul());
@@ -214,6 +214,7 @@ public class DonationController {
             stmt.setBinaryStream(4, penggalangan.getImage());
             stmt.setBoolean(5, penggalangan.getConfirm());
             stmt.setInt(6, penggalangan.getOrganisasiId());
+            stmt.setInt(7, penggalangan.getTarget());
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {

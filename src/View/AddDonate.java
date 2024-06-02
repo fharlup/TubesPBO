@@ -231,11 +231,9 @@ public class AddDonate extends javax.swing.JFrame {
             InputStream imageStream = null;
             if (selectedFile != null) {
                 imageStream = new FileInputStream(selectedFile);
-            } else {
-                imageStream = penggalanganDana.getImage();
             }
 
-            PenggalanganDana newPenggalangan = new PenggalanganDana(0, judul, deskripsi, lokasi, conn, UserSession.getId(), imageStream);
+            PenggalanganDana newPenggalangan = new PenggalanganDana(0, judul, deskripsi, lokasi, conn, UserSession.getId(), imageStream, (int) newTarget);
             boolean success = DonationController.addPenggalangan(newPenggalangan);
             if (success) {
                 JOptionPane.showMessageDialog(this, "Penggalangan Dana added successfully", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);

@@ -68,6 +68,7 @@ public class OrganisasiView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddDonatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDonatiActionPerformed
