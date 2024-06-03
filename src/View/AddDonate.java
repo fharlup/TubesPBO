@@ -15,14 +15,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -73,27 +65,9 @@ public class AddDonate extends javax.swing.JFrame {
 
         jLabel3.setText("Lokasi");
 
-        LokasiInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LokasiInputActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Deskripsi");
 
-        DeskripsiInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeskripsiInputActionPerformed(evt);
-            }
-        });
-
         jLabel5.setText("Target Penggalangan Dana");
-
-        TargetInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TargetInputActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Unggah Media");
 
@@ -114,12 +88,6 @@ public class AddDonate extends javax.swing.JFrame {
         });
 
         jLabel2.setText("Judul");
-
-        JudulInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JudulInputActionPerformed(evt);
-            }
-        });
 
         ConfirmDonate.setText("Confirm");
         ConfirmDonate.addActionListener(new java.awt.event.ActionListener() {
@@ -200,6 +168,7 @@ public class AddDonate extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void MediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MediaActionPerformed
@@ -247,22 +216,6 @@ public class AddDonate extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Failed to add Penggalangan Dana", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ConfirmDonateActionPerformed
-
-    private void JudulInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JudulInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JudulInputActionPerformed
-
-    private void LokasiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LokasiInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LokasiInputActionPerformed
-
-    private void DeskripsiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeskripsiInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeskripsiInputActionPerformed
-
-    private void TargetInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TargetInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TargetInputActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:

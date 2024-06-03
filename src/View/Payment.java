@@ -51,7 +51,7 @@ public class Payment extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel2 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
         nominalInput = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -74,16 +74,10 @@ public class Payment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/IconBack.png"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/IconBack.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-
-        nominalInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nominalInputActionPerformed(evt);
+                backMouseClicked(evt);
             }
         });
 
@@ -96,11 +90,6 @@ public class Payment extends javax.swing.JFrame {
         instantComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qris", "Go Pay", "Dana", "ShopeePay" }));
 
         virtualComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BCA Virtual Account", "BNI Virtual Account", "Mandiri Virtual Account", "BRI Virtual Account" }));
-        virtualComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                virtualComboBoxActionPerformed(evt);
-            }
-        });
 
         instantLAbel.setText("Instant Payment");
 
@@ -156,7 +145,7 @@ public class Payment extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -194,7 +183,7 @@ public class Payment extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -241,18 +230,10 @@ public class Payment extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         setVisible(false);
         new DetailDonate(id).setVisible(true);
-    }//GEN-LAST:event_jLabel2MouseClicked
-
-    private void nominalInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nominalInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nominalInputActionPerformed
-
-    private void virtualComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_virtualComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_virtualComboBoxActionPerformed
+    }//GEN-LAST:event_backMouseClicked
 
     private void instantPaymentStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_instantPaymentStateChanged
 
@@ -345,6 +326,7 @@ public class Payment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton confirmButton;
     private javax.swing.JComboBox<String> instantComboBox;
@@ -353,7 +335,6 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;

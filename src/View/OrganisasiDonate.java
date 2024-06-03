@@ -662,7 +662,7 @@ public class OrganisasiDonate extends javax.swing.JFrame {
 
     private void donasi2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi2MouseClicked
         setVisible(false);
-        new DetailDonate(id2).setVisible(true);
+        new OrganisasiDetaiDonate(id2).setVisible(true);
     }//GEN-LAST:event_donasi2MouseClicked
 
     /**

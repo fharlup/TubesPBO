@@ -33,11 +33,7 @@ public class OrganisasiDetaiDonate extends javax.swing.JFrame {
         OrganisasiController orgCtrl = new OrganisasiController();
         PenggalanganDana penggalangan = DonationController.getPenggalangByID(id);
         PenggalanganDana kon = DonationController.getPenggalangByConfirm(confrim);
-        
-        System.out.println("Penggalangan Dana");
-        System.out.println(penggalangan);
-        System.out.println("cacacacaca");
-        System.out.println(kon);
+    
         
         User user = orgCtrl.getById(penggalangan.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(penggalangan.getImage()));

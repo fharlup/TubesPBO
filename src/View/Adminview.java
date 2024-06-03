@@ -10,6 +10,7 @@ import Controler.OrganisasiController;
 import Controler.ViewController;
 import Model.PenggalanganDana;
 import Model.User;
+import Model.UserSession;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -34,13 +35,7 @@ public class Adminview extends javax.swing.JFrame {
     public int id3;
     public int id4;
 
-    private static List<PenggalanganDana> penggalanganList;
-    /**
-     * Creates new form ListDonate
-     * @param penggalanganList
-     */
-    public Adminview(List<PenggalanganDana> penggalanganList) {
-        Adminview.penggalanganList = penggalanganList;
+    public Adminview() {
         initComponents();
         loadPenggalangan(1);
     }
@@ -130,16 +125,6 @@ public class Adminview extends javax.swing.JFrame {
         organisasi7 = new javax.swing.JLabel();
         progress7 = new javax.swing.JProgressBar();
         Terima4 = new javax.swing.JButton();
-        page2 = new javax.swing.JButton();
-        page1 = new javax.swing.JButton();
-        page3 = new javax.swing.JButton();
-        page4 = new javax.swing.JButton();
-        page5 = new javax.swing.JButton();
-        page6 = new javax.swing.JButton();
-        page7 = new javax.swing.JButton();
-        page10 = new javax.swing.JButton();
-        page9 = new javax.swing.JButton();
-        page8 = new javax.swing.JButton();
         donasi1 = new javax.swing.JPanel();
         gmbr1 = new javax.swing.JLabel();
         judul1 = new javax.swing.JLabel();
@@ -180,6 +165,17 @@ public class Adminview extends javax.swing.JFrame {
         Terima6 = new javax.swing.JButton();
         tolak6 = new javax.swing.JButton();
         edit6 = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
+        page2 = new javax.swing.JButton();
+        page1 = new javax.swing.JButton();
+        page3 = new javax.swing.JButton();
+        page4 = new javax.swing.JButton();
+        page5 = new javax.swing.JButton();
+        page6 = new javax.swing.JButton();
+        page7 = new javax.swing.JButton();
+        page10 = new javax.swing.JButton();
+        page9 = new javax.swing.JButton();
+        page8 = new javax.swing.JButton();
 
         gmbr3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
@@ -478,82 +474,7 @@ public class Adminview extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        page2.setText("2");
-        page2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page2ActionPerformed(evt);
-            }
-        });
-
-        page1.setText("1");
-        page1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page1ActionPerformed(evt);
-            }
-        });
-
-        page3.setText("3");
-        page3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page3ActionPerformed(evt);
-            }
-        });
-
-        page4.setText("4");
-        page4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page4ActionPerformed(evt);
-            }
-        });
-
-        page5.setText("5");
-        page5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page5ActionPerformed(evt);
-            }
-        });
-
-        page6.setText("6");
-        page6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page6ActionPerformed(evt);
-            }
-        });
-
-        page7.setText("7");
-        page7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page7ActionPerformed(evt);
-            }
-        });
-
-        page10.setText("10");
-        page10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page10ActionPerformed(evt);
-            }
-        });
-
-        page9.setText("9");
-        page9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page9ActionPerformed(evt);
-            }
-        });
-
-        page8.setText("8");
-        page8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                page8ActionPerformed(evt);
-            }
-        });
-
-        donasi1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                donasi1MouseClicked(evt);
-            }
-        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         gmbr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
@@ -634,11 +555,7 @@ public class Adminview extends javax.swing.JFrame {
                     .addComponent(donatur1)))
         );
 
-        donasi2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                donasi2MouseClicked(evt);
-            }
-        });
+        getContentPane().add(donasi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 13, -1, 199));
 
         gmbr2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
@@ -722,11 +639,7 @@ public class Adminview extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        donasi7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                donasi7MouseClicked(evt);
-            }
-        });
+        getContentPane().add(donasi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(551, 13, -1, 199));
 
         gmbr8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
@@ -810,11 +723,7 @@ public class Adminview extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        donasi8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                donasi8MouseClicked(evt);
-            }
-        });
+        getContentPane().add(donasi7, new org.netbeans.lib.awtextra.AbsoluteConstraints(551, 230, -1, 199));
 
         gmbr9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
@@ -898,120 +807,99 @@ public class Adminview extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(251, 251, 251)
-                .addComponent(page1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(page2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(page3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(page4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(page5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(page6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(page7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(page8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(page9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(page10)
-                .addGap(0, 210, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(donasi8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(115, 115, 115)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(donasi7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(donasi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(donasi2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(donasi7, javax.swing.GroupLayout.PREFERRED_SIZE, 199, Short.MAX_VALUE)
-                    .addComponent(donasi8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(98, 98, 98)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(page2)
-                    .addComponent(page1)
-                    .addComponent(page3)
-                    .addComponent(page5)
-                    .addComponent(page4)
-                    .addComponent(page6)
-                    .addComponent(page7)
-                    .addComponent(page8)
-                    .addComponent(page9)
-                    .addComponent(page10)))
-        );
+        getContentPane().add(donasi8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, 199));
+
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 22, -1, -1));
+
+        page2.setText("2");
+        page2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page2, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 436, -1, -1));
+
+        page1.setText("1");
+        page1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 436, -1, -1));
+
+        page3.setText("3");
+        page3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page3, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 436, -1, -1));
+
+        page4.setText("4");
+        page4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page4, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 436, -1, -1));
+
+        page5.setText("5");
+        page5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page5, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 436, -1, -1));
+
+        page6.setText("6");
+        page6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 436, -1, -1));
+
+        page7.setText("7");
+        page7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page7, new org.netbeans.lib.awtextra.AbsoluteConstraints(536, 436, -1, -1));
+
+        page10.setText("10");
+        page10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page10ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page10, new org.netbeans.lib.awtextra.AbsoluteConstraints(674, 436, -1, -1));
+
+        page9.setText("9");
+        page9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page9ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page9, new org.netbeans.lib.awtextra.AbsoluteConstraints(628, 436, -1, -1));
+
+        page8.setText("8");
+        page8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                page8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(page8, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 436, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void page2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page2ActionPerformed
-        loadPenggalangan(2);
-    }//GEN-LAST:event_page2ActionPerformed
-
-    private void page3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page3ActionPerformed
-        loadPenggalangan(3);
-    }//GEN-LAST:event_page3ActionPerformed
-
-    private void page5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page5ActionPerformed
-        loadPenggalangan(5);
-    }//GEN-LAST:event_page5ActionPerformed
-
-    private void page6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page6ActionPerformed
-        loadPenggalangan(6);
-    }//GEN-LAST:event_page6ActionPerformed
-
-    private void page7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page7ActionPerformed
-        loadPenggalangan(7);
-    }//GEN-LAST:event_page7ActionPerformed
-
-    private void page10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page10ActionPerformed
-        loadPenggalangan(10);
-    }//GEN-LAST:event_page10ActionPerformed
-
-    private void page9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page9ActionPerformed
-        loadPenggalangan(9);
-    }//GEN-LAST:event_page9ActionPerformed
-
-    private void page8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page8ActionPerformed
-        loadPenggalangan(8);
-    }//GEN-LAST:event_page8ActionPerformed
-
-    private void page1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page1ActionPerformed
-        loadPenggalangan(1);
-    }//GEN-LAST:event_page1ActionPerformed
-
-    private void page4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page4ActionPerformed
-        loadPenggalangan(4);
-    }//GEN-LAST:event_page4ActionPerformed
-
-    private void donasi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi1MouseClicked
-       //int idPenggalangan = id1; // Asumsi Anda mendapatkan ID penggalangan dari list
-    //ystem.out.println(idPenggalangan);
-    
-    // Menyimpan ID penggalangan yang diklik ke dalam controller
-   // AdminController.setClickedPenggalanganId(idPenggalangan);
-   
-    }//GEN-LAST:event_donasi1MouseClicked
 
     private void tolakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakActionPerformed
          // Mendapatkan ID penggalangan yang diklik
@@ -1042,14 +930,6 @@ public class Adminview extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Gagal menerima .");
     }
     }//GEN-LAST:event_TerimaActionPerformed
-
-    private void donasi2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi2MouseClicked
-            int idPenggalangan =id2; // Asumsi Anda mendapatkan ID penggalangan dari list
-    System.out.println(idPenggalangan);
-    
-    // Menyimpan ID penggalangan yang diklik ke dalam controller
-    AdminController.setClickedPenggalanganId(idPenggalangan);
-    }//GEN-LAST:event_donasi2MouseClicked
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
          new DetailDonateedit(id1,confirm1,idpeng1).setVisible(true);
@@ -1171,10 +1051,6 @@ public class Adminview extends javax.swing.JFrame {
          new DetailDonateedit(id4,confirm4,idpeng4).setVisible(true);
     }//GEN-LAST:event_edit5ActionPerformed
 
-    private void donasi7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_donasi7MouseClicked
-
     private void Terima6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Terima6ActionPerformed
          int clickedPenggalanganId =id1;
     
@@ -1190,7 +1066,17 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_Terima6ActionPerformed
 
     private void tolak6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolak6ActionPerformed
-        // TODO add your handling code here:
+                int clickedPenggalanganId = id3;
+    
+    // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
+    boolean result = AdminController.delete(clickedPenggalanganId);
+    
+    // Menampilkan pesan berhasil atau gagal
+    if (result) {
+        JOptionPane.showMessageDialog(this, "Penggalangan dana telah ditolak.");
+    } else {
+        JOptionPane.showMessageDialog(this, "Gagal menolak penggalangan dana.");
+    }
     }//GEN-LAST:event_tolak6ActionPerformed
 
     private void edit6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit6ActionPerformed
@@ -1198,9 +1084,52 @@ public class Adminview extends javax.swing.JFrame {
          new DetailDonateedit(id3,confirm3,idpeng3).setVisible(true);
     }//GEN-LAST:event_edit6ActionPerformed
 
-    private void donasi8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi8MouseClicked
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_donasi8MouseClicked
+        setVisible(false);
+        new LogIn().setVisible(true);
+        UserSession.clearSession();
+    }//GEN-LAST:event_logoutActionPerformed
+
+    private void page2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page2ActionPerformed
+        loadPenggalangan(2);
+    }//GEN-LAST:event_page2ActionPerformed
+
+    private void page1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page1ActionPerformed
+        loadPenggalangan(1);
+    }//GEN-LAST:event_page1ActionPerformed
+
+    private void page3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page3ActionPerformed
+        loadPenggalangan(3);
+    }//GEN-LAST:event_page3ActionPerformed
+
+    private void page4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page4ActionPerformed
+        loadPenggalangan(4);
+    }//GEN-LAST:event_page4ActionPerformed
+
+    private void page5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page5ActionPerformed
+        loadPenggalangan(5);
+    }//GEN-LAST:event_page5ActionPerformed
+
+    private void page6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page6ActionPerformed
+        loadPenggalangan(6);
+    }//GEN-LAST:event_page6ActionPerformed
+
+    private void page7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page7ActionPerformed
+        loadPenggalangan(7);
+    }//GEN-LAST:event_page7ActionPerformed
+
+    private void page10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page10ActionPerformed
+        loadPenggalangan(10);
+    }//GEN-LAST:event_page10ActionPerformed
+
+    private void page9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page9ActionPerformed
+        loadPenggalangan(9);
+    }//GEN-LAST:event_page9ActionPerformed
+
+    private void page8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page8ActionPerformed
+        loadPenggalangan(8);
+    }//GEN-LAST:event_page8ActionPerformed
 
     private void loadPenggalangan(int page){
        donasi1.setVisible(false);
@@ -1325,7 +1254,7 @@ public class Adminview extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Adminview(penggalanganList).setVisible(true);
+                new Adminview().setVisible(true);
             }
         });
         
@@ -1382,6 +1311,7 @@ public class Adminview extends javax.swing.JFrame {
     private javax.swing.JLabel judul7;
     private javax.swing.JLabel judul8;
     private javax.swing.JLabel judul9;
+    private javax.swing.JButton logout;
     private javax.swing.JLabel organisasi1;
     private javax.swing.JLabel organisasi2;
     private javax.swing.JLabel organisasi3;

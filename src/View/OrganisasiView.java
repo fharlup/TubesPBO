@@ -5,6 +5,8 @@
  */
 package View;
 
+import Model.UserSession;
+
 /**
  *
  * @author asyif
@@ -29,6 +31,7 @@ public class OrganisasiView extends javax.swing.JFrame {
 
         AddDonati = new javax.swing.JButton();
         LihatDonasi = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,21 +49,35 @@ public class OrganisasiView extends javax.swing.JFrame {
             }
         });
 
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(150, 150, 150)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AddDonati)
-                    .addComponent(LihatDonasi))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AddDonati)
+                            .addComponent(LihatDonasi)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(logout)))
                 .addContainerGap(159, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addContainerGap()
+                .addComponent(logout)
+                .addGap(80, 80, 80)
                 .addComponent(AddDonati)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LihatDonasi)
@@ -80,6 +97,12 @@ public class OrganisasiView extends javax.swing.JFrame {
         setVisible(false);
         new OrganisasiDonate().setVisible(true);
     }//GEN-LAST:event_LihatDonasiActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        setVisible(false);
+        new LogIn().setVisible(true);
+        UserSession.clearSession();
+    }//GEN-LAST:event_logoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,5 +142,6 @@ public class OrganisasiView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddDonati;
     private javax.swing.JButton LihatDonasi;
+    private javax.swing.JButton logout;
     // End of variables declaration//GEN-END:variables
 }

@@ -86,9 +86,9 @@
                       </Group>
                       <Component id="RadioButtonOrganisasi" min="-2" pref="109" max="-2" attributes="0"/>
                       <Component id="RadioButtonDonatur" min="-2" pref="109" max="-2" attributes="0"/>
-                      <Component id="UsernameTextField" pref="387" max="32767" attributes="0"/>
-                      <Component id="PasswordTextField" pref="387" max="32767" attributes="0"/>
-                      <Component id="EmailTextField" pref="387" max="32767" attributes="0"/>
+                      <Component id="UsernameTextField" max="32767" attributes="0"/>
+                      <Component id="PasswordTextField" max="32767" attributes="0"/>
+                      <Component id="EmailTextField" max="32767" attributes="0"/>
                       <Component id="SignUpLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="AgreeTermsCondition" alignment="0" max="32767" attributes="0"/>
                   </Group>

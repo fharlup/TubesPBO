@@ -173,9 +173,12 @@ public class LogIn extends javax.swing.JFrame {
             if (role.matches("donatur")){
                 setVisible(false);
                 new ListDonate().setVisible(true);
-            } else {
+            } else if (role.matches("organisasi")){
                 setVisible(false);
                 new OrganisasiView().setVisible(true);
+            } else {
+                setVisible(false);
+                new Adminview().setVisible(true);
             }
         } else {
             JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);

@@ -24,12 +24,16 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="donasi1" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="donasi3" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="donasi3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="logout" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="donasi1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="143" max="32767" attributes="0"/>
+              <EmptySpace pref="101" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="donasi4" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="donasi2" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -65,9 +69,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="donasi2" min="-2" max="-2" attributes="0"/>
-                  <Component id="donasi1" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="donasi2" min="-2" max="-2" attributes="0"/>
+                      <Component id="donasi1" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="logout" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="33" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -96,6 +103,9 @@
     <Component class="javax.swing.JButton" name="page2">
       <Properties>
         <Property name="text" type="java.lang.String" value="2"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page2ActionPerformed"/>
@@ -104,6 +114,9 @@
     <Component class="javax.swing.JButton" name="page1">
       <Properties>
         <Property name="text" type="java.lang.String" value="1"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page1ActionPerformed"/>
@@ -112,6 +125,9 @@
     <Component class="javax.swing.JButton" name="page3">
       <Properties>
         <Property name="text" type="java.lang.String" value="3"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page3ActionPerformed"/>
@@ -120,6 +136,9 @@
     <Component class="javax.swing.JButton" name="page4">
       <Properties>
         <Property name="text" type="java.lang.String" value="4"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page4ActionPerformed"/>
@@ -128,6 +147,9 @@
     <Component class="javax.swing.JButton" name="page5">
       <Properties>
         <Property name="text" type="java.lang.String" value="5"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page5ActionPerformed"/>
@@ -136,6 +158,9 @@
     <Component class="javax.swing.JButton" name="page6">
       <Properties>
         <Property name="text" type="java.lang.String" value="6"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page6ActionPerformed"/>
@@ -144,6 +169,9 @@
     <Component class="javax.swing.JButton" name="page7">
       <Properties>
         <Property name="text" type="java.lang.String" value="7"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page7ActionPerformed"/>
@@ -152,6 +180,9 @@
     <Component class="javax.swing.JButton" name="page10">
       <Properties>
         <Property name="text" type="java.lang.String" value="10"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page10ActionPerformed"/>
@@ -160,6 +191,9 @@
     <Component class="javax.swing.JButton" name="page9">
       <Properties>
         <Property name="text" type="java.lang.String" value="9"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page9ActionPerformed"/>
@@ -168,6 +202,9 @@
     <Component class="javax.swing.JButton" name="page8">
       <Properties>
         <Property name="text" type="java.lang.String" value="8"/>
+        <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="page8ActionPerformed"/>
@@ -509,5 +546,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="logout">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Logout"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

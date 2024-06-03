@@ -5,8 +5,8 @@
  */
 package View;
 
+import Controler.AdminController;
 import Controler.DonationController;
-import Controler.OrganisasiController;
 import Model.PenggalanganDana;
 import Model.UserSession;
 import java.io.File;
@@ -66,27 +66,9 @@ public class OrganisasiDonateEdit extends javax.swing.JFrame {
 
         jLabel3.setText("Lokasi");
 
-        LokasiInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LokasiInputActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Deskripsi");
 
-        DeskripsiInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeskripsiInputActionPerformed(evt);
-            }
-        });
-
         jLabel5.setText("Target Penggalangan Dana");
-
-        TargetInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TargetInputActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Unggah Media");
 
@@ -107,12 +89,6 @@ public class OrganisasiDonateEdit extends javax.swing.JFrame {
         });
 
         jLabel2.setText("Judul");
-
-        JudulInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JudulInputActionPerformed(evt);
-            }
-        });
 
         ConfirmDonate.setText("Confirm");
         ConfirmDonate.addActionListener(new java.awt.event.ActionListener() {
@@ -195,18 +171,6 @@ public class OrganisasiDonateEdit extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LokasiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LokasiInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LokasiInputActionPerformed
-
-    private void DeskripsiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeskripsiInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeskripsiInputActionPerformed
-
-    private void TargetInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TargetInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TargetInputActionPerformed
-
     private void MediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MediaActionPerformed
         // TODO add your handling code here:
         selectedFile = Media.getSelectedFile();
@@ -217,10 +181,6 @@ public class OrganisasiDonateEdit extends javax.swing.JFrame {
         setVisible(false);
         new OrganisasiView().setVisible(true);
     }//GEN-LAST:event_BackActionPerformed
-
-    private void JudulInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JudulInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JudulInputActionPerformed
 
     private void ConfirmDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmDonateActionPerformed
         // TODO add your handling code here:
@@ -249,7 +209,7 @@ public class OrganisasiDonateEdit extends javax.swing.JFrame {
             }
 
             PenggalanganDana newPenggalangan = new PenggalanganDana(penggalanganDana.getId(), judul, deskripsi, lokasi, conn, UserSession.getId(), imageStream, (int) newTarget);
-            boolean success = DonationController.editPenggalangan(newPenggalangan);
+            boolean success = AdminController.editPenggalangan(newPenggalangan);
             if (success) {
                 JOptionPane.showMessageDialog(this, "Penggalangan Dana edited successfully", "SUCCESS", JOptionPane.PLAIN_MESSAGE);
                 setVisible(false);

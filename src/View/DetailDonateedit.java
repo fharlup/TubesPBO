@@ -29,12 +29,6 @@ public class DetailDonateedit extends javax.swing.JFrame {
         this.confrim = konfrim;
         this.id = id;
         this.idpeng = idpeng;
-        System.out.println("brow");
-        System.out.println("seluruh panggilan");
-        System.out.println("ID: " + this.id);
-        System.out.println("confrim: " + this.confrim);
-        System.out.println("idpeng" + this.idpeng);
-
         initComponents();
 
         OrganisasiController orgCtrl = new OrganisasiController();
