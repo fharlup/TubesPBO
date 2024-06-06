@@ -277,11 +277,11 @@ public class Payment extends javax.swing.JFrame {
         int idUser = UserSession.getId();
         int idPenggalangan = id;
         String metodePembayaran = getMetodePembayaran();
-        String nama = "Hamba Allah 30 Tahu Spontan";
+        String nama = "Hamba Allah";
         if(showName.isSelected()){
             nama = UserSession.getUsername();
         }
-        Donasi donasi = new Donasi(idUser, idPenggalangan, nominal, pesan, metodePembayaran, nama);
+        Donasi donasi = new Donasi(idUser, idPenggalangan,0, nominal, pesan, metodePembayaran, nama);
         System.out.println(metodePembayaran);
         System.out.println(id);
         addDonasi(donasi);

@@ -51,12 +51,13 @@ public class DonationController {
                 while (rs.next()) {
                     int idDonatur = rs.getInt("userId");
                     int idPenggalangan = rs.getInt("penggalanganId");
+                    int idDonasi = rs.getInt("donasiId");
                     int nominal = rs.getInt("nominal");
                     String pesan = rs.getString("pesan");
                     String metodePembayaran = rs.getString("metodePembayaran");
                     String nama = rs.getString("nama");
 
-                    Donasi donasi = new Donasi(idDonatur, idPenggalangan, nominal, pesan, metodePembayaran, nama);
+                    Donasi donasi = new Donasi(idDonatur, idPenggalangan,idDonasi, nominal, pesan, metodePembayaran, nama);
                     donasiList.add(donasi);
                 }
             }

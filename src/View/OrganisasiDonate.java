@@ -261,10 +261,9 @@ public class OrganisasiDonate extends javax.swing.JFrame {
                         .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(progress3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(donasi3Layout.createSequentialGroup()
-                                .addGroup(donasi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(judul3)
-                                    .addComponent(organisasi3))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(organisasi3)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(judul3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(donasi3Layout.createSequentialGroup()
                         .addComponent(uang3)
@@ -389,7 +388,7 @@ public class OrganisasiDonate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(donasi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                         .addComponent(donasi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Back)
@@ -517,34 +516,34 @@ public class OrganisasiDonate extends javax.swing.JFrame {
     }//GEN-LAST:event_page10ActionPerformed
     
     private void loadButton(int count){
-        if (count/4 == 0 || count%4 >0){
+        if (count/4 == 0 || count%4 >=0){
             page1.setVisible(true);
         } 
-        if (count/4 == 1 || (count/4 == 1 && count%4 >0)){
+        if (count/4 > 1 || (count/4 == 1 && count%4 >0)){
             page2.setVisible(true);
         } 
-        if (count/4 == 2 || (count/4 == 2 && count%4 >0)){
+        if (count/4 > 2 || (count/4 == 2 && count%4 >0)){
             page3.setVisible(true);
         } 
-        if (count/4 == 3 || (count/4 == 3 && count%4 >0)){
+        if (count/4 > 3 || (count/4 == 3 && count%4 >0)){
             page4.setVisible(true);
         } 
-        if (count/4 == 4 || (count/4 == 4 && count%4 >0)){
+        if (count/4 > 4 || (count/4 == 4 && count%4 >0)){
             page5.setVisible(true);
         } 
-        if (count/4 == 5 || (count/4 == 5 && count%4 >0)){
+        if (count/4 > 5 || (count/4 == 5 && count%4 >0)){
             page6.setVisible(true);
         } 
-        if (count/4 == 6 || (count/4 == 6 && count%4 >0)){
+        if (count/4 > 6 || (count/4 == 6 && count%4 >0)){
             page7.setVisible(true);
         } 
-        if (count/4 == 7 ||(count/4 == 7 && count%4 >0)){
+        if (count/4 > 7 ||(count/4 == 7 && count%4 >0)){
             page8.setVisible(true);
         } 
-        if (count/4 == 8 || (count/4 == 8 && count%4 >0)){
+        if (count/4 > 8 || (count/4 == 8 && count%4 >0)){
             page9.setVisible(true);
         }
-        if (count/4 == 9 || (count/4 == 9 && count%4 >0)){
+        if (count/4 > 9 || (count/4 == 9 && count%4 >0)){
             page10.setVisible(true);
         }
     }

@@ -41,34 +41,34 @@ public class Adminview extends javax.swing.JFrame {
     }
     
     private void loadButton(int count){
-        if (count/4 == 0 || count%4 >0){
+        if (count/4 == 0 || count%4 >=0){
             page1.setVisible(true);
         } 
-        if (count/4 == 1 || (count/4 == 1 && count%4 >0)){
+        if (count/4 > 1 || (count/4 == 1 && count%4 >0)){
             page2.setVisible(true);
         } 
-        if (count/4 == 2 || (count/4 == 2 && count%4 >0)){
+        if (count/4 > 2 || (count/4 == 2 && count%4 >0)){
             page3.setVisible(true);
         } 
-        if (count/4 == 3 || (count/4 == 3 && count%4 >0)){
+        if (count/4 > 3 || (count/4 == 3 && count%4 >0)){
             page4.setVisible(true);
         } 
-        if (count/4 == 4 || (count/4 == 4 && count%4 >0)){
+        if (count/4 > 4 || (count/4 == 4 && count%4 >0)){
             page5.setVisible(true);
         } 
-        if (count/4 == 5 || (count/4 == 5 && count%4 >0)){
+        if (count/4 > 5 || (count/4 == 5 && count%4 >0)){
             page6.setVisible(true);
         } 
-        if (count/4 == 6 || (count/4 == 6 && count%4 >0)){
+        if (count/4 > 6 || (count/4 == 6 && count%4 >0)){
             page7.setVisible(true);
         } 
-        if (count/4 == 7 ||(count/4 == 7 && count%4 >0)){
+        if (count/4 > 7 ||(count/4 == 7 && count%4 >0)){
             page8.setVisible(true);
         } 
-        if (count/4 == 8 || (count/4 == 8 && count%4 >0)){
+        if (count/4 > 8 || (count/4 == 8 && count%4 >0)){
             page9.setVisible(true);
         }
-        if (count/4 == 9 || (count/4 == 9 && count%4 >0)){
+        if (count/4 > 9 || (count/4 == 9 && count%4 >0)){
             page10.setVisible(true);
         }
     }
@@ -933,11 +933,9 @@ public class Adminview extends javax.swing.JFrame {
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
          new DetailDonateedit(id1,confirm1,idpeng1).setVisible(true);
-         System.out.println("sana");
     }//GEN-LAST:event_editActionPerformed
 
     private void tolak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolak1ActionPerformed
-        // TODO add your handling code here:
         int clickedPenggalanganId = id1;
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
@@ -1015,23 +1013,23 @@ public class Adminview extends javax.swing.JFrame {
 
     private void Terima5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Terima5ActionPerformed
         // TODO add your handling code here:
-                int clickedPenggalanganId = id1;
+                int clickedPenggalanganId = id4;
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
-    boolean result = AdminController.delete(clickedPenggalanganId);
+    boolean result = AdminController.Terima(clickedPenggalanganId);
     
     // Menampilkan pesan berhasil atau gagal
     if (result) {
-        JOptionPane.showMessageDialog(this, "Penggalangan dana telah ditolak.");
+        JOptionPane.showMessageDialog(this, "Penggalangan berhasil di terima.");
     } else {
-        JOptionPane.showMessageDialog(this, "Gagal menolak penggalangan dana.");
+        JOptionPane.showMessageDialog(this, "Gagal menerima.");
     }
                                         
 
     }//GEN-LAST:event_Terima5ActionPerformed
 
     private void tolak5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolak5ActionPerformed
-                int clickedPenggalanganId = id1;
+                int clickedPenggalanganId = id4;
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
     boolean result = AdminController.delete(clickedPenggalanganId);
@@ -1047,12 +1045,12 @@ public class Adminview extends javax.swing.JFrame {
     }//GEN-LAST:event_tolak5ActionPerformed
 
     private void edit5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit5ActionPerformed
-        // TODO add your handling code here:
+
          new DetailDonateedit(id4,confirm4,idpeng4).setVisible(true);
     }//GEN-LAST:event_edit5ActionPerformed
 
     private void Terima6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Terima6ActionPerformed
-         int clickedPenggalanganId =id1;
+         int clickedPenggalanganId =id3;
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
     boolean result = AdminController.Terima(clickedPenggalanganId);
@@ -1206,21 +1204,21 @@ public class Adminview extends javax.swing.JFrame {
     private void loadCard3(PenggalanganDana obj){
         User user = orgCtrl.getById(obj.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(obj.getImage()));
-        gmbr3.setIcon(img);
-        judul3.setText(obj.getJudul());
-        organisasi3.setText(user.getUsername());
-        uang3.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
-        donatur3.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
+        gmbr9.setIcon(img);
+        judul9.setText(obj.getJudul());
+        organisasi9.setText(user.getUsername());
+        uang9.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
+        donatur9.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
     }
     
     private void loadCard4(PenggalanganDana obj){
         User user = orgCtrl.getById(obj.getOrganisasiId());
         ImageIcon img = new ImageIcon(ViewController.blobToImage(obj.getImage()));
-        gmbr4.setIcon(img);
-        judul4.setText(obj.getJudul());
-        organisasi4.setText(user.getUsername());
-        uang4.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
-        donatur4.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
+        gmbr8.setIcon(img);
+        judul8.setText(obj.getJudul());
+        organisasi8.setText(user.getUsername());
+        uang8.setText(String.valueOf(DonationController.getTotalDonasiPenggalangan(obj.getId())));
+        donatur8.setText(String.valueOf(DonationController.getTotalDonatur(obj.getId()))+" Donatur");
     }
     
     /**
