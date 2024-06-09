@@ -90,12 +90,12 @@ public class OrganisasiView extends javax.swing.JFrame {
 
     private void AddDonatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDonatiActionPerformed
         setVisible(false);
-        new AddDonate().setVisible(true);
+        new OrganisasiAddDonate().setVisible(true);
     }//GEN-LAST:event_AddDonatiActionPerformed
 
     private void LihatDonasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LihatDonasiActionPerformed
         setVisible(false);
-        new OrganisasiDonate().setVisible(true);
+        new OrganisasListDonate().setVisible(true);
     }//GEN-LAST:event_LihatDonasiActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed

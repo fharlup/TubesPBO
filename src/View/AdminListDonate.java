@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author Alvan
  */
-public class Adminview extends javax.swing.JFrame {
+public class AdminListDonate extends javax.swing.JFrame {
     OrganisasiController orgCtrl = new OrganisasiController();
     public int id1;
     public boolean confirm1;
@@ -35,7 +35,7 @@ public class Adminview extends javax.swing.JFrame {
     public int id3;
     public int id4;
 
-    public Adminview() {
+    public AdminListDonate() {
         initComponents();
         loadPenggalangan(1);
     }
@@ -1238,21 +1238,23 @@ public class Adminview extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Adminview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminListDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Adminview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminListDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Adminview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminListDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Adminview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminListDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Adminview().setVisible(true);
+                new AdminListDonate().setVisible(true);
             }
         });
         

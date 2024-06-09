@@ -20,14 +20,14 @@ import javax.swing.ImageIcon;
  *
  * @author Alvan
  */
-public class DetailDonate extends javax.swing.JFrame {
+public class DonaturDetailDonate extends javax.swing.JFrame {
     private static boolean confrim;
     private int id;
     public int id1;
     public int id2;
     public int id3;
     public int id4;
-    public DetailDonate(int id) {
+    public DonaturDetailDonate(int id) {
         initComponents();
         this.id = id;
         OrganisasiController orgCtrl = new OrganisasiController();
@@ -676,7 +676,7 @@ public class DetailDonate extends javax.swing.JFrame {
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         setVisible(false);
-        new ListDonate().setVisible(true);
+        new DonaturListDonate().setVisible(true);
     }//GEN-LAST:event_backActionPerformed
 
     private void page1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page1ActionPerformed
@@ -705,12 +705,12 @@ public class DetailDonate extends javax.swing.JFrame {
 
     private void donasi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi1MouseClicked
         setVisible(false);
-        new DetailDonate(id1).setVisible(true);
+        new DonaturDetailDonate(id1).setVisible(true);
     }//GEN-LAST:event_donasi1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         setVisible(false);
-        new Payment(id).setVisible(true);
+        new DonaturPayment(id).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -730,20 +730,21 @@ public class DetailDonate extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonaturDetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonaturDetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonaturDetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonaturDetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DetailDonate(1).setVisible(true);
+                new DonaturDetailDonate(1).setVisible(true);
             }
         });
     }

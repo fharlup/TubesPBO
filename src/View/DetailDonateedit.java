@@ -255,12 +255,12 @@ public class DetailDonateedit extends javax.swing.JFrame {
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         setVisible(false);
-        new ListDonate().setVisible(true);
+        new DonaturListDonate().setVisible(true);
     }//GEN-LAST:event_backActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
         System.out.println("borw");
-        new Editdonate(id, confrim, idpeng).setVisible(true);
+        new AdminEditDonate(id, confrim, idpeng).setVisible(true);
 
 
     }//GEN-LAST:event_editActionPerformed

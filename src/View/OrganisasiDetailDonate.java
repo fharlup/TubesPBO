@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
  *
  * @author asyif
  */
-public class OrganisasiDetaiDonate extends javax.swing.JFrame {
+public class OrganisasiDetailDonate extends javax.swing.JFrame {
 
     /**
      * Creates new form OrganisasiDetaiDonate
@@ -31,7 +31,7 @@ public class OrganisasiDetaiDonate extends javax.swing.JFrame {
     public int id3;
     public int id4;
     
-    public OrganisasiDetaiDonate(int id) {
+    public OrganisasiDetailDonate(int id) {
         initComponents();
         
         this.id = id;
@@ -88,6 +88,7 @@ public class OrganisasiDetaiDonate extends javax.swing.JFrame {
         progress1.setMinimum(0);
         progress1.setMaximum(penggalangan.getTarget());
         progress1.setValue(getTotalDonasiPenggalangan(id));  
+        loadDonasi(1);
     }
 
     /**
@@ -594,7 +595,7 @@ public class OrganisasiDetaiDonate extends javax.swing.JFrame {
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         setVisible(false);
-        new OrganisasiDonate().setVisible(true);
+        new OrganisasListDonate().setVisible(true);
     }//GEN-LAST:event_backActionPerformed
     
     private void loadDonasi(int page){
@@ -716,7 +717,7 @@ public class OrganisasiDetaiDonate extends javax.swing.JFrame {
 
     private void donasi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi1MouseClicked
         setVisible(false);
-        new OrganisasiDetaiDonate(id1).setVisible(true);
+        new OrganisasiDetailDonate(id1).setVisible(true);
     }//GEN-LAST:event_donasi1MouseClicked
 
     /**
@@ -736,20 +737,21 @@ public class OrganisasiDetaiDonate extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(OrganisasiDetaiDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(OrganisasiDetaiDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(OrganisasiDetaiDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OrganisasiDetaiDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrganisasiDetailDonate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new OrganisasiDetaiDonate(1).setVisible(true);
+                new OrganisasiDetailDonate(1).setVisible(true);
             }
         });
     }

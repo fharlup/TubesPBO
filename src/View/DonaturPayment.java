@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
  *
  * @author fiona
  */
-public class Payment extends javax.swing.JFrame {
+public class DonaturPayment extends javax.swing.JFrame {
 
     /**
      * Creates new form Payment
      */
     private int id;
-    public Payment(int id) {
+    public DonaturPayment(int id) {
         initComponents();
         this.id = id;
         instantLAbel.setVisible(false);
@@ -232,7 +232,7 @@ public class Payment extends javax.swing.JFrame {
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         setVisible(false);
-        new DetailDonate(id).setVisible(true);
+        new DonaturDetailDonate(id).setVisible(true);
     }//GEN-LAST:event_backMouseClicked
 
     private void instantPaymentStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_instantPaymentStateChanged
@@ -287,7 +287,7 @@ public class Payment extends javax.swing.JFrame {
         addDonasi(donasi);
         JOptionPane.showMessageDialog(this, "Transaksi Berhasil!!??", "Pemberitahuan", JOptionPane.INFORMATION_MESSAGE);
         setVisible(false);
-        new ListDonate().setVisible(true);
+        new DonaturListDonate().setVisible(true);
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**
@@ -307,20 +307,21 @@ public class Payment extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonaturPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonaturPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonaturPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonaturPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Payment(1).setVisible(true);
+                new DonaturPayment(1).setVisible(true);
             }
         });
     }
