@@ -60,6 +60,8 @@ public class DonationController {
                     Donasi donasi = new Donasi(idDonatur, idPenggalangan,idDonasi, nominal, pesan, metodePembayaran, nama);
                     donasiList.add(donasi);
                 }
+            } catch (Exception ex) {
+                Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);

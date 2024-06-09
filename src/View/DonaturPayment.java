@@ -8,6 +8,8 @@ package View;
 import static Controler.DonationController.addDonasi;
 import Model.Donasi;
 import Model.UserSession;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -272,22 +274,32 @@ public class DonaturPayment extends javax.swing.JFrame {
     }//GEN-LAST:event_transferBankStateChanged
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        int nominal = Integer.parseInt(nominalInput.getText());
-        String pesan = pesanInput.getText();
-        int idUser = UserSession.getId();
-        int idPenggalangan = id;
-        String metodePembayaran = getMetodePembayaran();
-        String nama = "Hamba Allah";
-        if(showName.isSelected()){
-            nama = UserSession.getUsername();
+        try {                                              
+            int nominal;
+            try {
+                nominal = Integer.parseInt(nominalInput.getText());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Nominal tidak valid!", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            String pesan = pesanInput.getText();
+            int idUser = UserSession.getId();
+            int idPenggalangan = id;
+            String metodePembayaran = getMetodePembayaran();
+            String nama = "Hamba Allah";
+            if(showName.isSelected()){
+                nama = UserSession.getUsername();
+            }
+            Donasi donasi;
+            donasi = new Donasi(idUser, idPenggalangan,0, nominal, pesan, metodePembayaran, nama);
+            addDonasi(donasi);
+            JOptionPane.showMessageDialog(this, "Transaksi Berhasil!", "Pemberitahuan", JOptionPane.INFORMATION_MESSAGE);
+            setVisible(false);
+            new DonaturListDonate().setVisible(true);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(DonaturPayment.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Donasi donasi = new Donasi(idUser, idPenggalangan,0, nominal, pesan, metodePembayaran, nama);
-        System.out.println(metodePembayaran);
-        System.out.println(id);
-        addDonasi(donasi);
-        JOptionPane.showMessageDialog(this, "Transaksi Berhasil!!??", "Pemberitahuan", JOptionPane.INFORMATION_MESSAGE);
-        setVisible(false);
-        new DonaturListDonate().setVisible(true);
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**

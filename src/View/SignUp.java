@@ -245,19 +245,19 @@ public class SignUp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
         AuthController authController = new AuthController();
-        User user = new User(email, username, password, role,0) {}; 
-        boolean duplicateExists = authController.checkDuplicateUser(user); 
-
-        if (duplicateExists) {
-            JOptionPane.showMessageDialog(this, "Username or Email already exists", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
+        try {
+            User user = new User(email, username, password, role,0) {};    
+            boolean duplicateExists = authController.checkDuplicateUser(user); 
+            if (duplicateExists) {
+                JOptionPane.showMessageDialog(this, "Username or Email already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            authController.insertUser(user); 
+            JOptionPane.showMessageDialog(this, "Sign-Up Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-
-        authController.insertUser(user); 
-
-        JOptionPane.showMessageDialog(this, "Sign-Up Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SignUpButtonActionPerformed
 
     private void AgreeTermsConditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgreeTermsConditionActionPerformed

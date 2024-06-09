@@ -430,12 +430,6 @@ public class OrganisasiDetailDonate extends javax.swing.JFrame {
 
         lokasi1.setText("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
 
-        donasi1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                donasi1MouseClicked(evt);
-            }
-        });
-
         gmbr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/346x130.png"))); // NOI18N
 
         judul1.setText("Judul");
@@ -714,11 +708,6 @@ public class OrganisasiDetailDonate extends javax.swing.JFrame {
         setVisible(false);
         new OrganisasiDonateEdit(id).setVisible(true);
     }//GEN-LAST:event_editActionPerformed
-
-    private void donasi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donasi1MouseClicked
-        setVisible(false);
-        new OrganisasiDetailDonate(id1).setVisible(true);
-    }//GEN-LAST:event_donasi1MouseClicked
 
     /**
      * @param args the command line arguments

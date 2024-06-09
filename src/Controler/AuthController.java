@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AuthController {
@@ -162,6 +164,8 @@ public class AuthController {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
+        } catch (Exception ex) {
+            Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

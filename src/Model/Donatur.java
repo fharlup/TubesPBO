@@ -11,7 +11,7 @@ package Model;
  */
 public class Donatur extends User{
     
-    public Donatur(String email, String username, String password, String role, int id) {
+    public Donatur(String email, String username, String password, String role, int id) throws Exception {
         super(email, username, password, role, id);
     }
     

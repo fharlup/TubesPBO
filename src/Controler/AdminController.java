@@ -44,6 +44,8 @@ public class AdminController implements UserInterface{
                     Admin admin = new Admin(email,username,password,role,userId);
                     return admin;
                 }
+            } catch (Exception ex) {
+                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,6 +70,8 @@ public class AdminController implements UserInterface{
                     Admin admin = new Admin(email, username, password, role, id);
                     adminList.add(admin);
                 }
+            } catch (Exception ex) {
+                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);

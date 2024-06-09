@@ -7,7 +7,16 @@ public abstract class User{
     private String role;
     private int id;
 
-    public User(String email, String username, String password, String role, int id) {
+    public User(String email, String username, String password, String role, int id) throws Exception {
+        if(email.length()>100){
+            throw new Exception("Panjang email tidak boleh lebih dari 100");
+        }
+        if (username.length() > 50) {
+            throw new Exception("Panjang username tidak boleh lebih dari 50");
+        }
+        if (password.length() > 50) {
+            throw new Exception("Panjang password tidak boleh lebih dari 50");
+        }
         this.email = email;
         this.username = username;
         this.password = password;

@@ -584,9 +584,6 @@
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="donasi1">
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="donasi1MouseClicked"/>
-      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

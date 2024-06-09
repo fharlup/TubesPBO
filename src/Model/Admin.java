@@ -11,7 +11,7 @@ package Model;
  */
 public class Admin extends User{
     
-    public Admin(String email, String username, String password, String role, int id) {
+    public Admin(String email, String username, String password, String role, int id) throws Exception {
         super(email, username, password, role, id);
     }
     

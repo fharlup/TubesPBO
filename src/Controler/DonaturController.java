@@ -42,6 +42,8 @@ public class DonaturController implements UserInterface{
                     Donatur donatur = new Donatur(email,username,password,role,userId);
                     return donatur;
                 }
+            } catch (Exception ex) {
+                Logger.getLogger(DonaturController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,6 +68,8 @@ public class DonaturController implements UserInterface{
                     Donatur donatur = new Donatur(email, username, password, role, id);
                     donaturList.add(donatur);
                 }
+            } catch (Exception ex) {
+                Logger.getLogger(DonaturController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);

@@ -11,7 +11,7 @@ package Model;
  */
 public class Organisasi extends User{
     
-    public Organisasi(String email, String username, String password, String role, int id) {
+    public Organisasi(String email, String username, String password, String role, int id) throws Exception {
         super(email, username, password, role, id);
     }
     

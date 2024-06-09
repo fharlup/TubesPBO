@@ -39,6 +39,8 @@ public class OrganisasiController implements UserInterface {
                     Organisasi organisasi = new Organisasi(email,username,password,role,userId);
                     return organisasi;
                 }
+            } catch (Exception ex) {
+                Logger.getLogger(OrganisasiController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,6 +65,8 @@ public class OrganisasiController implements UserInterface {
                     Organisasi organisasi = new Organisasi(email, username, password, role, id);
                     organisasiList.add(organisasi);
                 }
+            } catch (Exception ex) {
+                Logger.getLogger(OrganisasiController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);

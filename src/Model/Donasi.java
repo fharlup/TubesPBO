@@ -9,7 +9,16 @@ public class Donasi {
     private String metodePembayaran;
     private String nama;
 
-    public Donasi(int idDonatur, int idPenggalangan, int idDonasi, int nominal, String pesan, String metodePembayaran, String nama) {
+    public Donasi(int idDonatur, int idPenggalangan, int idDonasi, int nominal, String pesan, String metodePembayaran, String nama) throws Exception {
+        if (nominal>1000000000){
+            throw new Exception("Batas maksimal donasi adalah Rp1.000.000.000");
+        }
+        if(pesan.length()>100){
+            throw new Exception("Panjang pesan tidak boleh lebih dari 256");
+        }
+        if (metodePembayaran == null){
+            throw new Exception("Pilih Metode Pembayaran");
+        }
         this.idDonatur = idDonatur;
         this.idPenggalangan = idPenggalangan;
         this.idDonasi = idDonasi;
