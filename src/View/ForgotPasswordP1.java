@@ -64,13 +64,13 @@ public class ForgotPasswordP1 extends javax.swing.JFrame {
         LabelUsername = new javax.swing.JLabel();
         EmailNotFound = new javax.swing.JLabel();
         LabelUsername1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255, 100));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         EnterEmailLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         EnterEmailLabel.setText("Enter Your Email");
@@ -103,13 +103,13 @@ public class ForgotPasswordP1 extends javax.swing.JFrame {
                     .addComponent(ContinueFPButton)
                     .addComponent(LabelUsername)
                     .addComponent(LabelUsername1)
-                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(89, 89, 89)
                 .addComponent(EnterEmailLabel)
                 .addGap(40, 40, 40)
                 .addComponent(LabelUsername1)
@@ -117,19 +117,19 @@ public class ForgotPasswordP1 extends javax.swing.JFrame {
                 .addComponent(LabelUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(18, 18, 18)
                 .addComponent(ContinueFPButton)
-                .addGap(3, 3, 3)
+                .addGap(52, 52, 52)
                 .addComponent(EmailNotFound)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(340, 110, 380, 260);
+        jPanel2.setBounds(340, 50, 350, 410);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\fiona\\Downloads\\Background1.png")); // NOI18N
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 11, 720, 500);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/Background1_1.png"))); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(10, 10, 720, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,7 +150,7 @@ public class ForgotPasswordP1 extends javax.swing.JFrame {
         String email = EmailTextField.getText().trim();
         if (!email.isEmpty()) {
             setVisible(false);
-            new ForgotPasswordP3(email).setVisible(true);
+            new ForgotPasswordP2(email).setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Email Kosong", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -201,7 +201,7 @@ public class ForgotPasswordP1 extends javax.swing.JFrame {
     private javax.swing.JLabel EnterEmailLabel;
     private javax.swing.JLabel LabelUsername;
     private javax.swing.JLabel LabelUsername1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

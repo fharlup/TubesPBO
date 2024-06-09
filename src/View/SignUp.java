@@ -80,7 +80,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jPanel3.setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255, 100));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         SignUpLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         SignUpLabel.setText("Sign Up now");
@@ -121,10 +121,13 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
+        LabelUsername.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelUsername.setText("Username");
 
+        LabelEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelEmail.setText("Email");
 
+        LabelPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelPassword.setText("Password");
 
         LabelAturanPassword.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -155,7 +158,7 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(AgreeTermsCondition, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RadioButtonDonatur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RadioButtonOrganisasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,11 +195,11 @@ public class SignUp extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel2);
-        jPanel2.setBounds(310, 30, 430, 460);
+        jPanel2.setBounds(310, 40, 410, 460);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/IMG/Background1_1.png"))); // NOI18N
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(10, 10, 720, 500);
+        jLabel3.setBounds(0, 0, 740, 520);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,11 +261,7 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_SignUpButtonActionPerformed
 
     private void AgreeTermsConditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgreeTermsConditionActionPerformed
-        if (AgreeTermsCondition.isSelected() && validatePassword()) {
-            SignUpButton.setEnabled(true);
-        } else {
-            SignUpButton.setEnabled(false);
-        }
+        SignUpButton.setEnabled(AgreeTermsCondition.isSelected() && validatePassword());
     }//GEN-LAST:event_AgreeTermsConditionActionPerformed
 
     private void SwitchLogInMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SwitchLogInMenuMouseClicked
