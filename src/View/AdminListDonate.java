@@ -912,6 +912,7 @@ public class AdminListDonate extends javax.swing.JFrame {
     // Menampilkan pesan berhasil atau gagal
     if (result) {
         JOptionPane.showMessageDialog(this, "Penggalangan dana telah ditolak.");
+            loadPenggalangan(1);
     } else {
         JOptionPane.showMessageDialog(this, "Gagal menolak penggalangan dana.");
     }
@@ -933,6 +934,7 @@ public class AdminListDonate extends javax.swing.JFrame {
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
          new AdminEditDonate(id1,confirm1,idpeng1).setVisible(true);
+           this.dispose();
     }//GEN-LAST:event_editActionPerformed
 
     private void tolak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolak1ActionPerformed
@@ -944,6 +946,7 @@ public class AdminListDonate extends javax.swing.JFrame {
     // Menampilkan pesan berhasil atau gagal
     if (result) {
         JOptionPane.showMessageDialog(this, "Penggalangan dana telah ditolak.");
+            loadPenggalangan(1);
     } else {
         JOptionPane.showMessageDialog(this, "Gagal menolak penggalangan dana.");
     }
@@ -965,6 +968,7 @@ public class AdminListDonate extends javax.swing.JFrame {
 
     private void edit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit1ActionPerformed
          new AdminEditDonate(id2,confirm2,idpeng2).setVisible(true);
+           this.dispose();
     }//GEN-LAST:event_edit1ActionPerformed
 
     private void Terima1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Terima1ActionPerformed
@@ -1037,6 +1041,7 @@ public class AdminListDonate extends javax.swing.JFrame {
     // Menampilkan pesan berhasil atau gagal
     if (result) {
         JOptionPane.showMessageDialog(this, "Penggalangan dana telah ditolak.");
+            loadPenggalangan(1);
     } else {
         JOptionPane.showMessageDialog(this, "Gagal menolak penggalangan dana.");
     }
@@ -1047,6 +1052,7 @@ public class AdminListDonate extends javax.swing.JFrame {
     private void edit5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit5ActionPerformed
 
          new AdminEditDonate(id4,confirm4,idpeng4).setVisible(true);
+           this.dispose();
     }//GEN-LAST:event_edit5ActionPerformed
 
     private void Terima6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Terima6ActionPerformed
@@ -1068,6 +1074,7 @@ public class AdminListDonate extends javax.swing.JFrame {
     
     // Memanggil metode unconfirmPenggalangan dari DonationController untuk menolak penggalangan dana
     boolean result = AdminController.delete(clickedPenggalanganId);
+        loadPenggalangan(1);
     
     // Menampilkan pesan berhasil atau gagal
     if (result) {
@@ -1080,6 +1087,7 @@ public class AdminListDonate extends javax.swing.JFrame {
     private void edit6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit6ActionPerformed
         // TODO add your handling code here:
          new AdminEditDonate(id3,confirm3,idpeng3).setVisible(true);
+           this.dispose();
     }//GEN-LAST:event_edit6ActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
