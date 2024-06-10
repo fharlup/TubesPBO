@@ -932,7 +932,7 @@ public class AdminListDonate extends javax.swing.JFrame {
     }//GEN-LAST:event_TerimaActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-         new DetailDonateedit(id1,confirm1,idpeng1).setVisible(true);
+         new AdminEditDonate(id1,confirm1,idpeng1).setVisible(true);
     }//GEN-LAST:event_editActionPerformed
 
     private void tolak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolak1ActionPerformed
@@ -964,7 +964,7 @@ public class AdminListDonate extends javax.swing.JFrame {
     }//GEN-LAST:event_Terima2ActionPerformed
 
     private void edit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit1ActionPerformed
-         new DetailDonateedit(id2,confirm2,idpeng2).setVisible(true);
+         new AdminEditDonate(id2,confirm2,idpeng2).setVisible(true);
     }//GEN-LAST:event_edit1ActionPerformed
 
     private void Terima1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Terima1ActionPerformed
@@ -1046,7 +1046,7 @@ public class AdminListDonate extends javax.swing.JFrame {
 
     private void edit5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit5ActionPerformed
 
-         new DetailDonateedit(id4,confirm4,idpeng4).setVisible(true);
+         new AdminEditDonate(id4,confirm4,idpeng4).setVisible(true);
     }//GEN-LAST:event_edit5ActionPerformed
 
     private void Terima6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Terima6ActionPerformed
@@ -1079,7 +1079,7 @@ public class AdminListDonate extends javax.swing.JFrame {
 
     private void edit6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit6ActionPerformed
         // TODO add your handling code here:
-         new DetailDonateedit(id3,confirm3,idpeng3).setVisible(true);
+         new AdminEditDonate(id3,confirm3,idpeng3).setVisible(true);
     }//GEN-LAST:event_edit6ActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
