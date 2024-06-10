@@ -79,33 +79,9 @@ public class AdminController implements UserInterface{
         return adminList;
     }
     
-    public boolean updateConfirm(int penggalanganId){
-        String sql = "UPDATE penggalangandana SET confirm = true WHERE id = ?";
-        try (Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, penggalanganId);
-            int rowsUpdated = stmt.executeUpdate();
-            return rowsUpdated > 0;
-        } catch (SQLException ex) {
-            Logger.getLogger(DonationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
+
     
-    // Metode untuk menyimpan ID penggalangan yang diklik
-    public static void setClickedPenggalanganId(int id) {
-        clickedPenggalanganId = id;
-    }
 
-    // Metode untuk mengambil ID penggalangan yang diklik
-    public static int getClickedPenggalanganId() {
-        return clickedPenggalanganId;
-    }
-
-    // Implementasi metode yang tidak digunakan jika tidak diperlukan
-    public static int getDonasiByPenggalanganId(int idPenggalangan) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
    public static boolean editPenggalangan(PenggalanganDana penggalangan) {
     String sql = "UPDATE penggalangandana SET judul = ?, deskripsi = ?, lokasi = ?, photo = ?, confirm = ?, organisasiId = ? WHERE idPenggalangan = ?";
     try (Connection conn = Database.getConnection();
