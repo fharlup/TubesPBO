@@ -1168,23 +1168,27 @@ public class AdminListDonate extends javax.swing.JFrame {
             id1 = penggalanganList.get(startIdx).getId();
             confirm1 = penggalanganList.get(startIdx).getConfirm();
             idpeng1=penggalanganList.get(startIdx).getOrganisasiId();
-            System.out.println("ini sout confrim");
-            System.out.println(confirm1);
+          
+           
+           
             donasi1.setVisible(true);
         }
         if (startIdx + 1 < penggalanganList.size()) {
             loadCard2(penggalanganList.get(startIdx + 1));
             id2 = penggalanganList.get(startIdx+1).getId();
             donasi2.setVisible(true);
+               idpeng2=penggalanganList.get(startIdx+1).getOrganisasiId();
         }
         if (startIdx + 2 < penggalanganList.size()) {
             loadCard3(penggalanganList.get(startIdx + 2));
             id3 = penggalanganList.get(startIdx+2).getId();
+               idpeng3=penggalanganList.get(startIdx+2).getOrganisasiId();
             donasi7.setVisible(true);
         }
         if (startIdx + 3 < penggalanganList.size()) {
             loadCard4(penggalanganList.get(startIdx + 3));
             id4 = penggalanganList.get(startIdx+3).getId();
+               idpeng4=penggalanganList.get(startIdx+3).getOrganisasiId();
             donasi8.setVisible(true);
         }
     }
